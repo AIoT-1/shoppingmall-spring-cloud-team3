@@ -1,0 +1,39 @@
+= Shoppingmall mini project
+
+== 개요
+
+* 쇼핑몰을 개발합니다. 쇼핑몰은 Servlet/JSP에서 진행했던 프로젝트를 조금 더 개선하여 SpringBoot 환경에서 구현합니다.
+
+== 프로젝트 팀
+* 3~5
+
+== 프로젝트 기간
+* 2주
+
+== 학습 목표
+
+* REST-API를 설계하고 구현할 수 있습니다.
+** Spring MVC Framework의 기능을 이해하고 활용할 수 있습니다.
+** Http Status Code의 의미를 이해하고 적절히 응답할 수 있습니다.
+
+* Spring 기반의 Unit Test를 작성하고 검증할 수 있습니다.
+** Web MVC Test를 작성하고 검증할 수 있습니다.(Controller Test)
+** @Repository Test를 작성하고 검증할 수 있습니다.
+** @Service Test를 작성하고 검증할 수 있습니다.
+
+* API-Gateway를 사용하여 모든 API의 요청을 통합 및 공통 처리를 할 수 있습니다.
+
+== 구현
+* link:docs/[/docs/] 문서를 읽고 구현합니다.
+
+
+== 제출
+* Branch 생성 후 제출합니다.
+** ex) feature/team1-{teamName}
+
+== 팀원 ( 작성해 주세요)
+* 홍길동1
+* 홍길동2
+* 홍길동3
+* 홍길동4
+* 홍길동5

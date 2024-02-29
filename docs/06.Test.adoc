@@ -1,0 +1,16 @@
+= Test
+
+== Repository Test
+** H2를 사용하여 테스트합니다.
+** 테스트에 사용한 데이터는 테스트가 종료되면 RollBack 되어야 합니다.
+
+== Service Test
+* `Mockito` 를 사용하여 Test Case를 작성합니다.
+
+== Controller Test ( MVC Test )
+* Unit Test 작성
+* Integration Test는 진행하지 않습니다.
+
+== `SonarQube` 를 이용한 Test Coverage 측정
+* 측정한 결과를 다음 경로에 등록
+** link:../submit/[/submit] tc.jpg 파일 제출

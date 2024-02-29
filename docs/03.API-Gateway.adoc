@@ -1,0 +1,17 @@
+= API Gateway
+
+== Spring Cloud Gateway란?
+
+* Spring Cloud Gateway 관련해서는 아래 링크를 참고합니다.
+** https://github.com/nhnacademy-bootcamp/project-spring-cloud/blob/main/docs/02.API-Gateway-Pattern/index.adoc[API-Gateway-Pattern]
+
+== 특징
+* 모든 API 요청의 진입점
+
+* 공통처리(인증 및 권한 체크)
+** Global-Filter를 참고하세요.
+*** link:https://cloud.spring.io/spring-cloud-gateway/multi/multi__developer_guide.html[12.3 Writing Custom Global Filters]
+
+== API Test
+* link:../gateway/http/gateway.http[gateway.http]를 참고합니다.
+** gateway, account-api 서비스를 실행 후 테스트합니다.
