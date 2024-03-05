@@ -22,7 +22,7 @@ public class CustomGlobalFilter implements org.springframework.cloud.gateway.fil
     @Override
     public int getOrder() {
         //TODO#2-2 Ordered interface를 구현함으로써 filter의 우선순위를 설정할 수 있습니다.
-        return -1;
+        return -1; // 가장 먼저 시행되도록 보장
     }
 
 }

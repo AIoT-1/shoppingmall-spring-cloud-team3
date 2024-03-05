@@ -21,6 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         
         User user = User.createUser("nhnacademy","엔에이치엔아카데미","nhnacademy12345*");
         return new PrincipalDetails(user);
+
     }
 
 }
