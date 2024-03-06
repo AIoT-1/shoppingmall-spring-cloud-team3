@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 
@@ -28,13 +29,17 @@ public class JwtAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<J
 
            if(!request.getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
                //TODO#3-1 Header에 Authorization 존재하지 않는다면 적절한 예외처리를 합니다.
-           }else{
-
+               exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+               return exchange.getResponse().setComplete();
+           }else {
                //TODO#3-2 AccessToken jjwt 라이브러리를 사용하여 검증 구현하기
                //이미 Token이 만료되었는지?
                //Token의 signature 값 검증(HMAC)
                //이미 로그아웃된 Token 인지? - Black List 관리
                //account-api의 JwtProperties를 참고하여 구현합니다.
+               exchange.getRequest().mutate().headers(httpHeaders -> httpHeaders.add("X-USER-ID", "nhnacademy"));
+               // 해당 부분은 JWT 토큰 검증 후 유효한 경우 요청 헤더에 X-USER-ID를 추가하는 로직 구현
+               // 여기서 임시로 nhnacademy 사용해서 X-USER-ID 사용
 
                String accessToken = request.getHeaders().get(HttpHeaders.AUTHORIZATION).toString();
                log.debug("accessToken:{}",accessToken);
@@ -53,3 +58,5 @@ public class JwtAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<J
     }
 
 }
+
+// JWT 토큰을 검증하고, 요청 헤더에 X-USER-ID를 추가하는 필터를 구현한 것

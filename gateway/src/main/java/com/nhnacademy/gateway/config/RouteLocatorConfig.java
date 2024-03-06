@@ -33,8 +33,6 @@ public class RouteLocatorConfig {
     @Bean
     public RouteLocator myRoute(RouteLocatorBuilder builder ) {
         //TODO#1 router설정, gateway는 모든 요청의 진입점 입니다.
-
-
         return builder.routes()
                 //TODO#1-1 localhost:8000/api/account/** 요청은 -> localhost:8100/api/account/** 라우팅 됩니다.
                 .route("account-api", p->p.path("/api/account/**")
@@ -47,6 +45,7 @@ public class RouteLocatorConfig {
                 .route("shoppingmall-api", p->p.path("/api/shop/**")
                         //TODO#1-4 shoppingmall-api 서버에 jwt 검증이 필요하다면 설정해주세요.
                         .and()
+                        .filters(f -> f.filter(jwtAuthorizationHeaderFilter.apply(new JwtAuthorizationHeaderFilter.Config())))
                         .weight("shoppingmall-api",50)
                         .uri("http://localhost:8200")
                 )
@@ -55,6 +54,5 @@ public class RouteLocatorConfig {
                         .weight("shoppingmall-api",50)
                         .uri("http://localhost:8300"))
                 .build();
-
     }
 }
