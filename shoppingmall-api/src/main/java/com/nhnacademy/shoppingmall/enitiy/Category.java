@@ -9,10 +9,10 @@ import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Table(name = "category")
 public class Category {
     @Id
-    @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -20,7 +20,11 @@ public class Category {
     private String name;
 
     @Builder
-    public Category(String name) {
+    private Category(String name) {
+        this.name = name;
+    }
+
+    public void update(String name) {
         this.name = name;
     }
 }

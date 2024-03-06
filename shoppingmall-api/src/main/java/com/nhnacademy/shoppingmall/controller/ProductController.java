@@ -1,7 +1,7 @@
 package com.nhnacademy.shoppingmall.controller;
 
 import com.nhnacademy.shoppingmall.dto.ProductDto;
-import com.nhnacademy.shoppingmall.service.ProductServiceImpl;
+import com.nhnacademy.shoppingmall.service.impl.ProductServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;

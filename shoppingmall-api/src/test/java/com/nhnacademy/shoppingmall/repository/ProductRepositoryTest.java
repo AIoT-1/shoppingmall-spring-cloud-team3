@@ -27,20 +27,7 @@ class ProductRepositoryTest {
     @BeforeEach
     public void setUp() {
         pageable = PageRequest.of(0,9);
-        Category persistedCategory = em.persist(Category.builder()
-                .name("카테고리")
-                .build());
-        Product persistedProduct = em.persist(Product.builder()
-                .modelNumber("modelNumber")
-                .modelName("modelName")
-                .unitCost(1000)
-                .description("description")
-                .thumbnail("thumbnail")
-                .build());
-        ProductCategory persistedProductCategory = em.persist(ProductCategory.builder()
-                .productId(persistedProduct.getId())
-                .categoryId(persistedCategory.getId())
-                .build());
+
     }
 
     @AfterEach
@@ -51,7 +38,12 @@ class ProductRepositoryTest {
     @Test
     @DisplayName("상품 목록 페이지 조회 테스트(검색어 X , 카테고리 X)")
     void findProductPage (){
-
+        Product persistedProduct = em.persist(createProduct());
+        Category persistedCategory = em.persist(createCategory());
+        em.persist(ProductCategory.builder()
+                .productId(persistedProduct.getId())
+                .categoryId(persistedCategory.getId())
+                .build());
         Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, null, null);
 
         Assertions.assertThat(page).isNotNull();
@@ -65,7 +57,12 @@ class ProductRepositoryTest {
     @Test
     @DisplayName("상품 목록 페이지 조회 테스트(검색어 O , 카테고리 X)")
     void findProductPageWithKeyword (){
-
+        Product persistedProduct = em.persist(createProduct());
+        Category persistedCategory = em.persist(createCategory());
+       em.persist(ProductCategory.builder()
+                .productId(persistedProduct.getId())
+                .categoryId(persistedCategory.getId())
+                .build());
         Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, "model", null);
 
         Assertions.assertThat(page).isNotNull();
@@ -77,7 +74,12 @@ class ProductRepositoryTest {
     @Test
     @DisplayName("상품 목록 페이지 조회 테스트(검색어(없는 modelName) O , 카테고리 X)")
     void findProductPageWithKeywordFailed (){
-
+        Product persistedProduct = em.persist(createProduct());
+        Category persistedCategory = em.persist(createCategory());
+        em.persist(ProductCategory.builder()
+                .productId(persistedProduct.getId())
+                .categoryId(persistedCategory.getId())
+                .build());
         Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, "pzazz", null);
 
         Assertions.assertThat(page).isNotNull();
@@ -88,8 +90,13 @@ class ProductRepositoryTest {
     @Test
     @DisplayName("상품 목록 페이지 조회 테스트(검색어 X , 카테고리 O)")
     void findProductPageWithCategory (){
-
-        Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, null, 1L);
+        Product persistedProduct = em.persist(createProduct());
+        Category persistedCategory = em.persist(createCategory());
+        em.persist(ProductCategory.builder()
+                .productId(persistedProduct.getId())
+                .categoryId(persistedCategory.getId())
+                .build());
+        Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, null, persistedCategory.getId());
 
         Assertions.assertThat(page).isNotNull();
         Assertions.assertThat(page.getContent()).isNotNull();
@@ -100,17 +107,9 @@ class ProductRepositoryTest {
     @Test
     @DisplayName("상품 목록 페이지 조회 테스트(검색어 O , 카테고리 O)")
     void findProductPageWithKeywordAndCategory (){
-        Category persistedCategory = em.persist(Category.builder()
-                .name("카테고리")
-                .build());
-        Product persistedProduct = em.persist(Product.builder()
-                .modelNumber("modelNumber")
-                .modelName("modelName")
-                .unitCost(1000)
-                .description("description")
-                .thumbnail("thumbnail")
-                .build());
-        ProductCategory persistedProductCategory = em.persist(ProductCategory.builder()
+        Product persistedProduct = em.persist(createProduct());
+        Category persistedCategory = em.persist(createCategory());
+        em.persist(ProductCategory.builder()
                 .productId(persistedProduct.getId())
                 .categoryId(persistedCategory.getId())
                 .build());
@@ -122,6 +121,22 @@ class ProductRepositoryTest {
         Assertions.assertThat(page.getContent().get(0).getModelNumber()).isEqualTo("modelNumber");
 
     }
+    private Category createCategory() {
+        return Category.builder()
+                .name("test")
+                .build();
+    }
+    private Product createProduct() {
+        return Product.builder()
+                .modelNumber("modelNumber")
+                .modelName("modelName")
+                .unitCost(1000)
+                .description("description")
+                .thumbnail("thumbnail")
+                .build();
+    }
+
+
 
 
 }
