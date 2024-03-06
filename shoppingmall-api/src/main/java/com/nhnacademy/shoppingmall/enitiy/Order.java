@@ -3,7 +3,7 @@ package com.nhnacademy.shoppingmall.enitiy;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "order")
@@ -18,7 +18,7 @@ public class Order {
     private Integer price;
     @Column(name = "order_date")
     @CreationTimestamp
-    private LocalDate orderDate;
+    private LocalDateTime orderDate;
     @Column(name = "ship_date")
-    private LocalDate shipDate;
+    private LocalDateTime shipDate;
 }

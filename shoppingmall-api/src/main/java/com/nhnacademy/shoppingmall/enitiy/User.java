@@ -1,5 +1,9 @@
 package com.nhnacademy.shoppingmall.enitiy;
 
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -8,6 +12,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "user")
 public class User {
 
@@ -30,9 +36,18 @@ public class User {
     @Column(name = "last_login_at")
     private LocalDateTime lastLoginAt;
     @Column(name = "terminated_yn")
-    @ColumnDefault("N")
+    @ColumnDefault("'N'")
     private String terminatedYn;
     @Column(name = "point")
     private Long point;
 
+    @Builder
+    public User(String loginId, String name, String password, LocalDate birthDate, String auth, Long point) {
+        this.loginId = loginId;
+        this.name = name;
+        this.password = password;
+        this.birthDate = birthDate;
+        this.auth = auth;
+        this.point = point;
+    }
 }

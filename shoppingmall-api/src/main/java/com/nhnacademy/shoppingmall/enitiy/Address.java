@@ -1,11 +1,12 @@
 package com.nhnacademy.shoppingmall.enitiy;
 
-import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "address")
+@DynamicInsert
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +23,5 @@ public class Address {
     @Column(name = "address_detail")
     private String addressDetail;
     @Column(name = "default_yn")
-    @ColumnDefault("N")
     private String defaultYn;
 }
