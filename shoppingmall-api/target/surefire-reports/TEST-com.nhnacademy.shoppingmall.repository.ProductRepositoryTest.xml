@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.nhnacademy.shoppingmall.repository.ProductRepositoryTest" time="0.277" tests="5" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sonar.login" value="162d8ef784b10c750aa80f487e3675e01e7cafb4"/>
+    <property name="sonar.host.url" value="http://133.186.244.96:9000"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/nhnacademy/다운로드/쇼핑몰2/shoppingmall-api/target/test-classes:/home/nhnacademy/다운로드/쇼핑몰2/shoppingmall-api/target/classes:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.7.18/spring-boot-starter-web-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter/2.7.18/spring-boot-starter-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.7.18/spring-boot-starter-logging-2.7.18.jar:/home/nhnacademy/.m2/repository/ch/qos/logback/logback-classic/1.2.12/logback-classic-1.2.12.jar:/home/nhnacademy/.m2/repository/ch/qos/logback/logback-core/1.2.12/logback-core-1.2.12.jar:/home/nhnacademy/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.17.2/log4j-to-slf4j-2.17.2.jar:/home/nhnacademy/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar:/home/nhnacademy/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/home/nhnacademy/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar:/home/nhnacademy/.m2/repository/org/yaml/snakeyaml/1.30/snakeyaml-1.30.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.7.18/spring-boot-starter-json-2.7.18.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.13.5/jackson-datatype-jdk8-2.13.5.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.13.5/jackson-datatype-jsr310-2.13.5.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.13.5/jackson-module-parameter-names-2.13.5.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.7.18/spring-boot-starter-tomcat-2.7.18.jar:/home/nhnacademy/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.83/tomcat-embed-core-9.0.83.jar:/home/nhnacademy/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/9.0.83/tomcat-embed-el-9.0.83.jar:/home/nhnacademy/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.83/tomcat-embed-websocket-9.0.83.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-web/5.3.31/spring-web-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-beans/5.3.31/spring-beans-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-webmvc/5.3.31/spring-webmvc-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-aop/5.3.31/spring-aop-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-context/5.3.31/spring-context-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-expression/5.3.31/spring-expression-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/2.7.18/spring-boot-starter-data-jpa-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-aop/2.7.18/spring-boot-starter-aop-2.7.18.jar:/home/nhnacademy/.m2/repository/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/2.7.18/spring-boot-starter-jdbc-2.7.18.jar:/home/nhnacademy/.m2/repository/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-jdbc/5.3.31/spring-jdbc-5.3.31.jar:/home/nhnacademy/.m2/repository/jakarta/transaction/jakarta.transaction-api/1.3.3/jakarta.transaction-api-1.3.3.jar:/home/nhnacademy/.m2/repository/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar:/home/nhnacademy/.m2/repository/org/hibernate/hibernate-core/5.6.15.Final/hibernate-core-5.6.15.Final.jar:/home/nhnacademy/.m2/repository/org/jboss/logging/jboss-logging/3.4.3.Final/jboss-logging-3.4.3.Final.jar:/home/nhnacademy/.m2/repository/net/bytebuddy/byte-buddy/1.12.23/byte-buddy-1.12.23.jar:/home/nhnacademy/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/nhnacademy/.m2/repository/org/jboss/jandex/2.4.2.Final/jandex-2.4.2.Final.jar:/home/nhnacademy/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/home/nhnacademy/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final/hibernate-commons-annotations-5.1.2.Final.jar:/home/nhnacademy/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.9/jaxb-runtime-2.3.9.jar:/home/nhnacademy/.m2/repository/org/glassfish/jaxb/txw2/2.3.9/txw2-2.3.9.jar:/home/nhnacademy/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.12/istack-commons-runtime-3.0.12.jar:/home/nhnacademy/.m2/repository/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar:/home/nhnacademy/.m2/repository/org/springframework/data/spring-data-jpa/2.7.18/spring-data-jpa-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/data/spring-data-commons/2.7.18/spring-data-commons-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-orm/5.3.31/spring-orm-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-tx/5.3.31/spring-tx-5.3.31.jar:/home/nhnacademy/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-aspects/5.3.31/spring-aspects-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-devtools/2.7.18/spring-boot-devtools-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot/2.7.18/spring-boot-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.7.18/spring-boot-autoconfigure-2.7.18.jar:/home/nhnacademy/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-test/2.7.18/spring-boot-starter-test-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-test/2.7.18/spring-boot-test-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/2.7.18/spring-boot-test-autoconfigure-2.7.18.jar:/home/nhnacademy/.m2/repository/com/jayway/jsonpath/json-path/2.7.0/json-path-2.7.0.jar:/home/nhnacademy/.m2/repository/net/minidev/json-smart/2.4.11/json-smart-2.4.11.jar:/home/nhnacademy/.m2/repository/net/minidev/accessors-smart/2.4.11/accessors-smart-2.4.11.jar:/home/nhnacademy/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/home/nhnacademy/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar:/home/nhnacademy/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar:/home/nhnacademy/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/home/nhnacademy/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/home/nhnacademy/.m2/repository/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2.jar:/home/nhnacademy/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/home/nhnacademy/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/nhnacademy/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/home/nhnacademy/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/nhnacademy/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2.jar:/home/nhnacademy/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/home/nhnacademy/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/home/nhnacademy/.m2/repository/org/mockito/mockito-core/4.5.1/mockito-core-4.5.1.jar:/home/nhnacademy/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.23/byte-buddy-agent-1.12.23.jar:/home/nhnacademy/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/home/nhnacademy/.m2/repository/org/mockito/mockito-junit-jupiter/4.5.1/mockito-junit-jupiter-4.5.1.jar:/home/nhnacademy/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/home/nhnacademy/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-core/5.3.31/spring-core-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-jcl/5.3.31/spring-jcl-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-test/5.3.31/spring-test-5.3.31.jar:/home/nhnacademy/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.14.2/jackson-dataformat-xml-2.14.2.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.5/jackson-core-2.13.5.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.5/jackson-annotations-2.13.5.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.5/jackson-databind-2.13.5.jar:/home/nhnacademy/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar:/home/nhnacademy/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.5.0/woodstox-core-6.5.0.jar:/home/nhnacademy/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/home/nhnacademy/.m2/repository/org/apache/commons/commons-dbcp2/2.9.0/commons-dbcp2-2.9.0.jar:/home/nhnacademy/.m2/repository/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar:/home/nhnacademy/.m2/repository/com/querydsl/querydsl-apt/5.0.0/querydsl-apt-5.0.0.jar:/home/nhnacademy/.m2/repository/com/querydsl/querydsl-codegen/5.0.0/querydsl-codegen-5.0.0.jar:/home/nhnacademy/.m2/repository/com/querydsl/codegen-utils/5.0.0/codegen-utils-5.0.0.jar:/home/nhnacademy/.m2/repository/org/eclipse/jdt/ecj/3.26.0/ecj-3.26.0.jar:/home/nhnacademy/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/nhnacademy/.m2/repository/com/querydsl/querydsl-jpa/5.0.0/querydsl-jpa-5.0.0.jar:/home/nhnacademy/.m2/repository/com/querydsl/querydsl-core/5.0.0/querydsl-core-5.0.0.jar:/home/nhnacademy/.m2/repository/com/mysema/commons/mysema-commons-lang/0.2.4/mysema-commons-lang-0.2.4.jar:/home/nhnacademy/.m2/repository/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar:/home/nhnacademy/.m2/repository/org/springdoc/springdoc-openapi-ui/1.6.12/springdoc-openapi-ui-1.6.12.jar:/home/nhnacademy/.m2/repository/org/springdoc/springdoc-openapi-webmvc-core/1.6.12/springdoc-openapi-webmvc-core-1.6.12.jar:/home/nhnacademy/.m2/repository/org/springdoc/springdoc-openapi-common/1.6.12/springdoc-openapi-common-1.6.12.jar:/home/nhnacademy/.m2/repository/io/swagger/core/v3/swagger-core/2.2.4/swagger-core-2.2.4.jar:/home/nhnacademy/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.13.5/jackson-dataformat-yaml-2.13.5.jar:/home/nhnacademy/.m2/repository/io/swagger/core/v3/swagger-annotations/2.2.4/swagger-annotations-2.2.4.jar:/home/nhnacademy/.m2/repository/io/swagger/core/v3/swagger-models/2.2.4/swagger-models-2.2.4.jar:/home/nhnacademy/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar:/home/nhnacademy/.m2/repository/org/webjars/swagger-ui/4.14.3/swagger-ui-4.14.3.jar:/home/nhnacademy/.m2/repository/org/webjars/webjars-locator-core/0.50/webjars-locator-core-0.50.jar:/home/nhnacademy/.m2/repository/io/github/classgraph/classgraph/4.8.149/classgraph-4.8.149.jar:"/>
+    <property name="java.vm.vendor" value="JetBrains s.r.o."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
+    <property name="user.timezone" value="Asia/Seoul"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="KR"/>
+    <property name="sun.boot.library.path" value="/home/nhnacademy/.jdks/jbr-17.0.9/lib"/>
+    <property name="sun.java.command" value="/home/nhnacademy/다운로드/쇼핑몰2/shoppingmall-api/target/surefire/surefirebooter-20240307202323583_3.jar /home/nhnacademy/다운로드/쇼핑몰2/shoppingmall-api/target/surefire 2024-03-07T20-23-23_473-jvmRun1 surefire-20240307202323583_1tmp surefire_0-20240307202323583_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/nhnacademy/다운로드/쇼핑몰2/shoppingmall-api/target/test-classes:/home/nhnacademy/다운로드/쇼핑몰2/shoppingmall-api/target/classes:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.7.18/spring-boot-starter-web-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter/2.7.18/spring-boot-starter-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.7.18/spring-boot-starter-logging-2.7.18.jar:/home/nhnacademy/.m2/repository/ch/qos/logback/logback-classic/1.2.12/logback-classic-1.2.12.jar:/home/nhnacademy/.m2/repository/ch/qos/logback/logback-core/1.2.12/logback-core-1.2.12.jar:/home/nhnacademy/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.17.2/log4j-to-slf4j-2.17.2.jar:/home/nhnacademy/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar:/home/nhnacademy/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/home/nhnacademy/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar:/home/nhnacademy/.m2/repository/org/yaml/snakeyaml/1.30/snakeyaml-1.30.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.7.18/spring-boot-starter-json-2.7.18.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.13.5/jackson-datatype-jdk8-2.13.5.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.13.5/jackson-datatype-jsr310-2.13.5.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.13.5/jackson-module-parameter-names-2.13.5.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.7.18/spring-boot-starter-tomcat-2.7.18.jar:/home/nhnacademy/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.83/tomcat-embed-core-9.0.83.jar:/home/nhnacademy/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/9.0.83/tomcat-embed-el-9.0.83.jar:/home/nhnacademy/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.83/tomcat-embed-websocket-9.0.83.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-web/5.3.31/spring-web-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-beans/5.3.31/spring-beans-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-webmvc/5.3.31/spring-webmvc-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-aop/5.3.31/spring-aop-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-context/5.3.31/spring-context-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-expression/5.3.31/spring-expression-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/2.7.18/spring-boot-starter-data-jpa-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-aop/2.7.18/spring-boot-starter-aop-2.7.18.jar:/home/nhnacademy/.m2/repository/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/2.7.18/spring-boot-starter-jdbc-2.7.18.jar:/home/nhnacademy/.m2/repository/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-jdbc/5.3.31/spring-jdbc-5.3.31.jar:/home/nhnacademy/.m2/repository/jakarta/transaction/jakarta.transaction-api/1.3.3/jakarta.transaction-api-1.3.3.jar:/home/nhnacademy/.m2/repository/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar:/home/nhnacademy/.m2/repository/org/hibernate/hibernate-core/5.6.15.Final/hibernate-core-5.6.15.Final.jar:/home/nhnacademy/.m2/repository/org/jboss/logging/jboss-logging/3.4.3.Final/jboss-logging-3.4.3.Final.jar:/home/nhnacademy/.m2/repository/net/bytebuddy/byte-buddy/1.12.23/byte-buddy-1.12.23.jar:/home/nhnacademy/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/nhnacademy/.m2/repository/org/jboss/jandex/2.4.2.Final/jandex-2.4.2.Final.jar:/home/nhnacademy/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/home/nhnacademy/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final/hibernate-commons-annotations-5.1.2.Final.jar:/home/nhnacademy/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.9/jaxb-runtime-2.3.9.jar:/home/nhnacademy/.m2/repository/org/glassfish/jaxb/txw2/2.3.9/txw2-2.3.9.jar:/home/nhnacademy/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.12/istack-commons-runtime-3.0.12.jar:/home/nhnacademy/.m2/repository/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar:/home/nhnacademy/.m2/repository/org/springframework/data/spring-data-jpa/2.7.18/spring-data-jpa-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/data/spring-data-commons/2.7.18/spring-data-commons-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-orm/5.3.31/spring-orm-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-tx/5.3.31/spring-tx-5.3.31.jar:/home/nhnacademy/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-aspects/5.3.31/spring-aspects-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-devtools/2.7.18/spring-boot-devtools-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot/2.7.18/spring-boot-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.7.18/spring-boot-autoconfigure-2.7.18.jar:/home/nhnacademy/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-starter-test/2.7.18/spring-boot-starter-test-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-test/2.7.18/spring-boot-test-2.7.18.jar:/home/nhnacademy/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/2.7.18/spring-boot-test-autoconfigure-2.7.18.jar:/home/nhnacademy/.m2/repository/com/jayway/jsonpath/json-path/2.7.0/json-path-2.7.0.jar:/home/nhnacademy/.m2/repository/net/minidev/json-smart/2.4.11/json-smart-2.4.11.jar:/home/nhnacademy/.m2/repository/net/minidev/accessors-smart/2.4.11/accessors-smart-2.4.11.jar:/home/nhnacademy/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/home/nhnacademy/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar:/home/nhnacademy/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar:/home/nhnacademy/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/home/nhnacademy/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/home/nhnacademy/.m2/repository/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2.jar:/home/nhnacademy/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/home/nhnacademy/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/nhnacademy/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/home/nhnacademy/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/nhnacademy/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2.jar:/home/nhnacademy/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/home/nhnacademy/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/home/nhnacademy/.m2/repository/org/mockito/mockito-core/4.5.1/mockito-core-4.5.1.jar:/home/nhnacademy/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.23/byte-buddy-agent-1.12.23.jar:/home/nhnacademy/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/home/nhnacademy/.m2/repository/org/mockito/mockito-junit-jupiter/4.5.1/mockito-junit-jupiter-4.5.1.jar:/home/nhnacademy/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/home/nhnacademy/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-core/5.3.31/spring-core-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-jcl/5.3.31/spring-jcl-5.3.31.jar:/home/nhnacademy/.m2/repository/org/springframework/spring-test/5.3.31/spring-test-5.3.31.jar:/home/nhnacademy/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.14.2/jackson-dataformat-xml-2.14.2.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.5/jackson-core-2.13.5.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.5/jackson-annotations-2.13.5.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.5/jackson-databind-2.13.5.jar:/home/nhnacademy/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar:/home/nhnacademy/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.5.0/woodstox-core-6.5.0.jar:/home/nhnacademy/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/home/nhnacademy/.m2/repository/org/apache/commons/commons-dbcp2/2.9.0/commons-dbcp2-2.9.0.jar:/home/nhnacademy/.m2/repository/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar:/home/nhnacademy/.m2/repository/com/querydsl/querydsl-apt/5.0.0/querydsl-apt-5.0.0.jar:/home/nhnacademy/.m2/repository/com/querydsl/querydsl-codegen/5.0.0/querydsl-codegen-5.0.0.jar:/home/nhnacademy/.m2/repository/com/querydsl/codegen-utils/5.0.0/codegen-utils-5.0.0.jar:/home/nhnacademy/.m2/repository/org/eclipse/jdt/ecj/3.26.0/ecj-3.26.0.jar:/home/nhnacademy/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/nhnacademy/.m2/repository/com/querydsl/querydsl-jpa/5.0.0/querydsl-jpa-5.0.0.jar:/home/nhnacademy/.m2/repository/com/querydsl/querydsl-core/5.0.0/querydsl-core-5.0.0.jar:/home/nhnacademy/.m2/repository/com/mysema/commons/mysema-commons-lang/0.2.4/mysema-commons-lang-0.2.4.jar:/home/nhnacademy/.m2/repository/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar:/home/nhnacademy/.m2/repository/org/springdoc/springdoc-openapi-ui/1.6.12/springdoc-openapi-ui-1.6.12.jar:/home/nhnacademy/.m2/repository/org/springdoc/springdoc-openapi-webmvc-core/1.6.12/springdoc-openapi-webmvc-core-1.6.12.jar:/home/nhnacademy/.m2/repository/org/springdoc/springdoc-openapi-common/1.6.12/springdoc-openapi-common-1.6.12.jar:/home/nhnacademy/.m2/repository/io/swagger/core/v3/swagger-core/2.2.4/swagger-core-2.2.4.jar:/home/nhnacademy/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/home/nhnacademy/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.13.5/jackson-dataformat-yaml-2.13.5.jar:/home/nhnacademy/.m2/repository/io/swagger/core/v3/swagger-annotations/2.2.4/swagger-annotations-2.2.4.jar:/home/nhnacademy/.m2/repository/io/swagger/core/v3/swagger-models/2.2.4/swagger-models-2.2.4.jar:/home/nhnacademy/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar:/home/nhnacademy/.m2/repository/org/webjars/swagger-ui/4.14.3/swagger-ui-4.14.3.jar:/home/nhnacademy/.m2/repository/org/webjars/webjars-locator-core/0.50/webjars-locator-core-0.50.jar:/home/nhnacademy/.m2/repository/io/github/classgraph/classgraph/4.8.149/classgraph-4.8.149.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/nhnacademy"/>
+    <property name="user.language" value="ko"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-10-17"/>
+    <property name="java.home" value="/home/nhnacademy/.jdks/jbr-17.0.9"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/nhnacademy/다운로드/쇼핑몰2/shoppingmall-api"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="jbr.virtualization.information" value="No virtualization detected"/>
+    <property name="surefire.real.class.path" value="/home/nhnacademy/다운로드/쇼핑몰2/shoppingmall-api/target/surefire/surefirebooter-20240307202323583_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.9+8-b1166.2"/>
+    <property name="user.name" value="nhnacademy"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.5.0-21-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="spring.beaninfo.ignore" value="true"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="JBR-17.0.9+8-1166.2-nomod"/>
+    <property name="localRepository" value="/home/nhnacademy/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="idea.version" value="2023.3.3"/>
+    <property name="com.zaxxer.hikari.pool_number" value="2"/>
+    <property name="java.version" value="17.0.9"/>
+    <property name="user.dir" value="/home/nhnacademy/다운로드/쇼핑몰2/shoppingmall-api"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="66309"/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="sonar.projectKey" value="a9036530"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="JetBrains s.r.o."/>
+    <property name="java.vm.version" value="17.0.9+8-b1166.2"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="상품 목록 페이지 조회 테스트(검색어 X , 카테고리 O)" classname="com.nhnacademy.shoppingmall.repository.ProductRepositoryTest" time="0.196">
+    <system-out><![CDATA[2024-03-07 20:23:35.014  INFO 66309 --- [           main] b.t.a.o.j.DataJpaTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.nhnacademy.shoppingmall.repository.ProductRepositoryTest], using SpringBootContextLoader
+2024-03-07 20:23:35.015  INFO 66309 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.nhnacademy.shoppingmall.repository.ProductRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-03-07 20:23:35.015  INFO 66309 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nhnacademy.shoppingmall.repository.ProductRepositoryTest]: ProductRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-03-07 20:23:35.017  INFO 66309 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nhnacademy.shoppingmall.ShoppingmallApplication for test class com.nhnacademy.shoppingmall.repository.ProductRepositoryTest
+2024-03-07 20:23:35.018  INFO 66309 --- [           main] b.t.a.o.j.DataJpaTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2024-03-07 20:23:35.018  INFO 66309 --- [           main] b.t.a.o.j.DataJpaTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@67d70df0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1a4564f, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3e216379, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@74f60344, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2b1128a7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@8a405a4, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3d2b9562, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@79834da0, org.springframework.test.context.event.EventPublishingTestExecutionListener@5bf51627, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7354a1d8, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1235ba55, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@71381bfe, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@20f6fd0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@54034428, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@6b5babef]
+2024-03-07 20:23:35.024  INFO 66309 --- [           main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@6de90db3 testClass = ProductRepositoryTest, testInstance = com.nhnacademy.shoppingmall.repository.ProductRepositoryTest@5b5bd732, testMethod = findProductPageWithCategory@ProductRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb537ea testClass = ProductRepositoryTest, locations = '{}', classes = '{class com.nhnacademy.shoppingmall.ShoppingmallApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@66c51744 key = [org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56303475, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@c81fd12, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@2190c4a7, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b474074, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@a3aa7c6b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@e4d2696, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4be9b820]; rollback [true]
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.Product
+        */ insert 
+        into
+            `
+            product` (
+                `created_at`, `deleted_yn`, `description`, `model_name`, `model_number`, `quantity`, `thumbnail`, `unit_cost`
+            ) 
+        values
+            (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.Category
+        */ insert 
+        into
+            `
+            category` (
+                `name`
+            ) 
+        values
+            (?)
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.ProductCategory
+        */ insert 
+        into
+            `
+            product_category` (
+                `category_id`, `product_id`
+            ) 
+        values
+            (?, ?)
+Hibernate: 
+    /* select
+        product.id,
+        product.modelNumber,
+        product.modelName,
+        product.unitCost,
+        product.thumbnail,
+        product.quantity,
+        product.createdAt 
+    from
+        Product product   
+    inner join
+        ProductCategory productCategory with product.id = productCategory.productId 
+    where
+        productCategory.categoryId = ?1 */ select
+            product0_.`id` as col_0_0_,
+            product0_.`model_number` as col_1_0_,
+            product0_.`model_name` as col_2_0_,
+            product0_.`unit_cost` as col_3_0_,
+            product0_.`thumbnail` as col_4_0_,
+            product0_.`quantity` as col_5_0_,
+            product0_.`created_at` as col_6_0_ 
+        from
+            `product` product0_ 
+        inner join
+            `product_category` productcat1_ 
+                on (
+                    product0_.`id`=productcat1_.`product_id`
+                ) 
+        where
+            productcat1_.`category_id`=? limit ?
+2024-03-07 20:23:35.216  INFO 66309 --- [           main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@6de90db3 testClass = ProductRepositoryTest, testInstance = com.nhnacademy.shoppingmall.repository.ProductRepositoryTest@5b5bd732, testMethod = findProductPageWithCategory@ProductRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb537ea testClass = ProductRepositoryTest, locations = '{}', classes = '{class com.nhnacademy.shoppingmall.ShoppingmallApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@66c51744 key = [org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56303475, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@c81fd12, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@2190c4a7, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b474074, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@a3aa7c6b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@e4d2696, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  </testcase>
+  <testcase name="상품 목록 페이지 조회 테스트(검색어 O , 카테고리 X)" classname="com.nhnacademy.shoppingmall.repository.ProductRepositoryTest" time="0.021">
+    <system-out><![CDATA[2024-03-07 20:23:35.220  INFO 66309 --- [           main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@6de90db3 testClass = ProductRepositoryTest, testInstance = com.nhnacademy.shoppingmall.repository.ProductRepositoryTest@4fa8df8, testMethod = findProductPageWithKeyword@ProductRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb537ea testClass = ProductRepositoryTest, locations = '{}', classes = '{class com.nhnacademy.shoppingmall.ShoppingmallApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@66c51744 key = [org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56303475, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@c81fd12, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@2190c4a7, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b474074, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@a3aa7c6b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@e4d2696, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4be9b820]; rollback [true]
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.Product
+        */ insert 
+        into
+            `
+            product` (
+                `created_at`, `deleted_yn`, `description`, `model_name`, `model_number`, `quantity`, `thumbnail`, `unit_cost`
+            ) 
+        values
+            (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.Category
+        */ insert 
+        into
+            `
+            category` (
+                `name`
+            ) 
+        values
+            (?)
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.ProductCategory
+        */ insert 
+        into
+            `
+            product_category` (
+                `category_id`, `product_id`
+            ) 
+        values
+            (?, ?)
+Hibernate: 
+    /* select
+        product.id,
+        product.modelNumber,
+        product.modelName,
+        product.unitCost,
+        product.thumbnail,
+        product.quantity,
+        product.createdAt 
+    from
+        Product product   
+    inner join
+        ProductCategory productCategory with product.id = productCategory.productId 
+    where
+        product.modelName like ?1 escape '!' */ select
+            product0_.`id` as col_0_0_,
+            product0_.`model_number` as col_1_0_,
+            product0_.`model_name` as col_2_0_,
+            product0_.`unit_cost` as col_3_0_,
+            product0_.`thumbnail` as col_4_0_,
+            product0_.`quantity` as col_5_0_,
+            product0_.`created_at` as col_6_0_ 
+        from
+            `product` product0_ 
+        inner join
+            `product_category` productcat1_ 
+                on (
+                    product0_.`id`=productcat1_.`product_id`
+                ) 
+        where
+            product0_.`model_name` like ? escape '!' limit ?
+2024-03-07 20:23:35.238  INFO 66309 --- [           main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@6de90db3 testClass = ProductRepositoryTest, testInstance = com.nhnacademy.shoppingmall.repository.ProductRepositoryTest@4fa8df8, testMethod = findProductPageWithKeyword@ProductRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb537ea testClass = ProductRepositoryTest, locations = '{}', classes = '{class com.nhnacademy.shoppingmall.ShoppingmallApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@66c51744 key = [org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56303475, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@c81fd12, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@2190c4a7, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b474074, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@a3aa7c6b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@e4d2696, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  </testcase>
+  <testcase name="상품 목록 페이지 조회 테스트(검색어 X , 카테고리 X)" classname="com.nhnacademy.shoppingmall.repository.ProductRepositoryTest" time="0.017">
+    <system-out><![CDATA[2024-03-07 20:23:35.243  INFO 66309 --- [           main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@6de90db3 testClass = ProductRepositoryTest, testInstance = com.nhnacademy.shoppingmall.repository.ProductRepositoryTest@3b2a3e5f, testMethod = findProductPage@ProductRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb537ea testClass = ProductRepositoryTest, locations = '{}', classes = '{class com.nhnacademy.shoppingmall.ShoppingmallApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@66c51744 key = [org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56303475, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@c81fd12, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@2190c4a7, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b474074, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@a3aa7c6b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@e4d2696, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4be9b820]; rollback [true]
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.Product
+        */ insert 
+        into
+            `
+            product` (
+                `created_at`, `deleted_yn`, `description`, `model_name`, `model_number`, `quantity`, `thumbnail`, `unit_cost`
+            ) 
+        values
+            (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.Category
+        */ insert 
+        into
+            `
+            category` (
+                `name`
+            ) 
+        values
+            (?)
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.ProductCategory
+        */ insert 
+        into
+            `
+            product_category` (
+                `category_id`, `product_id`
+            ) 
+        values
+            (?, ?)
+Hibernate: 
+    /* select
+        product.id,
+        product.modelNumber,
+        product.modelName,
+        product.unitCost,
+        product.thumbnail,
+        product.quantity,
+        product.createdAt 
+    from
+        Product product   
+    inner join
+        ProductCategory productCategory with product.id = productCategory.productId */ select
+            product0_.`id` as col_0_0_,
+            product0_.`model_number` as col_1_0_,
+            product0_.`model_name` as col_2_0_,
+            product0_.`unit_cost` as col_3_0_,
+            product0_.`thumbnail` as col_4_0_,
+            product0_.`quantity` as col_5_0_,
+            product0_.`created_at` as col_6_0_ 
+        from
+            `product` product0_ 
+        inner join
+            `product_category` productcat1_ 
+                on (
+                    product0_.`id`=productcat1_.`product_id`
+                ) limit ?
+2024-03-07 20:23:35.257  INFO 66309 --- [           main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@6de90db3 testClass = ProductRepositoryTest, testInstance = com.nhnacademy.shoppingmall.repository.ProductRepositoryTest@3b2a3e5f, testMethod = findProductPage@ProductRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb537ea testClass = ProductRepositoryTest, locations = '{}', classes = '{class com.nhnacademy.shoppingmall.ShoppingmallApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@66c51744 key = [org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56303475, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@c81fd12, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@2190c4a7, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b474074, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@a3aa7c6b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@e4d2696, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  </testcase>
+  <testcase name="상품 목록 페이지 조회 테스트(검색어 O , 카테고리 O)" classname="com.nhnacademy.shoppingmall.repository.ProductRepositoryTest" time="0.017">
+    <system-out><![CDATA[2024-03-07 20:23:35.260  INFO 66309 --- [           main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@6de90db3 testClass = ProductRepositoryTest, testInstance = com.nhnacademy.shoppingmall.repository.ProductRepositoryTest@303284d, testMethod = findProductPageWithKeywordAndCategory@ProductRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb537ea testClass = ProductRepositoryTest, locations = '{}', classes = '{class com.nhnacademy.shoppingmall.ShoppingmallApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@66c51744 key = [org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56303475, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@c81fd12, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@2190c4a7, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b474074, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@a3aa7c6b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@e4d2696, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4be9b820]; rollback [true]
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.Product
+        */ insert 
+        into
+            `
+            product` (
+                `created_at`, `deleted_yn`, `description`, `model_name`, `model_number`, `quantity`, `thumbnail`, `unit_cost`
+            ) 
+        values
+            (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.Category
+        */ insert 
+        into
+            `
+            category` (
+                `name`
+            ) 
+        values
+            (?)
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.ProductCategory
+        */ insert 
+        into
+            `
+            product_category` (
+                `category_id`, `product_id`
+            ) 
+        values
+            (?, ?)
+Hibernate: 
+    /* select
+        product.id,
+        product.modelNumber,
+        product.modelName,
+        product.unitCost,
+        product.thumbnail,
+        product.quantity,
+        product.createdAt 
+    from
+        Product product   
+    inner join
+        ProductCategory productCategory with product.id = productCategory.productId 
+    where
+        productCategory.categoryId = ?1 
+        and product.modelName like ?2 escape '!' */ select
+            product0_.`id` as col_0_0_,
+            product0_.`model_number` as col_1_0_,
+            product0_.`model_name` as col_2_0_,
+            product0_.`unit_cost` as col_3_0_,
+            product0_.`thumbnail` as col_4_0_,
+            product0_.`quantity` as col_5_0_,
+            product0_.`created_at` as col_6_0_ 
+        from
+            `product` product0_ 
+        inner join
+            `product_category` productcat1_ 
+                on (
+                    product0_.`id`=productcat1_.`product_id`
+                ) 
+        where
+            productcat1_.`category_id`=? 
+            and (
+                product0_.`model_name` like ? escape '!'
+            ) limit ?
+2024-03-07 20:23:35.276  INFO 66309 --- [           main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@6de90db3 testClass = ProductRepositoryTest, testInstance = com.nhnacademy.shoppingmall.repository.ProductRepositoryTest@303284d, testMethod = findProductPageWithKeywordAndCategory@ProductRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb537ea testClass = ProductRepositoryTest, locations = '{}', classes = '{class com.nhnacademy.shoppingmall.ShoppingmallApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@66c51744 key = [org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56303475, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@c81fd12, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@2190c4a7, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b474074, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@a3aa7c6b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@e4d2696, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  </testcase>
+  <testcase name="상품 목록 페이지 조회 테스트(검색어(없는 modelName) O , 카테고리 X)" classname="com.nhnacademy.shoppingmall.repository.ProductRepositoryTest" time="0.013">
+    <system-out><![CDATA[2024-03-07 20:23:35.279  INFO 66309 --- [           main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@6de90db3 testClass = ProductRepositoryTest, testInstance = com.nhnacademy.shoppingmall.repository.ProductRepositoryTest@1a363c85, testMethod = findProductPageWithKeywordFailed@ProductRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb537ea testClass = ProductRepositoryTest, locations = '{}', classes = '{class com.nhnacademy.shoppingmall.ShoppingmallApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@66c51744 key = [org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56303475, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@c81fd12, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@2190c4a7, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b474074, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@a3aa7c6b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@e4d2696, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4be9b820]; rollback [true]
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.Product
+        */ insert 
+        into
+            `
+            product` (
+                `created_at`, `deleted_yn`, `description`, `model_name`, `model_number`, `quantity`, `thumbnail`, `unit_cost`
+            ) 
+        values
+            (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.Category
+        */ insert 
+        into
+            `
+            category` (
+                `name`
+            ) 
+        values
+            (?)
+Hibernate: 
+    /* insert com.nhnacademy.shoppingmall.enitiy.ProductCategory
+        */ insert 
+        into
+            `
+            product_category` (
+                `category_id`, `product_id`
+            ) 
+        values
+            (?, ?)
+Hibernate: 
+    /* select
+        product.id,
+        product.modelNumber,
+        product.modelName,
+        product.unitCost,
+        product.thumbnail,
+        product.quantity,
+        product.createdAt 
+    from
+        Product product   
+    inner join
+        ProductCategory productCategory with product.id = productCategory.productId 
+    where
+        product.modelName like ?1 escape '!' */ select
+            product0_.`id` as col_0_0_,
+            product0_.`model_number` as col_1_0_,
+            product0_.`model_name` as col_2_0_,
+            product0_.`unit_cost` as col_3_0_,
+            product0_.`thumbnail` as col_4_0_,
+            product0_.`quantity` as col_5_0_,
+            product0_.`created_at` as col_6_0_ 
+        from
+            `product` product0_ 
+        inner join
+            `product_category` productcat1_ 
+                on (
+                    product0_.`id`=productcat1_.`product_id`
+                ) 
+        where
+            product0_.`model_name` like ? escape '!' limit ?
+2024-03-07 20:23:35.288  INFO 66309 --- [           main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@6de90db3 testClass = ProductRepositoryTest, testInstance = com.nhnacademy.shoppingmall.repository.ProductRepositoryTest@1a363c85, testMethod = findProductPageWithKeywordFailed@ProductRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@6cb537ea testClass = ProductRepositoryTest, locations = '{}', classes = '{class com.nhnacademy.shoppingmall.ShoppingmallApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@66c51744 key = [org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56303475, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@c81fd12, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@2190c4a7, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6b474074, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@a3aa7c6b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@e4d2696, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  </testcase>
+</testsuite>

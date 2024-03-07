@@ -1,0 +1,28 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "CD"
+    },
+    {
+      "id": 2,
+      "name": "MERCH"
+    },
+    {
+      "id": 3,
+      "name": "TOUR"
+    },
+    {
+      "id": 4,
+      "name": "DVD"
+    },
+    {
+      "id": 5,
+      "name": "MEMBERSHIP"
+    },
+    {
+      "id": 6,
+      "name": "PHOTOBOOK"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ko"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QProductImage.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">shoppingmall</a> &gt; <a href="index.source.html" class="el_package">com.nhnacademy.shoppingmall.enitiy</a> &gt; <span class="el_source">QProductImage.java</span></div><h1>QProductImage.java</h1><pre class="source lang-java linenums">package com.nhnacademy.shoppingmall.enitiy;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.processing.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QProductImage is a Querydsl query type for ProductImage
+ */
+@Generated(&quot;com.querydsl.codegen.DefaultEntitySerializer&quot;)
+public class QProductImage extends EntityPathBase&lt;ProductImage&gt; {
+
+    private static final long serialVersionUID = -1177936371L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QProductImage productImage = new QProductImage(&quot;productImage&quot;);</span>
+
+<span class="nc" id="L25">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+    public final QProduct product;
+
+    public QProductImage(String variable) {
+<span class="nc" id="L30">        this(ProductImage.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L31">    }</span>
+
+    public QProductImage(Path&lt;? extends ProductImage&gt; path) {
+<span class="nc" id="L34">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L35">    }</span>
+
+    public QProductImage(PathMetadata metadata) {
+<span class="nc" id="L38">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L39">    }</span>
+
+    public QProductImage(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L42">        this(ProductImage.class, metadata, inits);</span>
+<span class="nc" id="L43">    }</span>
+
+    public QProductImage(Class&lt;? extends ProductImage&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L46">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        this.product = inits.isInitialized(&quot;product&quot;) ? new QProduct(forProperty(&quot;product&quot;)) : null;</span>
+<span class="nc" id="L48">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

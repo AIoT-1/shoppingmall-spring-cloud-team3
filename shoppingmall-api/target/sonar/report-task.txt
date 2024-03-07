@@ -1,0 +1,6 @@
+projectKey=a9036530
+serverUrl=http://133.186.244.96:9000
+serverVersion=8.9.1.44547
+dashboardUrl=http://133.186.244.96:9000/dashboard?id=a9036530
+ceTaskId=AY4Yp6PsAgO5jH-39DWc
+ceTaskUrl=http://133.186.244.96:9000/api/ce/task?id=AY4Yp6PsAgO5jH-39DWc
