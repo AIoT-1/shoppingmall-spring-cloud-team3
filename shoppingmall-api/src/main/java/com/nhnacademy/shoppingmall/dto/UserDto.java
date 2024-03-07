@@ -26,7 +26,7 @@ public class UserDto {
             private Long point;
 
             public static UserDto.Read.Response fromEntity(User user) {
-                Response response = new Response();
+                UserDto.Read.Response response = new UserDto.Read.Response();
                 response.id = user.getId();
                 response.loginId = user.getLoginId();
                 response.name = user.getName();
@@ -38,7 +38,6 @@ public class UserDto {
                 return response;
             }
         }
-
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -64,7 +63,7 @@ public class UserDto {
             private Long point;
 
             public static UserDto.Create.Response fromEntity(User user) {
-                Response response = new Response();
+                UserDto.Create.Response response = new UserDto.Create.Response();
                 response.id = user.getId();
                 response.loginId = user.getLoginId();
                 response.name = user.getName();
