@@ -2,7 +2,7 @@ package com.nhnacademy.shoppingmall.enums;
 
 public enum Auth {
     ROLE_ADMIN("admin"), ROLE_USER("user");
-    private String value;
+    private final String value;
     Auth(String value) {
         this.value = value;
     }
