@@ -49,7 +49,17 @@ public class UserDto {
             private String password;
             private LocalDate birthDate;
             private String auth;
-            private Long point;
+
+            public User toEntity() {
+                return User.builder()
+                        .loginId(loginId)
+                        .name(name)
+                        .password(password)
+                        .birthDate(birthDate)
+                        .auth(auth)
+                        .point(0L)
+                        .build();
+            }
         }
         @Getter
         public static class Response {

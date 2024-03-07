@@ -8,12 +8,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -51,5 +53,19 @@ class UserControllerTest {
         mockMvc.perform(get("/users")
                 .param("auth", "XXXX"))
                 .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @DisplayName("유저 생성 테스트")
+    void createUser() throws Exception {
+        mockMvc.perform(post("/users")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\n" +
+                                "  \"name\": \"유저1\",\n" +
+                                "  \"loginId\": \"user1\",\n" +
+                                "  \"birthDate\": \"1991-01-01\",\n" +
+                                "  \"password\": \"1234\",\n" +
+                                "  \"auth\": \"ROLE_USER\"\n" +
+                                "}")).andExpect(status().isCreated());
     }
 }

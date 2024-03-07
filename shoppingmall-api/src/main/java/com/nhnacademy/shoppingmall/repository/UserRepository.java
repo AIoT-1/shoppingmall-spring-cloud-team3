@@ -9,4 +9,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Page<User> findPageByAuth(Pageable pageable, String auth);
 
+    boolean existsByLoginId(String loginId);
 }

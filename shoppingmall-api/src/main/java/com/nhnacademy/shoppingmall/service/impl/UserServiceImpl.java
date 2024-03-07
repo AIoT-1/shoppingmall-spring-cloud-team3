@@ -1,7 +1,9 @@
 package com.nhnacademy.shoppingmall.service.impl;
 
 import com.nhnacademy.shoppingmall.dto.UserDto;
+import com.nhnacademy.shoppingmall.enitiy.User;
 import com.nhnacademy.shoppingmall.enums.Auth;
+import com.nhnacademy.shoppingmall.exception.user.UserLoginIdDuplicateException;
 import com.nhnacademy.shoppingmall.exception.user.UserNotFoundException;
 import com.nhnacademy.shoppingmall.repository.UserRepository;
 import com.nhnacademy.shoppingmall.service.UserService;
@@ -28,7 +30,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto.Create.Response createUser(UserDto.Create.Request request) {
-        return null;
+        User user = request.toEntity();
+        if (userRepository.existsByLoginId(user.getLoginId())) {
+            throw new UserLoginIdDuplicateException(request.getLoginId());
+        }
+        User savedUser = userRepository.save(user);
+        return UserDto.Create.Response.fromEntity(savedUser);
     }
 
     @Override
