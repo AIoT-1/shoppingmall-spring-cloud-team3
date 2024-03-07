@@ -24,4 +24,10 @@ public class AccountController {
         return ResponseEntity.ok(userResponse);
     }
 
+    // 실제로는 shoppingmall-api 서버에서 회원 정보를 조회하는 메서드를 호출해야 합니다.
+    private User getUserFromShoppingmallApi(String userId) {
+        // 여기서는 임시로 사용자 정보를 생성하여 반환하는 것으로 대체합니다.
+        return User.createUser(userId, "사용자 이름", "비밀번호");
+    }
+
 }
