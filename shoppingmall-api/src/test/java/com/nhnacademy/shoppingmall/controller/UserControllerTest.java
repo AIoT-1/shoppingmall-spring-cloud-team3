@@ -72,10 +72,10 @@ class UserControllerTest {
     @Test
     @DisplayName("유저 아이디로 조회 테스트")
     void getUserByLoginId() throws Exception {
-        when(userService.getUserByLoginId("user1")).thenReturn(UserDto.Read.Response.fromEntity(User.builder().name("유저1").auth("ROLE_USER").build()));
-        mockMvc.perform(get("/users/login/user1"))
+        when(userService.getUserByLoginId("user1")).thenReturn(UserDto.UserDetails.Response.fromEntity(User.builder().loginId("유저1").auth("ROLE_USER").build()));
+        mockMvc.perform(get("/users/user-details/user1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("name", equalTo("유저1")))
+                .andExpect(jsonPath("loginId", equalTo("유저1")))
                 .andExpect(jsonPath("auth", equalTo("ROLE_USER")));
     }
 

@@ -25,8 +25,8 @@ public class UserController {
         return ResponseEntity.ok().body(userService.getUser(id));
     }
 
-    @GetMapping("/login/{loginId}")
-    public ResponseEntity<UserDto.Read.Response> getUserByLoginId(@PathVariable String loginId){
+    @GetMapping("/user-details/{loginId}")
+    public ResponseEntity<UserDto.UserDetails.Response> getUserByLoginId(@PathVariable String loginId){
         return ResponseEntity.ok().body(userService.getUserByLoginId(loginId));
     }
 

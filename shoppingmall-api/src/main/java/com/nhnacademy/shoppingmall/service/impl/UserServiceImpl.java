@@ -45,10 +45,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto.Read.Response getUserByLoginId(String loginId) {
+    public UserDto.UserDetails.Response getUserByLoginId(String loginId) {
 
         return userRepository.findByLoginId(loginId)
-                            .map(UserDto.Read.Response::fromEntity)
+                            .map(UserDto.UserDetails.Response::fromEntity)
                             .orElse(null);
     }
 }

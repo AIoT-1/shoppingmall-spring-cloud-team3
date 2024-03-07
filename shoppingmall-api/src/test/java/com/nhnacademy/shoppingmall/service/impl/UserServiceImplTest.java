@@ -100,9 +100,8 @@ class UserServiceImplTest {
     @DisplayName("유저 로그인 아이디 조회 테스트")
     void getUserByLoginId() {
         when(userRepository.findByLoginId(anyString())).thenReturn(Optional.of(User.builder().name("유저1").auth("ROLE_USER").build()));
-        UserDto.Read.Response actual = userService.getUserByLoginId("user1");
+        UserDto.UserDetails.Response actual = userService.getUserByLoginId("user1");
         Assertions.assertThat(actual).isNotNull();
-        Assertions.assertThat(actual.getName()).isEqualTo("유저1");
     }
 
 }

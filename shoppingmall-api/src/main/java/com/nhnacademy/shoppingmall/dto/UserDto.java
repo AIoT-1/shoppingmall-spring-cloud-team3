@@ -10,6 +10,25 @@ import java.time.LocalDateTime;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserDto {
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public static class UserDetails {
+        @Getter
+        public static class Response {
+            private Long id;
+            private String loginId;
+            private String password;
+            private String auth;
+            public static Response fromEntity(User user) {
+                UserDto.UserDetails.Response response = new UserDto.UserDetails.Response();
+                response.id = user.getId();
+                response.loginId = user.getLoginId();
+                response.password = user.getPassword();
+                response.auth = user.getAuth();
+                return response;
+            }
+        }
+
+    }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class Read {

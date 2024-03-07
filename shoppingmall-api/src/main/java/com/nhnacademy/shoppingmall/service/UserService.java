@@ -9,5 +9,5 @@ public interface UserService {
     UserDto.Read.Response getUser(Long id);
     UserDto.Create.Response createUser(UserDto.Create.Request request);
     Page<UserDto.Read.Response> getUserListPageByAuth(Pageable pageable, Auth auth);
-    UserDto.Read.Response getUserByLoginId(String loginId);
+    UserDto.UserDetails.Response getUserByLoginId(String loginId);
 }
