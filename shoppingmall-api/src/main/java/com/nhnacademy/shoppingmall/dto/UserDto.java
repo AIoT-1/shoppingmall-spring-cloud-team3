@@ -25,7 +25,7 @@ public class UserDto {
             private LocalDateTime lastLoginAt;
             private Long point;
 
-            public static Response fromEntity(User user) {
+            public static UserDto.Read.Response fromEntity(User user) {
                 Response response = new Response();
                 response.id = user.getId();
                 response.loginId = user.getLoginId();
@@ -62,6 +62,20 @@ public class UserDto {
             private LocalDateTime createdAt;
             private LocalDateTime lastLoginAt;
             private Long point;
+
+            public static UserDto.Create.Response fromEntity(User user) {
+                Response response = new Response();
+                response.id = user.getId();
+                response.loginId = user.getLoginId();
+                response.name = user.getName();
+                response.birthDate = user.getBirthDate();
+                response.auth = user.getAuth();
+                response.createdAt = user.getCreatedAt();
+                response.lastLoginAt = user.getLastLoginAt();
+                response.point = user.getPoint();
+                return response;
+            }
+
         }
     }
 }
