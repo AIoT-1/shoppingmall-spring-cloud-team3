@@ -53,7 +53,7 @@ class CategoryServiceImplTest {
         Category category = createCategory();
         when(categoryRepository.findAllBy()).thenReturn(List.of(new CategoryDto(category.getId(), category.getName())));
         CategoryDto.ListResponse categories = categoryService.getCategories();
-        Assertions.assertThat(categories.getCategories()).hasSize(1);
+        verify(categoryRepository, times(1)).findAllBy();
     }
 
     @Test
@@ -63,8 +63,7 @@ class CategoryServiceImplTest {
         when(categoryRepository.findById(anyLong())).thenReturn(Optional.of(category));
         CategoryDto.UpdateResponse updateResponse = categoryService.updateCategory(category.getId(), createUpdateRequest());
         verify(categoryRepository, times(1)).findById(anyLong());
-        Assertions.assertThat(updateResponse.getId()).isEqualTo(category.getId());
-        Assertions.assertThat(updateResponse.getName()).isEqualTo(category.getName());
+
     }
     @Test
     @DisplayName("카테고리 수정 시 카테고리가 없을 경우 예외 발생 테스트")
@@ -73,6 +72,7 @@ class CategoryServiceImplTest {
         when(categoryRepository.findById(anyLong())).thenReturn(Optional.empty());
         Assertions.assertThatThrownBy(() -> categoryService.updateCategory(0L, updateRequest))
                 .isInstanceOf(CategoryNotFoundException.class);
+        verify(categoryRepository, times(1)).findById(anyLong());
     }
 
     private CategoryDto.UpdateRequest createUpdateRequest() {

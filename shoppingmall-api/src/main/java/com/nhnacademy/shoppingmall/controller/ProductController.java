@@ -1,7 +1,7 @@
 package com.nhnacademy.shoppingmall.controller;
 
 import com.nhnacademy.shoppingmall.dto.ProductDto;
-import com.nhnacademy.shoppingmall.service.impl.ProductServiceImpl;
+import com.nhnacademy.shoppingmall.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class ProductController {
 
-    private final ProductServiceImpl productService;
+    private final ProductService productService;
+
     @GetMapping
     public ResponseEntity<Page<ProductDto.ProductSummaryResponse>> getProductsSummary(@ParameterObject @PageableDefault(size = 9) Pageable pageable
                                                                                         , @RequestParam(value = "category", required = false)Long categoryId
