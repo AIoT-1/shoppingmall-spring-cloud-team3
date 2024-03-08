@@ -12,10 +12,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Table(name = "product")
 public class Product {
     @Id
-    @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "model_number")

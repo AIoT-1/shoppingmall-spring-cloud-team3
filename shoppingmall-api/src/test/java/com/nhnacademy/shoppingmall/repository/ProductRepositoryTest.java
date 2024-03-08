@@ -40,10 +40,7 @@ class ProductRepositoryTest {
     void findProductPage (){
         Product persistedProduct = em.persist(createProduct());
         Category persistedCategory = em.persist(createCategory());
-        em.persist(ProductCategory.builder()
-                .productId(persistedProduct.getId())
-                .categoryId(persistedCategory.getId())
-                .build());
+        em.persist(new ProductCategory(persistedProduct, persistedCategory));
         Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, null, null);
 
         Assertions.assertThat(page).isNotNull();
@@ -59,10 +56,7 @@ class ProductRepositoryTest {
     void findProductPageWithKeyword (){
         Product persistedProduct = em.persist(createProduct());
         Category persistedCategory = em.persist(createCategory());
-       em.persist(ProductCategory.builder()
-                .productId(persistedProduct.getId())
-                .categoryId(persistedCategory.getId())
-                .build());
+       em.persist(new ProductCategory(persistedProduct, persistedCategory));
         Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, "model", null);
 
         Assertions.assertThat(page).isNotNull();
@@ -76,10 +70,7 @@ class ProductRepositoryTest {
     void findProductPageWithKeywordFailed (){
         Product persistedProduct = em.persist(createProduct());
         Category persistedCategory = em.persist(createCategory());
-        em.persist(ProductCategory.builder()
-                .productId(persistedProduct.getId())
-                .categoryId(persistedCategory.getId())
-                .build());
+        em.persist(new ProductCategory(persistedProduct, persistedCategory));
         Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, "pzazz", null);
 
         Assertions.assertThat(page).isNotNull();
@@ -92,10 +83,7 @@ class ProductRepositoryTest {
     void findProductPageWithCategory (){
         Product persistedProduct = em.persist(createProduct());
         Category persistedCategory = em.persist(createCategory());
-        em.persist(ProductCategory.builder()
-                .productId(persistedProduct.getId())
-                .categoryId(persistedCategory.getId())
-                .build());
+        em.persist(new ProductCategory(persistedProduct, persistedCategory));
         Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, null, persistedCategory.getId());
 
         Assertions.assertThat(page).isNotNull();
@@ -109,10 +97,7 @@ class ProductRepositoryTest {
     void findProductPageWithKeywordAndCategory (){
         Product persistedProduct = em.persist(createProduct());
         Category persistedCategory = em.persist(createCategory());
-        em.persist(ProductCategory.builder()
-                .productId(persistedProduct.getId())
-                .categoryId(persistedCategory.getId())
-                .build());
+        em.persist(new ProductCategory(persistedProduct, persistedCategory));
         Page<ProductDto.ProductSummaryResponse> page =  productRepository.findProductSummaryBySearchOption(pageable, "model", persistedCategory.getId());
 
         Assertions.assertThat(page).isNotNull();
