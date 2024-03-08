@@ -1,33 +1,49 @@
 package com.nhnacademy.accountapi.controller;
 
-import com.nhnacademy.accountapi.domain.User;
 import com.nhnacademy.accountapi.dto.UserResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 @Slf4j
 @RestController
 @RequestMapping("/api/account/users")
 public class AccountController {
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     @GetMapping
-    public ResponseEntity<UserResponse> getUser(@RequestHeader("X-USER-ID") String userId){
-        log.debug("X-USER-ID:{}",userId);
-        //TODO#6 회원조회 API를 구현합니다.
-        //UserResponse <-- 각 팀별로 설계한 회원 스키마를 고려하여 수정합니다.
-        //X-USER-ID는 Gateway에서 access-token을 검증 후 valid한 token이면 jwt의 payload의 userId를 Header에  X-USER-ID로 추가 합니다.
-        //회원은 shoppingmall-api 서버에 회원을 조회할 수 있는 api를 개발<-- 해당 API를 호출 합니다.
-        User user = User.createUser("nhnacademy", "엔에이치엔아카데미", "password"); // 임시 사용자 정보
-        UserResponse userResponse = new UserResponse(user.getUserId(), user.getUserName()); // 적절한 회원 정보로 UserResponse 객체 생성
+    public ResponseEntity<UserResponse> getUser(@RequestHeader("X-USER-ID") String userId) {
+        log.debug("X-USER-ID:{}", userId);
 
-        return ResponseEntity.ok(userResponse);
-    }
+        // Shoppingmall-api로 부터 회원 정보를 조회하는 url 설정
+        String shoppingMallApiUrl = "http://localhost:8000/api/user/" + userId;
 
-    // 실제로는 shoppingmall-api 서버에서 회원 정보를 조회하는 메서드를 호출해야 합니다.
-    private User getUserFromShoppingmallApi(String userId) {
-        // 여기서는 임시로 사용자 정보를 생성하여 반환하는 것으로 대체합니다.
-        return User.createUser(userId, "사용자 이름", "비밀번호");
+        try {
+            // 회원 정보 조회 API를 호출하고 응답 받음
+            ResponseEntity<UserResponse> responseEntity = restTemplate.getForEntity(shoppingMallApiUrl, UserResponse.class);
+
+            // 응답의 상태 코드를 확인 후 응답을 반환
+            if (responseEntity.getStatusCode().is2xxSuccessful()) {
+                return ResponseEntity.ok(responseEntity.getBody());
+            } else {
+                // shopping-api에서 에러 났을 때 404나 뭐 405 나오게
+                return ResponseEntity.status(responseEntity.getStatusCode())
+                        .build();
+            }
+        } catch (Exception e) {
+            // 예외처리
+            log.error("shoppingmall-api에서 사용자 정보를 가져오는 중 오류가 발생했습니다. : {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .build();
+        }
     }
 
 }
