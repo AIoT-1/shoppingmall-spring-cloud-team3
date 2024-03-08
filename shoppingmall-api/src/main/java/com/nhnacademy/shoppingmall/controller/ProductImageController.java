@@ -1,7 +1,6 @@
 package com.nhnacademy.shoppingmall.controller;
 
 import com.nhnacademy.shoppingmall.dto.ProductImageDto;
-import com.nhnacademy.shoppingmall.enitiy.ProductImage;
 import com.nhnacademy.shoppingmall.service.ProductImageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("products/{productId}/images")
+@RequestMapping("api/products/{productId}/images")
 public class ProductImageController {
 
     private final ProductImageService productImageService;

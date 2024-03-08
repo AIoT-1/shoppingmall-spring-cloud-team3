@@ -1,0 +1,54 @@
+package com.nhnacademy.shoppingmall.service.impl;
+
+import com.nhnacademy.shoppingmall.dto.CartDto;
+import com.nhnacademy.shoppingmall.enitiy.Cart;
+import com.nhnacademy.shoppingmall.enitiy.Product;
+import com.nhnacademy.shoppingmall.enitiy.User;
+import com.nhnacademy.shoppingmall.exception.product.ProductNotFoundException;
+import com.nhnacademy.shoppingmall.exception.user.UserNotFoundException;
+import com.nhnacademy.shoppingmall.repository.CartRepository;
+import com.nhnacademy.shoppingmall.repository.ProductRepository;
+import com.nhnacademy.shoppingmall.repository.UserRepository;
+import com.nhnacademy.shoppingmall.service.CartService;
+import com.nhnacademy.shoppingmall.thread.UserIdStore;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+@Transactional
+@RequiredArgsConstructor
+public class CartServiceImpl implements CartService {
+
+    private final CartRepository cartRepository;
+    private final ProductRepository productRepository;
+    private final UserRepository userRepository;
+    @Override
+    public List<CartDto.Read.Response> getCart() {
+        List<Cart> cartList = cartRepository.findByUser_Id(UserIdStore.getUserId());
+
+        return cartList.stream()
+                .map(CartDto.Read.Response::toEntity)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public CartDto.Create.Response addCart(Long productId, Integer quantity) {
+        Long userId = UserIdStore.getUserId();
+        Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException(productId));
+        User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(userId));
+
+        Cart savedCart = cartRepository.save(Cart.builder()
+                .product(product)
+                .quantity(quantity)
+                .user(user)
+                .build());
+
+        return CartDto.Create.Response.fromEntity(savedCart);
+    }
+
+
+}

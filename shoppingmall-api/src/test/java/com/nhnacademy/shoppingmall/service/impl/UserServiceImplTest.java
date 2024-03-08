@@ -1,5 +1,6 @@
 package com.nhnacademy.shoppingmall.service.impl;
 
+import com.nhnacademy.shoppingmall.dto.PageResponseDto;
 import com.nhnacademy.shoppingmall.dto.UserDto;
 import com.nhnacademy.shoppingmall.enitiy.User;
 import com.nhnacademy.shoppingmall.enums.Auth;
@@ -64,7 +65,7 @@ class UserServiceImplTest {
                 , User.builder().name("유저2").auth("ROLE_USER").build());
         when(userRepository.findPageByAuth(any(), anyString())).thenReturn(new PageImpl<>(userList, pageable, 2));
 
-        Page<UserDto.Read.Response> actual = userService.getUserListPageByAuth(PageRequest.of(0, 10), Auth.ROLE_USER);
+        PageResponseDto<UserDto.Read.Response> actual = userService.getUserListPageByAuth(PageRequest.of(0, 10), Auth.ROLE_USER);
 
         Assertions.assertThat(actual).isNotNull();
         Assertions.assertThat(actual.getContent()).isNotNull();

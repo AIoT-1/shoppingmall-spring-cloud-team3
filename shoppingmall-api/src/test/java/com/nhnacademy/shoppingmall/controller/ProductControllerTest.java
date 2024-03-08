@@ -36,7 +36,8 @@ class ProductControllerTest {
 
         when(productService.getProductsSummary(any(),anyLong(),anyString()))
                 .thenReturn(responsePage);
-        mockMvc.perform(get("/products")
+        mockMvc.perform(get("/api/products")
+                .header("X-USER-ID", "1")
                 .param("categoryId", "1")
                 .param("keyword", "test"))
                 .andExpect(status().isOk())

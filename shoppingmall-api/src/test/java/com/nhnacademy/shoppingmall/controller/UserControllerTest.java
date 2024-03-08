@@ -27,12 +27,15 @@ class UserControllerTest {
 
     @MockBean
     private UserService userService;
+    
+    private final String URL = "/api/users";
 
     @Test
     @DisplayName("유저 조회 테스트")
     void getUser() throws Exception {
         when(userService.getUser(anyLong())).thenReturn(UserDto.Read.Response.fromEntity(User.builder().name("유저1").auth("ROLE_USER").build()));
-        mockMvc.perform(get("/users/1"))
+        mockMvc.perform(get(URL +"/1")
+                        .header("X-USER-ID", "1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("name", equalTo("유저1")))
                 .andExpect(jsonPath("auth", equalTo("ROLE_USER")));
@@ -42,7 +45,8 @@ class UserControllerTest {
     @DisplayName("유저 목록 페이지 조회 테스트")
     void getUserListPage() throws Exception {
 
-        mockMvc.perform(get("/users")
+        mockMvc.perform(get(URL)
+                        .header("X-USER-ID", "1")
                 .param("auth", "admin"))
                 .andExpect(status().isOk());
     }
@@ -50,7 +54,8 @@ class UserControllerTest {
     @Test
     @DisplayName("유저 목록 페이지 조회 테스트(없는 권한 요청)")
     void getUserListPageWithInvalidAuth() throws Exception {
-        mockMvc.perform(get("/users")
+        mockMvc.perform(get(URL)
+                        .header("X-USER-ID", "1")
                 .param("auth", "XXXX"))
                 .andExpect(status().isBadRequest());
     }
@@ -58,7 +63,8 @@ class UserControllerTest {
     @Test
     @DisplayName("유저 생성 테스트")
     void createUser() throws Exception {
-        mockMvc.perform(post("/users")
+        mockMvc.perform(post(URL)
+                .header("X-USER-ID", "1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\n" +
                                 "  \"name\": \"유저1\",\n" +
@@ -73,7 +79,8 @@ class UserControllerTest {
     @DisplayName("유저 아이디로 조회 테스트")
     void getUserByLoginId() throws Exception {
         when(userService.getUserByLoginId("user1")).thenReturn(UserDto.UserDetails.Response.fromEntity(User.builder().loginId("유저1").auth("ROLE_USER").build()));
-        mockMvc.perform(get("/users/user-details/user1"))
+        mockMvc.perform(get(URL +"/user-details/user1")
+                        .header("X-USER-ID", "1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("loginId", equalTo("유저1")))
                 .andExpect(jsonPath("auth", equalTo("ROLE_USER")));

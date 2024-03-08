@@ -1,5 +1,6 @@
 package com.nhnacademy.shoppingmall.service.impl;
 
+import com.nhnacademy.shoppingmall.dto.PageResponseDto;
 import com.nhnacademy.shoppingmall.dto.UserDto;
 import com.nhnacademy.shoppingmall.enitiy.User;
 import com.nhnacademy.shoppingmall.enums.Auth;
@@ -39,9 +40,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Page<UserDto.Read.Response> getUserListPageByAuth(Pageable pageable, Auth auth) {
-        return userRepository.findPageByAuth(pageable, auth.name())
-                             .map(UserDto.Read.Response::fromEntity);
+    public PageResponseDto<UserDto.Read.Response> getUserListPageByAuth(Pageable pageable, Auth auth) {
+        Page<UserDto.Read.Response> page= userRepository.findPageByAuth(pageable, auth.name())
+                .map(UserDto.Read.Response::fromEntity);
+        return PageResponseDto.fromPage(page);
     }
 
     @Override

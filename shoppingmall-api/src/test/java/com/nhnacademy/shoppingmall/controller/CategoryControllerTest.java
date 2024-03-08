@@ -30,10 +30,12 @@ class CategoryControllerTest {
     @MockBean
     private CategoryService categoryService;
 
+    String url = "/api/categories";
     @Test
     @DisplayName("카테고리 등록 컨트롤러 테스트")
     void registerCategory() throws Exception {
-        mockMvc.perform(post("/categories")
+        mockMvc.perform(post(url)
+                        .header("X-USER-ID", "1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\n" +
                         "  \"name\": \"test\"\n" +
@@ -45,7 +47,8 @@ class CategoryControllerTest {
     @DisplayName("카테고리 이름 중복 시 예외 발생 테스트")
     void registerCategoryWithDuplicatedName() throws Exception {
         when(categoryService.registerCategory(any())).thenThrow(CategoryNameDuplicateException.class);
-        mockMvc.perform(post("/categories")
+        mockMvc.perform(post(url)
+                        .header("X-USER-ID", "1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\n" +
                         "  \"name\": \"test\"\n" +
@@ -57,7 +60,8 @@ class CategoryControllerTest {
     @DisplayName("카테고리 목록 조회 컨트롤러 테스트")
     void getCategories() throws Exception {
         when(categoryService.getCategories()).thenReturn(new CategoryDto.ListResponse(List.of(new CategoryDto(1L, "test"))));
-        mockMvc.perform(get("/categories"))
+        mockMvc.perform(get(url)
+                        .header("X-USER-ID", "1"))
                 .andExpect(status().isOk())
                 .andExpect(result -> {
                     String contentAsString = result.getResponse().getContentAsString();
@@ -70,7 +74,8 @@ class CategoryControllerTest {
     void updateCategory() throws Exception {
         Category category = Category.builder().name("test").build();
         when(categoryService.updateCategory(any(), any())).thenReturn(CategoryDto.UpdateResponse.fromEntity(category));
-        mockMvc.perform(put("/categories/1")
+        mockMvc.perform(put(url+"/1")
+                        .header("X-USER-ID", "1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\n" +
                         "  \"name\": \"test\"\n" +
@@ -86,7 +91,8 @@ class CategoryControllerTest {
     @DisplayName("카테고리 수정 시 카테고리가 없을 경우 예외 발생 테스트")
     void updateCategoryWithNoCategory() throws Exception {
         when(categoryService.updateCategory(any(), any())).thenThrow(CategoryNotFoundException.class);
-        mockMvc.perform(put("/categories/1")
+        mockMvc.perform(put(url+"/1")
+                        .header("X-USER-ID", "1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\n" +
                         "  \"name\": \"test\"\n" +

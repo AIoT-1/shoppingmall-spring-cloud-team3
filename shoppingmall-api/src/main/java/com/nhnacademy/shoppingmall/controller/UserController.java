@@ -1,11 +1,11 @@
 package com.nhnacademy.shoppingmall.controller;
 
+import com.nhnacademy.shoppingmall.dto.PageResponseDto;
 import com.nhnacademy.shoppingmall.dto.UserDto;
 import com.nhnacademy.shoppingmall.enums.Auth;
 import com.nhnacademy.shoppingmall.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/users")
+@RequestMapping("api/users")
 public class UserController {
 
     private final UserService userService;
@@ -36,8 +36,8 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(request));
     }
     @GetMapping
-    public ResponseEntity<Page<UserDto.Read.Response>> getUserListPage(@ParameterObject @PageableDefault(sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable,
-                                                       @RequestParam(value = "auth") Auth auth){
+    public ResponseEntity<PageResponseDto<UserDto.Read.Response>> getUserListPage(@ParameterObject @PageableDefault(sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable,
+                                                                                  @RequestParam(value = "auth") Auth auth){
         return ResponseEntity.ok().body(userService.getUserListPageByAuth(pageable, auth));
     }
 }
