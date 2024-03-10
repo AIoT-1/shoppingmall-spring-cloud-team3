@@ -1,15 +1,16 @@
 package com.nhnacademy.accountapi.controller;
 
+import com.nhnacademy.accountapi.dto.LoginRequest;
 import com.nhnacademy.accountapi.dto.UserResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.awt.desktop.UserSessionListener;
+import java.awt.print.Pageable;
 
 @Slf4j
 @RestController
@@ -18,6 +19,25 @@ public class AccountController {
 
     @Autowired
     private RestTemplate restTemplate;
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
+        log.debug("로그인 요청이 수신되었습니다. : {}", loginRequest.getUsername());
+
+        // 로그인 API를 호출하고 응답을 받음
+        String loginUrl = "Http://localhost:8000/api/login"; // 로그인 API의 엔드포인트
+        ResponseEntity<LoginResponse> responseEntity = restTemplate.postForEntity(loginUrl, loginRequest, LoginResponse.class);
+
+        // 응답의 상태 코드 확인 후 응답 반환
+        if (responseEntity.getStatusCode().is2xxSuccessful()) {
+            return ResponseEntity.ok(responseEntity.getBody());
+        } else {
+            return ResponseEntity.status(responseEntity.getStatusCode())
+                    .body(new LogoutResponse("Logout failed")); // 실패한 경우 메시지만 반환
+        }
+    }
+
+
 
     @GetMapping
     public ResponseEntity<UserResponse> getUser(@RequestHeader("X-USER-ID") String userId) {
