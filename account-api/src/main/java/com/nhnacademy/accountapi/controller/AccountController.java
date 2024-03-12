@@ -3,6 +3,7 @@ package com.nhnacademy.accountapi.controller;
 import com.nhnacademy.accountapi.dto.LoginRequest;
 import com.nhnacademy.accountapi.dto.UserResponse;
 import com.nhnacademy.accountapi.service.UserRequest;
+import com.nhnacademy.accountapi.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,10 @@ public class AccountController {
 
     @Autowired
     private RestTemplate restTemplate;
+
+    @Autowired
+    private UserService userService;
+
 
     // 로그인 API
     @PostMapping("/login")
@@ -98,41 +103,28 @@ Employee 로의 매핑은 jackson-databind 가 기본적으로 담당하고 있�
 
     // 사용자 생성 API
     @PostMapping("/users")
-    public UserResponse createUser(UserRequest request) {
-        String createUserUrl = "http://localhost:8000/api/account/users";
-        return restTemplate.postForObject(createUserUrl, request, UserResponse.class);
+    public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest request) {
+        // 사용자 생성
+        UserResponse userResponse = userService.createUser(request);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(userResponse);
     }
 
     // 사용자 수정
     @PutMapping("/users/{userId}")
-    public void updateUser(String userId, UserRequest request) {
+    public ResponseEntity<Void> updateUser(@PathVariable String userId, @RequestBody UserRequest request) {
         // 사용자 수정 API 호출
-        String updateUserUrl = "http://localhost:8000/api/account/users" + userId;
-        try {
-            restTemplate.put(updateUserUrl, request);
-        } catch (HttpClientErrorException ex) {
-            if (ex.getStatusCode() == HttpStatus.NOT_FOUND) {
-                throw new RuntimeException("사용자가 존재하지 않습니다.");
-            } else {
-                throw new RuntimeException("사용자 수정에 실패하였습니다.");
-            }
-        }
+        userService.updateUser(userId, request);
+        return ResponseEntity.ok()
+                .build();
     }
 
     // 사용자 삭제 로직
     @DeleteMapping("/users/{userId}")
-    public void deleteUser(String userId) {
+    public ResponseEntity<Void> deleteUser(@PathVariable String userId) {
         // 사용자 삭제 API 호출
-        String deleteUserUrl = "http://localhost:8000/api/account/users/" + userId;
-
-        try {
-            restTemplate.delete(deleteUserUrl);
-        } catch (HttpClientErrorException ex) {
-            if (ex.getStatusCode() == HttpStatus.NOT_FOUND) {
-                throw new RuntimeException("사용자가 존재하지 않습니다.");
-            } else {
-                throw new RuntimeException("사용자 삭제에 실패하였습니다.");
-            }
-        }
+        userService.deleteUser(userId);
+        return ResponseEntity.notFound()
+                .build();
     }
 }

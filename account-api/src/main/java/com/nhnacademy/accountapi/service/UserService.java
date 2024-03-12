@@ -2,8 +2,10 @@ package com.nhnacademy.accountapi.service;
 
 import com.nhnacademy.accountapi.dto.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 @Service
@@ -24,14 +26,13 @@ public class UserService {
         // 사용자 수정 API 호출
         String updateUserUrl = "http://localhost:8000/api.account/users/" + userId;
         try {
-
-        }
-        // 응답 확인 후 변환
-        if (updateUserResponse.getStatusCode().is2xxSuccessful()) {
-            return updateUserResponse.getBody();
+            restTemplate.put(updateUserUrl, request);
+        } catch (HttpClientErrorException e) {
+            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
+                throw new RuntimeException("사용자가 존재하지 않습니다."); // 존재 x
         } else {
-            // 예외처리 실패할 때
-            throw new RuntimeException("사용자 수정을 실패하였습니다.");
+                throw new RuntimeException("사용자가 수정에 실패하였습니다."); // 실패
+            }
         }
     }
 
@@ -39,6 +40,14 @@ public class UserService {
     public void deleteUser(String userId) {
         // 사용자 삭제 API 호출
         String deleteUserUrl = "http://localhost:8000/api/account/users/" + userId;
-        restTemplate.delete(deleteUserUrl);
+        try {
+            restTemplate.delete(deleteUserUrl);
+        } catch (HttpClientErrorException e) {
+            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
+                throw new RuntimeException("사용자가 존재하지 않습니다.");
+            } else {
+                throw new RuntimeException("사용자가 수정에 실패 하였습니다.");
+            }
+        }
     }
 }
