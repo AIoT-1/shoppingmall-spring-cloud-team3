@@ -1,11 +1,14 @@
 package com.nhnacademy.shoppingmall.enitiy;
 
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Table(name = "order")
 public class Order {
     @Id
@@ -14,11 +17,28 @@ public class Order {
     @JoinColumn(name = "user_id")
     @ManyToOne
     private User user;
+
+    @JoinColumn(name = "address_id")
+    @ManyToOne
+    private Address address;
+
     @Column(name = "price")
+    @Setter
     private Integer price;
     @Column(name = "order_date")
     @CreationTimestamp
     private LocalDateTime orderDate;
     @Column(name = "ship_date")
     private LocalDateTime shipDate;
+
+    @Builder
+    private Order(User user, Address address) {
+        this.user = user;
+        this.address = address;
+        this.price = 0;
+    }
+
+    public void increaseOrderPrice(int orderPrice) {
+        this.price += orderPrice;
+    }
 }

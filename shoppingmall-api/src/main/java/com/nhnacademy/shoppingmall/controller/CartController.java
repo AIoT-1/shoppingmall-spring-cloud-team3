@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
-@RequestMapping("api/cart")
+@RequestMapping("api/carts")
 public class CartController {
 
     private final CartService cartService;
@@ -31,5 +31,14 @@ public class CartController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(cartService.addCart(request.getProductId(), request.getQuantity()));
     }
+    @PutMapping("/{cartId}")
+    public ResponseEntity<CartDto.Update.Response> updateCart(@PathVariable Long cartId, @RequestBody @Valid CartDto.Update.Request request) {
+        return ResponseEntity.ok().body(cartService.updateCartItemQuantity(cartId, request));
+    }
 
+    @DeleteMapping("/{cartId}")
+    public ResponseEntity<Void> deleteCart(@PathVariable Long cartId) {
+        cartService.deleteCart(cartId);
+        return ResponseEntity.noContent().build();
+    }
 }

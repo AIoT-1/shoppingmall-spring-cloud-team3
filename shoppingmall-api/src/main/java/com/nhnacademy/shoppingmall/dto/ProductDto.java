@@ -3,8 +3,10 @@ package com.nhnacademy.shoppingmall.dto;
 
 import com.nhnacademy.shoppingmall.enitiy.Product;
 import com.querydsl.core.annotations.QueryProjection;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -22,7 +24,7 @@ public class ProductDto {
         private Long categoryId;
     }
 
-    @Getter
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class Read {
         @Getter
         public static class Response {
@@ -37,7 +39,7 @@ public class ProductDto {
             private List<CategoryDto> categories;
 
             @Builder
-            public Response(Long id, String modelNumber, String modelName, String description, Integer unitCost, String thumbnail, Integer quantity, LocalDateTime createdAt) {
+            private Response(Long id, String modelNumber, String modelName, String description, Integer unitCost, String thumbnail, Integer quantity, LocalDateTime createdAt) {
                 this.id = id;
                 this.modelNumber = modelNumber;
                 this.modelName = modelName;
@@ -85,7 +87,8 @@ public class ProductDto {
         }
     }
 
-    public static class Create{
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public static class Create {
         @Getter
         public static class Request {
             private String modelNumber;

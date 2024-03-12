@@ -4,6 +4,8 @@ import com.nhnacademy.shoppingmall.dto.CartDto;
 import com.nhnacademy.shoppingmall.enitiy.Cart;
 import com.nhnacademy.shoppingmall.enitiy.Product;
 import com.nhnacademy.shoppingmall.enitiy.User;
+import com.nhnacademy.shoppingmall.exception.cart.CartItemNotFoundException;
+import com.nhnacademy.shoppingmall.exception.cart.DuplicateCartException;
 import com.nhnacademy.shoppingmall.exception.product.ProductNotFoundException;
 import com.nhnacademy.shoppingmall.exception.user.UserNotFoundException;
 import com.nhnacademy.shoppingmall.repository.CartRepository;
@@ -41,6 +43,9 @@ public class CartServiceImpl implements CartService {
         Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException(productId));
         User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(userId));
 
+        if (cartRepository.existsByUser_IdAndProduct_Id(userId, productId)) {
+            throw new DuplicateCartException(productId);
+        }
         Cart savedCart = cartRepository.save(Cart.builder()
                 .product(product)
                 .quantity(quantity)
@@ -50,5 +55,18 @@ public class CartServiceImpl implements CartService {
         return CartDto.Create.Response.fromEntity(savedCart);
     }
 
+    @Override
+    public void deleteCart(Long cartId) {
+        if(!cartRepository.existsById(cartId)){
+            throw new CartItemNotFoundException(cartId);
+        }
+        cartRepository.deleteById(cartId);
+    }
 
+    @Override
+    public CartDto.Update.Response updateCartItemQuantity(Long cartId, CartDto.Update.Request request) {
+        Cart cart = cartRepository.findById(cartId).orElseThrow(() -> new CartItemNotFoundException(cartId));
+        cart.changeQuantity(request.getQuantity());
+        return CartDto.Update.Response.fromEntity(cart);
+    }
 }

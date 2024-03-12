@@ -1,5 +1,6 @@
 package com.nhnacademy.shoppingmall.enitiy;
 
+import com.nhnacademy.shoppingmall.exception.product.ProductShortageException;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -45,5 +46,12 @@ public class Product {
         this.description = description;
         this.thumbnail = thumbnail;
         this.quantity = quantity;
+    }
+
+    public void decreaseOrderQuantity(int orderQuantity) {
+        if (this.quantity < orderQuantity) {
+            throw new ProductShortageException(this.quantity, orderQuantity);
+        }
+        this.quantity -= orderQuantity;
     }
 }
