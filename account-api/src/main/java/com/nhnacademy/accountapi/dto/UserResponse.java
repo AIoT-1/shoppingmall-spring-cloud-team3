@@ -14,4 +14,11 @@ public class UserResponse {
         this.userName = userName;
     }
 
+
+
+    public void setId(String userId) {
+    }
+
+    public void setUsername(Object username) {
+    }
 }

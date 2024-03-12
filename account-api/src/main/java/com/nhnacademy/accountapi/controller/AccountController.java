@@ -2,11 +2,13 @@ package com.nhnacademy.accountapi.controller;
 
 import com.nhnacademy.accountapi.dto.LoginRequest;
 import com.nhnacademy.accountapi.dto.UserResponse;
+import com.nhnacademy.accountapi.service.UserRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 @Slf4j
@@ -19,8 +21,8 @@ public class AccountController {
 
     // 로그인 API
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody String loginRequest) {
-        log.debug("로그인 요청이 수신되었습니다. : {}", loginRequest);
+    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+        log.debug("로그인 요청이 수신되었습니다. : {}", loginRequest.getUsername());
 
         // 로그인 API를 호출하고 응답을 받음
         String loginUrl = "Http://localhost:8000/api/login"; // 로그인 API의 엔드포인트
@@ -80,30 +82,57 @@ public class AccountController {
         }
     }
 
+    /*
+    메모장
+    *** 아래 코드를 사용하는 이유 ***
+    비즈니스 로직을 캡슐화하고, 다른 컴포넌트나 레이어에서 사용할 수 있도록 하는 서비스
+    1. 모듈화와 유지보수 강화
+    2. 재사용성
+    *
+    * GET 메소드
+getForObject()
+Employee employee = restTemplate.getForObject(BASE_URL + "/{id}", Employee.class);
+Employee 로의 매핑은 jackson-databind 가 기본적으로 담당하고 있다.
+출처: https://juntcom.tistory.com/141 [쏘니의 개발블로그:티스토리]
+     */
 
     // 사용자 생성 API
     @PostMapping("/users")
-    public ResponseEntity<UserResponse> createUser(@RequestBody CreateUserRequest request) {
-        // 요청 받은 사용자 정보를 Service를 통해 생성하고 응답 반환
-        UserResponse response = accountService.createUser(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    public UserResponse createUser(UserRequest request) {
+        String createUserUrl = "http://localhost:8000/api/account/users";
+        return restTemplate.postForObject(createUserUrl, request, UserResponse.class);
     }
 
     // 사용자 수정
     @PutMapping("/users/{userId}")
-    public ResponseEntity<UserResponse> updateUser(@PathVariable String userId, @RequestBody UpdateUserRequest request) {
-        // 요청 받은 사용자 정보를 Service를 통해 수정하고 응답 반환
-        UserResponse response = accountService.updateUser(userId, request);
-        return ResponseEntity.ok(response);
+    public void updateUser(String userId, UserRequest request) {
+        // 사용자 수정 API 호출
+        String updateUserUrl = "http://localhost:8000/api/account/users" + userId;
+        try {
+            restTemplate.put(updateUserUrl, request);
+        } catch (HttpClientErrorException ex) {
+            if (ex.getStatusCode() == HttpStatus.NOT_FOUND) {
+                throw new RuntimeException("사용자가 존재하지 않습니다.");
+            } else {
+                throw new RuntimeException("사용자 수정에 실패하였습니다.");
+            }
+        }
     }
 
-    // 사용자 삭제
+    // 사용자 삭제 로직
     @DeleteMapping("/users/{userId}")
-    public ResponseEntity<Void> deleteUser(@PathVariable String userId) {
-        // 해당 ID의 사용자를 삭제하고 응답 반환
-        accountService.deleteUser(userId);
-        return ResponseEntity.noContent().build();
+    public void deleteUser(String userId) {
+        // 사용자 삭제 API 호출
+        String deleteUserUrl = "http://localhost:8000/api/account/users/" + userId;
+
+        try {
+            restTemplate.delete(deleteUserUrl);
+        } catch (HttpClientErrorException ex) {
+            if (ex.getStatusCode() == HttpStatus.NOT_FOUND) {
+                throw new RuntimeException("사용자가 존재하지 않습니다.");
+            } else {
+                throw new RuntimeException("사용자 삭제에 실패하였습니다.");
+            }
+        }
     }
-
-
 }
