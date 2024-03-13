@@ -10,7 +10,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.async.CallableProcessingInterceptor;
 
 @Component
 @ConfigurationProperties("jwt")
@@ -34,7 +33,6 @@ public class JwtAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<J
            log.debug("jwt-validation-filter");
 
            ServerHttpRequest request = exchange.getRequest();
-
            // 헤더에서 Authorization 키의 값을 가져옴.
            String authorizationHeaader = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
 
@@ -57,23 +55,24 @@ public class JwtAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<J
                        .parseClaimsJws(jwtToken)
                        .getBody();
 
-               // key값은 있는데 null이거나 비어있을 떄 예외처리
-               // Bearer {Token}
-               // {Token} 만 가져와서  jjwt 해서 검증을 할 수 있도록
-
-               //이미 Token이 만료되었는지?
-               //Token의 signature 값 검증(HMAC)
-               //이미 로그아웃된 Token 인지? - Black List 관리
-               //account-api의 JwtProperties를 참고하여 구현합니다.
-
-
                //TODO#3-3 검증이 완료되면  Request header에 X-USER-ID를 등록합니다.
                //exchange.getRequest().getHeaders(); <-- imutable 합니다. 즉 수정 할 수 없습니다.
                //exchage.mutate()를 이용해야 합니다. 아래 코드를 참고하세요.
+               // 검증이 되면 Request Header에 x-user-id 등록 시킴
                String userId = claims.get("userId", String.class);
                exchange.getRequest().mutate()
                        .header("X-USER-ID", userId)
                        .build();
+
+               // API 엔트포인트에 따른 권한도 체크해주고,
+               String path = request.getPath().value();
+               if (path.contains("/admin")) {
+                   String accessToken = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+               // jwt 토큰 디코딩
+                   if (!accessToken.contains("ROLE_admin")) {
+                       throw new RuntimeException("관리자만 접근할 수 있습니다. 접근불가 합니다.");
+                   }
+               }
            } catch (Exception e) {
                // 토큰 유효하지 않으면 예외처리
                exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
@@ -84,8 +83,3 @@ public class JwtAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<J
        };
     }
 }
-
-// memo장
-// 요청 헤더에 X-USER-ID를 추가하는 필터를 구현한 것
-//product-main-api
-//shoppingmall-api
