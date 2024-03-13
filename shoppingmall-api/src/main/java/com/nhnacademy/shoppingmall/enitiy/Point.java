@@ -1,11 +1,17 @@
 package com.nhnacademy.shoppingmall.enitiy;
 
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Table(name = "point")
 public class Point {
 
@@ -22,4 +28,11 @@ public class Point {
     @Column(name = "record_date")
     @CreationTimestamp
     private LocalDateTime recordDate;
+
+    @Builder
+    private Point(User user, String transactionType, Integer amount) {
+        this.user = user;
+        this.transactionType = transactionType;
+        this.amount = amount;
+    }
 }

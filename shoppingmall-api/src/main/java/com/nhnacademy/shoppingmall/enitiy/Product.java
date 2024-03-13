@@ -1,5 +1,6 @@
 package com.nhnacademy.shoppingmall.enitiy;
 
+import com.nhnacademy.shoppingmall.exception.product.ProductShortageException;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,10 +13,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Table(name = "product")
 public class Product {
     @Id
-    @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "model_number")
@@ -45,5 +46,12 @@ public class Product {
         this.description = description;
         this.thumbnail = thumbnail;
         this.quantity = quantity;
+    }
+
+    public void decreaseOrderQuantity(int orderQuantity) {
+        if (this.quantity < orderQuantity) {
+            throw new ProductShortageException(this.quantity, orderQuantity);
+        }
+        this.quantity -= orderQuantity;
     }
 }

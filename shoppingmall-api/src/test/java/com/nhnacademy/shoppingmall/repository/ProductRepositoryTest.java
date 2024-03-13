@@ -4,7 +4,6 @@ import com.nhnacademy.shoppingmall.dto.ProductDto;
 import com.nhnacademy.shoppingmall.enitiy.Category;
 import com.nhnacademy.shoppingmall.enitiy.Product;
 import com.nhnacademy.shoppingmall.enitiy.ProductCategory;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -13,6 +12,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+
+import static org.assertj.core.api.Assertions.*;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -40,16 +41,13 @@ class ProductRepositoryTest {
     void findProductPage (){
         Product persistedProduct = em.persist(createProduct());
         Category persistedCategory = em.persist(createCategory());
-        em.persist(ProductCategory.builder()
-                .productId(persistedProduct.getId())
-                .categoryId(persistedCategory.getId())
-                .build());
+        em.persist(new ProductCategory(persistedProduct, persistedCategory));
         Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, null, null);
 
-        Assertions.assertThat(page).isNotNull();
-        Assertions.assertThat(page.getContent()).isNotNull();
-        Assertions.assertThat(page.getContent()).hasSize(1);
-        Assertions.assertThat(page.getContent().get(0).getModelNumber()).isEqualTo("modelNumber");
+        assertThat(page).isNotNull();
+        assertThat(page.getContent()).isNotNull();
+        assertThat(page.getContent()).hasSize(1);
+        assertThat(page.getContent().get(0).getModelNumber()).isEqualTo("modelNumber");
 
 
     }
@@ -59,16 +57,13 @@ class ProductRepositoryTest {
     void findProductPageWithKeyword (){
         Product persistedProduct = em.persist(createProduct());
         Category persistedCategory = em.persist(createCategory());
-       em.persist(ProductCategory.builder()
-                .productId(persistedProduct.getId())
-                .categoryId(persistedCategory.getId())
-                .build());
+       em.persist(new ProductCategory(persistedProduct, persistedCategory));
         Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, "model", null);
 
-        Assertions.assertThat(page).isNotNull();
-        Assertions.assertThat(page.getContent()).isNotNull();
-        Assertions.assertThat(page.getContent()).hasSize(1);
-        Assertions.assertThat(page.getContent().get(0).getModelNumber()).isEqualTo("modelNumber");
+        assertThat(page).isNotNull();
+        assertThat(page.getContent()).isNotNull();
+        assertThat(page.getContent()).hasSize(1);
+        assertThat(page.getContent().get(0).getModelNumber()).isEqualTo("modelNumber");
     }
 
     @Test
@@ -76,15 +71,12 @@ class ProductRepositoryTest {
     void findProductPageWithKeywordFailed (){
         Product persistedProduct = em.persist(createProduct());
         Category persistedCategory = em.persist(createCategory());
-        em.persist(ProductCategory.builder()
-                .productId(persistedProduct.getId())
-                .categoryId(persistedCategory.getId())
-                .build());
+        em.persist(new ProductCategory(persistedProduct, persistedCategory));
         Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, "pzazz", null);
 
-        Assertions.assertThat(page).isNotNull();
-        Assertions.assertThat(page.getContent()).isNotNull();
-        Assertions.assertThat(page.getContent()).isEmpty();
+        assertThat(page).isNotNull();
+        assertThat(page.getContent()).isNotNull();
+        assertThat(page.getContent()).isEmpty();
     }
 
     @Test
@@ -92,16 +84,13 @@ class ProductRepositoryTest {
     void findProductPageWithCategory (){
         Product persistedProduct = em.persist(createProduct());
         Category persistedCategory = em.persist(createCategory());
-        em.persist(ProductCategory.builder()
-                .productId(persistedProduct.getId())
-                .categoryId(persistedCategory.getId())
-                .build());
+        em.persist(new ProductCategory(persistedProduct, persistedCategory));
         Page<ProductDto.ProductSummaryResponse> page = productRepository.findProductSummaryBySearchOption(pageable, null, persistedCategory.getId());
 
-        Assertions.assertThat(page).isNotNull();
-        Assertions.assertThat(page.getContent()).isNotNull();
-        Assertions.assertThat(page.getContent()).hasSize(1);
-        Assertions.assertThat(page.getContent().get(0).getModelNumber()).isEqualTo("modelNumber");
+        assertThat(page).isNotNull();
+        assertThat(page.getContent()).isNotNull();
+        assertThat(page.getContent()).hasSize(1);
+        assertThat(page.getContent().get(0).getModelNumber()).isEqualTo("modelNumber");
     }
 
     @Test
@@ -109,16 +98,13 @@ class ProductRepositoryTest {
     void findProductPageWithKeywordAndCategory (){
         Product persistedProduct = em.persist(createProduct());
         Category persistedCategory = em.persist(createCategory());
-        em.persist(ProductCategory.builder()
-                .productId(persistedProduct.getId())
-                .categoryId(persistedCategory.getId())
-                .build());
+        em.persist(new ProductCategory(persistedProduct, persistedCategory));
         Page<ProductDto.ProductSummaryResponse> page =  productRepository.findProductSummaryBySearchOption(pageable, "model", persistedCategory.getId());
 
-        Assertions.assertThat(page).isNotNull();
-        Assertions.assertThat(page.getContent()).isNotNull();
-        Assertions.assertThat(page.getContent()).hasSize(1);
-        Assertions.assertThat(page.getContent().get(0).getModelNumber()).isEqualTo("modelNumber");
+        assertThat(page).isNotNull();
+        assertThat(page.getContent()).isNotNull();
+        assertThat(page.getContent()).hasSize(1);
+        assertThat(page.getContent().get(0).getModelNumber()).isEqualTo("modelNumber");
 
     }
     private Category createCategory() {

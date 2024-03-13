@@ -2,27 +2,32 @@ package com.nhnacademy.shoppingmall.enitiy;
 
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Table(name = "product_category")
 public class ProductCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "product_id")
-    private Long productId;
+    @JoinColumn(name = "product_id")
+    @ManyToOne
+    private Product product;
 
-    @Column(name = "category_id")
-    private Long categoryId;
+    @JoinColumn(name = "category_id")
+    @ManyToOne
+    private Category category;
 
-    @Builder
-    public ProductCategory(Long productId, Long categoryId) {
-        this.productId = productId;
-        this.categoryId = categoryId;
+
+
+    public ProductCategory(Product product, Category category) {
+        this.product = product;
+        this.category = category;
     }
 }

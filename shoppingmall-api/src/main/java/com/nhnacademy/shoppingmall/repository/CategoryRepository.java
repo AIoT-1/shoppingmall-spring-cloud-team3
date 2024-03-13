@@ -13,5 +13,4 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
     @Query("select new com.nhnacademy.shoppingmall.dto.CategoryDto(c.id, c.name) from Category c")
     List<CategoryDto> findAllBy();
 
-
 }

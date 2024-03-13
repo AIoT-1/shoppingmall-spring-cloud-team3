@@ -103,7 +103,17 @@ public class UserDto {
                 response.point = user.getPoint();
                 return response;
             }
+        }
 
+    }
+
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public static class Update {
+        @Getter
+        public static class Request {
+            private String name;
+            private LocalDate birthDate;
+            private String password;
         }
     }
 }

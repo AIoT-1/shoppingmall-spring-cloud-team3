@@ -1,5 +1,6 @@
 package com.nhnacademy.shoppingmall.enitiy;
 
+import com.nhnacademy.shoppingmall.exception.user.PointShortageException;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -49,5 +50,27 @@ public class User {
         this.birthDate = birthDate;
         this.auth = auth;
         this.point = point;
+    }
+
+    public void payment(int price) {
+        if(this.point < price) {
+            throw new PointShortageException(this.point, price);
+        }
+        this.point -= price;
+    }
+    public void earn(int point) {
+        this.point += point;
+    }
+
+    public void updateUser(String name, String password, LocalDate birthDate) {
+        this.name = name;
+        this.password = password;
+        this.birthDate = birthDate;
+    }
+    public void terminate() {
+        this.terminatedYn = "Y";
+    }
+    public boolean isTerminated() {
+        return "Y".equals(this.terminatedYn);
     }
 }

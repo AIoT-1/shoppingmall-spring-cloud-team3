@@ -1,5 +1,6 @@
 package com.nhnacademy.shoppingmall.controller;
 
+import com.nhnacademy.shoppingmall.dto.PageResponseDto;
 import com.nhnacademy.shoppingmall.dto.ProductDto;
 import com.nhnacademy.shoppingmall.service.ProductService;
 import org.junit.jupiter.api.Test;
@@ -31,11 +32,12 @@ class ProductControllerTest {
     @Test
     void getProductsSummary() throws Exception {
         ProductDto.ProductSummaryResponse productSummaryResponse = new ProductDto.ProductSummaryResponse(1L, "test", "testName",1000, "thumb", 100, LocalDateTime.now());
-        Page<ProductDto.ProductSummaryResponse> responsePage =  new PageImpl<>(List.of(productSummaryResponse), PageRequest.of(0, 9), 1L);
+        PageResponseDto<ProductDto.ProductSummaryResponse> responsePage =  PageResponseDto.fromPage(new PageImpl<>(List.of(productSummaryResponse), PageRequest.of(0, 9), 1L));
 
         when(productService.getProductsSummary(any(),anyLong(),anyString()))
                 .thenReturn(responsePage);
-        mockMvc.perform(get("/products")
+        mockMvc.perform(get("/api/products")
+                .header("X-USER-ID", "1")
                 .param("categoryId", "1")
                 .param("keyword", "test"))
                 .andExpect(status().isOk())
