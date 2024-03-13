@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout/defaultLayout">
+<head>
+    <title>hello world</title>
+</head>
+<body>
+    <th:block layout:fragment="content">
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://github.com/haaazzi/git-practice/blob/main/heaven%20set.png?raw=true" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <div><h7 class="fw-bolder">11th Mini Album 'SEVENTEENTH HEAVEN' (Set)</h7></div>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    $40.00 - $80.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm text-white" style="background-color: #ffcce6">View</a>
+                                            <div style="margin: 0 1px;"></div>
+                                            <button class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <div class="badge text-white position-absolute" style="top: 0.5rem; right: 0.5rem; background-color: #f51d62">Sold Out</div>
+                            <img class="card-img-top" src="https://github.com/haaazzi/git-practice/blob/main/heaven%20carat%20version.png?raw=true" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div><h7 class="fw-bolder">11th Mini Album 'SEVENTEENTH HEAVEN' Carat Ver. (Random)</h7></div>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <span class="text-muted text-decoration-line-through">$20.00</span>
+                                    $18.00
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm text-white" style="background-color: #ffcce6">View</a>
+                                            <div style="margin: 0 1px;"></div>
+                                            <button class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="https://github.com/haaazzi/git-practice/blob/main/fml.png?raw=true" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div><h7 class="card-title fw-bolder">10th Mini Album 'FML' (Set)</h7></div>
+                                    <div class="card-text d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <span class="text-muted text-decoration-line-through">$50.00</span>
+                                    $25.00
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm text-white" style="background-color: #ffcce6">View</a>
+                                            <div style="margin: 0 1px;"></div>
+                                            <button class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="https://github.com/haaazzi/git-practice/blob/main/Fml%20carat.png?raw=true" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div><h7 class="fw-bolder">10th Mini Album 'FML' (CARAT Ver.)</h7></div>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    $40.00
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm text-white" style="background-color: #ffcce6">View</a>
+                                            <div style="margin: 0 1px;"></div>
+                                            <button class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="https://github.com/haaazzi/git-practice/blob/main/fml%20weverse%20version.png?raw=true" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div><h7 class="fw-bolder">10th Mini Album 'FML' (Weverse Albums ver.)</h7></div>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <span class="text-muted text-decoration-line-through">$50.00</span>
+                                    $25.00
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm text-white" style="background-color: #ffcce6">View</a>
+                                            <div style="margin: 0 1px;"></div>
+                                            <button class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <div class="badge text-white position-absolute" style="top: 0.5rem; right: 0.5rem; background-color: #f51d62">Sold Out</div>
+                            <img class="card-img-top" src="https://github.com/haaazzi/git-practice/blob/main/bss%20special.png?raw=true" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div><h7 class="fw-bolder">부석순 1st Single Album 'SECOND WIND' (Special Ver.)</h7></div>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    $120.00 - $280.00
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm text-white" style="background-color: #ffcce6">View</a>
+                                            <div style="margin: 0 1px;"></div>
+                                            <button class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <div class="badge text-white position-absolute" style="top: 0.5rem; right: 0.5rem; background-color: #f51d62">Sold Out</div>
+                            <img class="card-img-top" src="https://github.com/haaazzi/git-practice/blob/main/bss.png?raw=true" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div><h7 class="fw-bolder">부석순 1st Single Album 'SECOND WIND'</h7></div>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <span class="text-muted text-decoration-line-through">$20.00</span>
+                                    $18.00
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm text-white" style="background-color: #ffcce6">View</a>
+                                            <div style="margin: 0 1px;"></div>
+                                            <button class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="https://github.com/haaazzi/git-practice/blob/main/facethesun.png?raw=true" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div><h7 class="fw-bolder">4th Album 'Face the Sun' (Set)</h7></div>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    $40.00
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm text-white" style="background-color: #ffcce6">View</a>
+                                            <div style="margin: 0 1px;"></div>
+                                            <button class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="https://github.com/haaazzi/git-practice/blob/main/facethesun.png?raw=true" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div><h7 class="fw-bolder">4th Album 'Face the Sun' (Set)</h7></div>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    $40.00
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm text-white" style="background-color: #ffcce6">View</a>
+                                            <div style="margin: 0 1px;"></div>
+                                            <button class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="https://github.com/haaazzi/git-practice/blob/main/facethesun.png?raw=true" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div><h7 class="fw-bolder">4th Album 'Face the Sun' (Set)</h7></div>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    $40.00
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm text-white" style="background-color: #ffcce6">View</a>
+                                            <div style="margin: 0 1px;"></div>
+                                            <button class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="https://github.com/haaazzi/git-practice/blob/main/facethesun.png?raw=true" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div><h7 class="fw-bolder">4th Album 'Face the Sun' (Set)</h7></div>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    $40.00
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm text-white" style="background-color: #ffcce6">View</a>
+                                            <div style="margin: 0 1px;"></div>
+                                            <button class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="https://github.com/haaazzi/git-practice/blob/main/facethesun.png?raw=true" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div><h7 class="fw-bolder">4th Album 'Face the Sun' (Set)</h7></div>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    $40.00
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm text-white" style="background-color: #ffcce6">View</a>
+                                            <div style="margin: 0 1px;"></div>
+                                            <button class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section >
+    </th:block>
+</body>
+</html>

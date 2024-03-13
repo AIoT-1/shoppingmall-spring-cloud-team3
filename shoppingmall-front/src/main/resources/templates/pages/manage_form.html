@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout/defaultLayout">
+<head>
+    <title>hello world</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <h1 class="h3 mb-3 fw-normal">상품관리</h1>
+    <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 g-2">
+        <c:forEach var="product" items="${product_list}">
+            <form method="post">
+                <div class="col">
+                    <div class="card shadow-sm h-100">
+                        <div class="form-floating">
+                            <input type="text" name="product_id_view" id="product_id_view" value="${product.productId}" class="form-control" placeholder="카테고리" disabled>
+                            <input type="hidden" name="product_id" id="product_id" value="${product.productId}" />
+                            <label for="product_id_view">상품ID</label>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="text" name="category_id" class="form-control" id="category_id" placeholder="카테고리" value="${product.categoryId}" required>
+                            <label for="category_id">카테고리</label>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="text" name="model_number" class="form-control" id="model_number" placeholder="모델넘버" value="${product.modelNumber}" required>
+                            <label for="model_number">모델넘버</label>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="text" name="model_name" class="form-control" id="model_name" placeholder="모델이름" value="${product.modelName}"required>
+                            <label for="model_name">모델이름</label>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="text" name="product_image" class="form-control" id="product_image" placeholder="이미지" value="${product.productImage}">
+                            <label for="product_image">이미지</label>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="text" name="unit_cost" class="form-control" id="unit_cost" placeholder="가격" value="${product.unitCost}" required>
+                            <label for="unit_cost">가격</label>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="text" name="description" class="form-control" id="description" placeholder="상품설명" value="${product.description}" required>
+                            <label for="description">상품설명</label>
+                        </div>
+
+                        <div class="card-footer border-light bg-transparent" align-self="flex-end" flex="1 1 auto">
+                            <div class="flexbox flex-direction:column children">
+                                <div class="btn-group">
+                                    <button class="btn text-white" style="background-color: #ffcce6" type="submit" formaction="/manage/productUpdate.do">수정</button>
+                                    <button class="btn text-white" style="background-color: lightcoral" type="submit" formaction="/manage/productDelete.do">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </c:forEach>
+    </div>
+</th:block>
+</body>
+</html>
