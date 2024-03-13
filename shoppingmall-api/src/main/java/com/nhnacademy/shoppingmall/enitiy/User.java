@@ -61,4 +61,16 @@ public class User {
     public void earn(int point) {
         this.point += point;
     }
+
+    public void updateUser(String name, String password, LocalDate birthDate) {
+        this.name = name;
+        this.password = password;
+        this.birthDate = birthDate;
+    }
+    public void terminate() {
+        this.terminatedYn = "Y";
+    }
+    public boolean isTerminated() {
+        return "Y".equals(this.terminatedYn);
+    }
 }

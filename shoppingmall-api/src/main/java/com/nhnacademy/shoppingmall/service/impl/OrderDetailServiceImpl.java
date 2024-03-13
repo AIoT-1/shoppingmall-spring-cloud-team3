@@ -1,0 +1,23 @@
+package com.nhnacademy.shoppingmall.service.impl;
+
+import com.nhnacademy.shoppingmall.dto.OrderDetailDto;
+import com.nhnacademy.shoppingmall.enitiy.OrderDetail;
+import com.nhnacademy.shoppingmall.repository.OrderDetailRepository;
+import com.nhnacademy.shoppingmall.service.OrderDetailService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+@RequiredArgsConstructor
+public class OrderDetailServiceImpl implements OrderDetailService {
+
+    private final OrderDetailRepository orderDetailRepository;
+    @Override
+    public List<OrderDetailDto.ReadResponse> getOrderDetails(Long orderId) {
+        List<OrderDetail> orderDetailList = orderDetailRepository.findByOrderId(orderId);
+        return orderDetailList.stream().map(OrderDetailDto.ReadResponse::fromEntity).collect(Collectors.toList());
+    }
+}

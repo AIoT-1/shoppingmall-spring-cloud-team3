@@ -42,4 +42,23 @@ public class OrderDetailDto {
         }
     }
 
+    @Getter
+    public static class ReadResponse {
+        private Long id;
+        private Long productId;
+        private String modelNumber;
+        private String modelName;
+        private int orderQuantity;
+
+        public ReadResponse(Long id, ProductDto.Read.Response product, int orderQuantity) {
+            this.id = id;
+            this.productId = product.getId();
+            this.modelNumber = product.getModelNumber();
+            this.modelName = product.getModelName();
+            this.orderQuantity = orderQuantity;
+        }
+        public static ReadResponse fromEntity(OrderDetail orderDetail) {
+            return new ReadResponse(orderDetail.getId(), ProductDto.Read.Response.fromEntity(orderDetail.getProduct()), orderDetail.getQuantity());
+        }
+    }
 }

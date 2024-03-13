@@ -32,6 +32,7 @@ public class ProductRepositoryImpl extends QuerydslRepositorySupport implements 
                     .on(product.id.eq(productCategory.product.id))
                 .where(categoryId != null ? productCategory.category.id.eq(categoryId) : null)
                 .where(keyword != null ? product.modelName.contains(keyword) : null)
+                .where(product.deletedYn.eq("N"))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .select(new QProductDto_ProductSummaryResponse(
@@ -50,6 +51,7 @@ public class ProductRepositoryImpl extends QuerydslRepositorySupport implements 
                 .on(product.id.eq(productCategory.product.id))
                 .where(categoryId != null ? productCategory.category.id.eq(categoryId) : null)
                 .where(keyword != null ? product.modelName.contains(keyword) : null)
+                .where(product.deletedYn.eq("N"))
                 .select(product.count());
 
         return PageableExecutionUtils.getPage(content, pageable, count::fetchOne);

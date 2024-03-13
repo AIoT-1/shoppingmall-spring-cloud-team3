@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface OrderService {
 
-    OrderDto.RegisterResponse createOrder(OrderDto.RegisterRequest request);
+    Long createOrder(OrderDto.RegisterRequest request);
 
     Page<OrderDto.ReadResponse> getOrderPage(Pageable pageable);
 }

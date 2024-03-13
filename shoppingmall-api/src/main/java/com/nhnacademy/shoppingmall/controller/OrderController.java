@@ -1,17 +1,19 @@
 package com.nhnacademy.shoppingmall.controller;
 
+import com.nhnacademy.shoppingmall.dto.OrderDetailDto;
 import com.nhnacademy.shoppingmall.dto.OrderDto;
 import com.nhnacademy.shoppingmall.dto.PageResponseDto;
+import com.nhnacademy.shoppingmall.service.OrderDetailService;
 import com.nhnacademy.shoppingmall.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController
 {
     private final OrderService orderService;
+    private final OrderDetailService orderDetailService;
 
     @GetMapping
     public ResponseEntity<PageResponseDto<OrderDto.ReadResponse>> getOrders(@PageableDefault(size = 5, sort = "orderDate") Pageable pageable) {
@@ -27,7 +30,12 @@ public class OrderController
     }
 
     @PostMapping
-    public OrderDto.RegisterResponse createOrder(OrderDto.RegisterRequest orderRequest) {
-        return orderService.createOrder(orderRequest);
+    public ResponseEntity<Long> createOrder(OrderDto.RegisterRequest orderRequest) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(orderService.createOrder(orderRequest));
+    }
+
+    @GetMapping("/{orderId}/details")
+    public ResponseEntity<List<OrderDetailDto.ReadResponse>> getOrderDetails(@PathVariable Long orderId) {
+        return ResponseEntity.ok().body(orderDetailService.getOrderDetails(orderId));
     }
 }

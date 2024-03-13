@@ -29,7 +29,7 @@ public class OrderServiceImpl implements OrderService {
     private final PointRepository pointRepository;
 
     @Override
-    public OrderDto.RegisterResponse createOrder(OrderDto.RegisterRequest request) {
+    public Long createOrder(OrderDto.RegisterRequest request) {
         Long userId = UserIdStore.getUserId();
 
         User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(userId));
@@ -73,13 +73,14 @@ public class OrderServiceImpl implements OrderService {
                 .transactionType("적립")
                 .amount(accumulatePoint)
                 .build());
-        return OrderDto.RegisterResponse.fromEntities(order, address);
+
+        return order.getId();
     }
 
     @Override
     public Page<OrderDto.ReadResponse> getOrderPage(Pageable pageable) {
         Long userId = UserIdStore.getUserId();
         return orderRepository.findByUser_Id(userId, pageable)
-                .map(order -> OrderDto.ReadResponse.fromEntity(order));
+                .map(OrderDto.ReadResponse::fromEntity);
     }
 }

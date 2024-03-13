@@ -25,7 +25,7 @@ public class UserController {
         return ResponseEntity.ok().body(userService.getUser(id));
     }
 
-    @GetMapping("/user-details/{loginId}")
+    @GetMapping("/{loginId}/details")
     public ResponseEntity<UserDto.UserDetails.Response> getUserByLoginId(@PathVariable String loginId){
         return ResponseEntity.ok().body(userService.getUserByLoginId(loginId));
     }
@@ -39,5 +39,11 @@ public class UserController {
     public ResponseEntity<PageResponseDto<UserDto.Read.Response>> getUserListPage(@ParameterObject @PageableDefault(sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable,
                                                                                   @RequestParam(value = "auth") Auth auth){
         return ResponseEntity.ok().body(userService.getUserListPageByAuth(pageable, auth));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateUser(@PathVariable Long id, @RequestBody UserDto.Update.Request request){
+        userService.updateUser(id, request);
+        return ResponseEntity.ok().build();
     }
 }

@@ -10,4 +10,6 @@ public interface UserService {
     UserDto.Create.Response createUser(UserDto.Create.Request request);
     PageResponseDto<UserDto.Read.Response> getUserListPageByAuth(Pageable pageable, Auth auth);
     UserDto.UserDetails.Response getUserByLoginId(String loginId);
+    void updateUser(Long id, UserDto.Update.Request request);
+    void deleteUser(Long id);
 }

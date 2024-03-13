@@ -6,6 +6,7 @@ import com.nhnacademy.shoppingmall.enitiy.User;
 import com.nhnacademy.shoppingmall.enums.Auth;
 import com.nhnacademy.shoppingmall.exception.user.UserLoginIdDuplicateException;
 import com.nhnacademy.shoppingmall.exception.user.UserNotFoundException;
+import com.nhnacademy.shoppingmall.exception.user.UserTerminatedException;
 import com.nhnacademy.shoppingmall.repository.UserRepository;
 import com.nhnacademy.shoppingmall.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -23,10 +24,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto.Read.Response getUser(Long id) {
-
-        return  userRepository.findById(id)
-                .map(UserDto.Read.Response::fromEntity)
-                .orElseThrow(() -> new UserNotFoundException(id));
+        User user = getUserById(id);
+        validateUserNotTerminated(user);
+        return UserDto.Read.Response.fromEntity(user);
     }
 
     @Override
@@ -52,5 +52,29 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByLoginId(loginId)
                             .map(UserDto.UserDetails.Response::fromEntity)
                             .orElse(null);
+    }
+
+    @Override
+    public void updateUser(Long id, UserDto.Update.Request request) {
+        User user = getUserById(id);
+        validateUserNotTerminated(user);
+        user.updateUser(request.getName(), request.getPassword(), request.getBirthDate());
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        User user = getUserById(id);
+        validateUserNotTerminated(user);
+        user.terminate();
+    }
+
+    private User getUserById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+    }
+
+    private void validateUserNotTerminated(User user) {
+        if (user.isTerminated()) {
+            throw new UserTerminatedException(user.getId());
+        }
     }
 }

@@ -10,12 +10,14 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("api/products")
 @RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
+
 
     @GetMapping
     public ResponseEntity<PageResponseDto<ProductDto.ProductSummaryResponse>> getProductsSummary(@ParameterObject @PageableDefault(size = 9) Pageable pageable
@@ -33,6 +35,7 @@ public class ProductController {
     public ResponseEntity<Long> createProduct(@RequestBody ProductDto.Create.Request request){
         return ResponseEntity.ok().body(productService.createProduct(request));
     }
+
 
 
 }

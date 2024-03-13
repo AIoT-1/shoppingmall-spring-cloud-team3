@@ -44,28 +44,6 @@ public class OrderDto {
         }
     }
 
-    @Getter
-    public static class RegisterResponse {
-        private Long id;
-        private UserDto.Read.Response user;
-        private AddressDto address;
-        private Integer price;
-        private LocalDateTime orderDate;
-        private LocalDateTime shipDate;
-
-        public RegisterResponse(Long id, UserDto.Read.Response response, AddressDto address, Integer price, LocalDateTime orderDate, LocalDateTime shipDate) {
-            this.id = id;
-            this.user = response;
-            this.address = address;
-            this.price = price;
-            this.orderDate = orderDate;
-            this.shipDate = shipDate;
-        }
-        public static RegisterResponse fromEntities(Order order, Address address) {
-            return new RegisterResponse(order.getId(), UserDto.Read.Response.fromEntity(order.getUser()), AddressDto.fromEntity(address), order.getPrice(), order.getOrderDate(), order.getShipDate());
-        }
-    }
-
 
 
 }
