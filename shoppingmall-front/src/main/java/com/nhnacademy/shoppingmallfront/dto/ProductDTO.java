@@ -1,4 +1,4 @@
-package com.nhnacademy.shoppingmallfront.domain;
+package com.nhnacademy.shoppingmallfront.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,14 +11,12 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class ProductDTO {
     private Long id;
     private String modelNumber;
     private String modelName;
     private int unitCost;
-    private String description;
     private String thumbnail;
     private int quantity;
     private LocalDateTime createdAt;
-    private String isDeleted;
 }

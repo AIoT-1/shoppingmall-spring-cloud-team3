@@ -1,4 +1,4 @@
-package com.nhnacademy.shoppingmallfront.domain;
+package com.nhnacademy.shoppingmallfront.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -25,7 +25,6 @@ public class RestTemplateConfig {
                 .setReadTimeout(Duration.ofSeconds(5L))
                 .setConnectTimeout(Duration.ofSeconds(3L))
                 .additionalMessageConverters(new StringHttpMessageConverter(Charset.forName("UTF-8")))
-                .rootUri(String.format("http://192.168.71.99:8200/"))
                 .errorHandler(new RestTemplateResponseErrorHandler())
                 .build();
     }
