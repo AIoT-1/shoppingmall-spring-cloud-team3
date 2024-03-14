@@ -58,7 +58,7 @@ public class User {
         }
         this.point -= price;
     }
-    public void earn(int point) {
+    public void earnPoint(int point) {
         this.point += point;
     }
 
@@ -73,4 +73,5 @@ public class User {
     public boolean isTerminated() {
         return "Y".equals(this.terminatedYn);
     }
+    
 }

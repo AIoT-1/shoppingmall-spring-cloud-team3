@@ -18,10 +18,6 @@ public class Order {
     @ManyToOne
     private User user;
 
-    @JoinColumn(name = "address_id")
-    @ManyToOne
-    private Address address;
-
     @Column(name = "price")
     @Setter
     private Integer price;
@@ -32,9 +28,8 @@ public class Order {
     private LocalDateTime shipDate;
 
     @Builder
-    private Order(User user, Address address) {
+    private Order(User user) {
         this.user = user;
-        this.address = address;
         this.price = 0;
     }
 

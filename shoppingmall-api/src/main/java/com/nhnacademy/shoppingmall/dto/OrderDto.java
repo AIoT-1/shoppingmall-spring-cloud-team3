@@ -1,6 +1,5 @@
 package com.nhnacademy.shoppingmall.dto;
 
-import com.nhnacademy.shoppingmall.enitiy.Address;
 import com.nhnacademy.shoppingmall.enitiy.Order;
 import com.nhnacademy.shoppingmall.enitiy.User;
 import lombok.AccessLevel;
@@ -33,13 +32,10 @@ public class OrderDto {
 
     @Getter
     public static class RegisterRequest {
-
         private List<Long> cartIdList;
-        private Long addressId;
-        public Order toEntity(User user, Address address) {
+        public Order toEntity(User user) {
             return Order.builder()
                     .user(user)
-                    .address(address)
                     .build();
         }
     }

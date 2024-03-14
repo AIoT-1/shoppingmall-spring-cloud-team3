@@ -33,7 +33,7 @@ class CartControllerTest {
     @DisplayName("장바구니 조회")
     void getCart() throws Exception {
         cartService.getCart();
-        mockMvc.perform(get("/api/cart")
+        mockMvc.perform(get("/api/carts")
                 .header("X-USER-ID", "1"))
                 .andExpect(status().isOk());
     }
@@ -42,7 +42,7 @@ class CartControllerTest {
     @DisplayName("장바구니 추가")
     void addCart() throws Exception {
         when(cartService.addCart(anyLong(), anyInt())).thenReturn(CartDto.Create.Response.fromEntity(createCart()));
-        mockMvc.perform(post("/api/cart")
+        mockMvc.perform(post("/api/carts")
                 .header("X-USER-ID", "1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{" +
@@ -58,7 +58,7 @@ class CartControllerTest {
     @Test
     @DisplayName("장바구니 추가 수량 1미만")
     void addCartQuantityLessThanOne() throws Exception {
-        mockMvc.perform(post("/api/cart")
+        mockMvc.perform(post("/api/carts")
                 .header("X-USER-ID", "1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{" +

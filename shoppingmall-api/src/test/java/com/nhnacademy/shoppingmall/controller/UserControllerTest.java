@@ -79,7 +79,7 @@ class UserControllerTest {
     @DisplayName("유저 아이디로 조회 테스트")
     void getUserByLoginId() throws Exception {
         when(userService.getUserByLoginId("user1")).thenReturn(UserDto.UserDetails.Response.fromEntity(User.builder().loginId("유저1").auth("ROLE_USER").build()));
-        mockMvc.perform(get(URL +"/user-details/user1")
+        mockMvc.perform(get(URL +"/user1/details")
                         .header("X-USER-ID", "1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("loginId", equalTo("유저1")))
