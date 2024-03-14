@@ -17,7 +17,8 @@ public class UserService {
         // 사용자 정보 제공하는 서비스 엔드포인트 url;
 
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
-        if (responseEntity.getStatusCode().is2xxSuccessful()) {
+
+        if (responseEntity.getStatusCode().is2xxSuccessful()) { // 응답 처리
             return responseEntity.getBody(); // 바디를 받고 응답오면 사용자 정보 반환
         } else {
             return null;

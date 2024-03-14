@@ -30,7 +30,6 @@ public class RouteLocatorConfig {
 
     private final JwtAuthorizationHeaderFilter jwtAuthorizationHeaderFilter;
 
-
     @Bean
     public RouteLocator myRoute(RouteLocatorBuilder builder ) {
         return builder.routes()
