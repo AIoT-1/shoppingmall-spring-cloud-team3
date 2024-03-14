@@ -3,8 +3,10 @@ package com.nhnacademy.shoppingmall.controller;
 import com.nhnacademy.shoppingmall.dto.OrderDetailDto;
 import com.nhnacademy.shoppingmall.dto.OrderDto;
 import com.nhnacademy.shoppingmall.dto.PageResponseDto;
+import com.nhnacademy.shoppingmall.enums.PointType;
 import com.nhnacademy.shoppingmall.service.OrderDetailService;
 import com.nhnacademy.shoppingmall.service.OrderService;
+import com.nhnacademy.shoppingmall.service.PointService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,6 +24,7 @@ public class OrderController
 {
     private final OrderService orderService;
     private final OrderDetailService orderDetailService;
+    private final PointService pointService;
 
     @GetMapping
     public ResponseEntity<PageResponseDto<OrderDto.ReadResponse>> getOrders(@PageableDefault(size = 5, sort = "orderDate") Pageable pageable) {
@@ -30,8 +33,9 @@ public class OrderController
     }
 
     @PostMapping
-    public ResponseEntity<Long> createOrder(OrderDto.RegisterRequest orderRequest) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(orderService.createOrder(orderRequest));
+    public ResponseEntity<Long> createOrder(@RequestBody OrderDto.RegisterRequest orderRequest) {
+        Long orderId = orderService.createOrder(orderRequest);
+        return ResponseEntity.status(HttpStatus.CREATED).body(orderId);
     }
 
     @GetMapping("/{orderId}/details")

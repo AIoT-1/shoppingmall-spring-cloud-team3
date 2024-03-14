@@ -3,6 +3,8 @@ package com.nhnacademy.shoppingmall.controller;
 import com.nhnacademy.shoppingmall.dto.AddressDto;
 import com.nhnacademy.shoppingmall.service.AddressService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,19 +20,18 @@ public class AddressController {
 
         return addressService.getAddressList();
     }
-
     @PostMapping
-    public AddressDto.Create.Response createAddress(AddressDto.Create.Request request){
-        return addressService.registerAddress(request);
+    public ResponseEntity<AddressDto.Create.Response> createAddress(AddressDto.Create.Request request){
+        return ResponseEntity.status(HttpStatus.CREATED).body(addressService.registerAddress(request));
     }
 
     @PutMapping("/{addressId}")
-    public AddressDto.Update.Response updateAddress(@PathVariable("addressId")Long addressId, @RequestBody AddressDto.Update.Request request){
-        return addressService.updateAddress(addressId, request);
+    public ResponseEntity<AddressDto.Update.Response> updateAddress(@PathVariable("addressId")Long addressId, @RequestBody AddressDto.Update.Request request){
+        return ResponseEntity.ok().body(addressService.updateAddress(addressId, request));
     }
 
     @PutMapping("/{addressId}/default")
-    public AddressDto.Update.Response updateDefaultAddress(@PathVariable("addressId")Long addressId){
-        return addressService.updateDefaultAddress(addressId);
+    public ResponseEntity<AddressDto.Update.Response> updateDefaultAddress(@PathVariable("addressId")Long addressId){
+        return ResponseEntity.ok().body(addressService.updateDefaultAddress(addressId));
     }
 }

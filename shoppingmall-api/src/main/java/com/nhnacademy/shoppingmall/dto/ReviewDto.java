@@ -51,8 +51,8 @@ public class ReviewDto {
 
     }
 
-    @AllArgsConstructor(access = AccessLevel.PROTECTED)
     @Getter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class UpdateRequest {
         private Integer rating;
         private String comment;

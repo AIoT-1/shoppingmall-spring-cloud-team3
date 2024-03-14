@@ -2,21 +2,27 @@ package com.nhnacademy.shoppingmall.service.impl;
 
 import com.nhnacademy.shoppingmall.dto.OrderDto;
 import com.nhnacademy.shoppingmall.enitiy.*;
-import com.nhnacademy.shoppingmall.exception.address.AddressNotFoundException;
+import com.nhnacademy.shoppingmall.enums.PointType;
+import com.nhnacademy.shoppingmall.exception.order.OrderNotFoundException;
 import com.nhnacademy.shoppingmall.exception.user.UserNotFoundException;
 import com.nhnacademy.shoppingmall.repository.*;
 import com.nhnacademy.shoppingmall.service.OrderService;
+import com.nhnacademy.shoppingmall.service.PointService;
 import com.nhnacademy.shoppingmall.thread.UserIdStore;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 @Transactional
 public class OrderServiceImpl implements OrderService {
@@ -27,14 +33,14 @@ public class OrderServiceImpl implements OrderService {
     private final AddressRepository addressRepository;
     private final CartRepository cartRepository;
     private final PointRepository pointRepository;
+    private final PointService pointService;
 
     @Override
     public Long createOrder(OrderDto.RegisterRequest request) {
         Long userId = UserIdStore.getUserId();
 
         User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(userId));
-        Address address = addressRepository.findById(request.getAddressId()).orElseThrow(() -> new AddressNotFoundException(request.getAddressId()));
-        Order order = orderRepository.save(request.toEntity(user, address));
+        Order order = orderRepository.save(request.toEntity(user));
 
         List<OrderDetail> orderDetailList = new ArrayList<>();
         List<Cart> cartList = cartRepository.findAllById(request.getCartIdList());
@@ -74,8 +80,15 @@ public class OrderServiceImpl implements OrderService {
                 .amount(accumulatePoint)
                 .build());
 
+        // 포인트 서비스의 accruePointByOrder 메서드를 비동기로 호출
+        try {
+            pointService.accruePointByOrder(user, order);
+        } catch (Exception e) {
+            log.info("point accrue failed : {}", e.getMessage());
+        }
         return order.getId();
     }
+
 
     @Override
     public Page<OrderDto.ReadResponse> getOrderPage(Pageable pageable) {

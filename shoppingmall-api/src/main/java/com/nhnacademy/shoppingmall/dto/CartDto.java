@@ -1,6 +1,7 @@
 package com.nhnacademy.shoppingmall.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.nhnacademy.shoppingmall.enitiy.Cart;
 import com.nhnacademy.shoppingmall.enitiy.Product;
 import lombok.AccessLevel;
@@ -72,9 +73,9 @@ public class CartDto {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class Update {
         @Getter
-        @AllArgsConstructor(access = AccessLevel.PROTECTED)
+        @NoArgsConstructor(access = AccessLevel.PROTECTED)
         public static class Request {
-            private final Integer quantity;
+            private Integer quantity;
         }
         @Getter
         public static class Response {

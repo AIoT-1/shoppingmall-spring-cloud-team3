@@ -3,6 +3,7 @@ package com.nhnacademy.shoppingmall.advice;
 import com.nhnacademy.shoppingmall.dto.ErrorResponse;
 import com.nhnacademy.shoppingmall.exception.DuplicateException;
 import com.nhnacademy.shoppingmall.exception.NotFoundException;
+import com.nhnacademy.shoppingmall.exception.UnauthorizedException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,11 @@ public class RestExceptionAdvice {
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.joining(", "));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(messages));
+    }
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ErrorResponse> handleUnauthorizedException(UnauthorizedException e) {
+        ErrorResponse errorResponse = new ErrorResponse(e.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
     }
     @ExceptionHandler(DuplicateException.class)
     public ResponseEntity<ErrorResponse> handleDuplicateException(DuplicateException e) {
