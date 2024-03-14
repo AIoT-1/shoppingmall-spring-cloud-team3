@@ -23,6 +23,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public UserDto.Read.Response getUser(Long id) {
         User user = getUserById(id);
         validateUserNotTerminated(user);
@@ -40,6 +41,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PageResponseDto<UserDto.Read.Response> getUserListPageByAuth(Pageable pageable, Auth auth) {
         Page<UserDto.Read.Response> page= userRepository.findPageByAuth(pageable, auth.name())
                 .map(UserDto.Read.Response::fromEntity);
@@ -47,6 +49,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public UserDto.UserDetails.Response getUserByLoginId(String loginId) {
 
         return userRepository.findByLoginId(loginId)

@@ -1,5 +1,6 @@
 package com.nhnacademy.shoppingmall.enitiy;
 
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,7 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Table(name = "order_detail")
 public class OrderDetail {
@@ -23,7 +24,7 @@ public class OrderDetail {
     @Column(name = "quantity")
     private Integer quantity;
 
-    @Builder
+    @Builder()
     private OrderDetail(Order order, Product product, Integer quantity) {
         this.order = order;
         this.product = product;

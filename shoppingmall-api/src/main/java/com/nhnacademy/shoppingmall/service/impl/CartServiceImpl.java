@@ -29,6 +29,7 @@ public class CartServiceImpl implements CartService {
     private final ProductRepository productRepository;
     private final UserRepository userRepository;
     @Override
+    @Transactional(readOnly = true)
     public List<CartDto.Read.Response> getCart() {
         List<Cart> cartList = cartRepository.findByUser_Id(UserIdStore.getUserId());
 

@@ -1,10 +1,10 @@
 package com.nhnacademy.shoppingmall.dto;
 
 
+import com.nhnacademy.shoppingmall.enitiy.Category;
 import com.nhnacademy.shoppingmall.enitiy.Product;
 import com.querydsl.core.annotations.QueryProjection;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProductDto {
 
@@ -24,7 +25,7 @@ public class ProductDto {
         private Long categoryId;
     }
 
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class Read {
         @Getter
         public static class Response {
@@ -37,30 +38,21 @@ public class ProductDto {
             private Integer quantity;
             private LocalDateTime createdAt;
             private List<CategoryDto> categories;
+            public static Response fromEntity(Product product, List<Category> categories) {
+                Response response = new Response();
+                response.id = product.getId();
+                response.modelNumber = product.getModelNumber();
+                response.modelName = product.getModelName();
+                response.description = product.getDescription();
+                response.unitCost = product.getUnitCost();
+                response.thumbnail = product.getThumbnail();
+                response.quantity = product.getQuantity();
+                response.createdAt = product.getCreatedAt();
+                response.categories = categories.stream()
+                        .map((category -> new CategoryDto(category.getId(), category.getName())))
+                        .collect(Collectors.toList());
+                return response;
 
-            @Builder
-            private Response(Long id, String modelNumber, String modelName, String description, Integer unitCost, String thumbnail, Integer quantity, LocalDateTime createdAt) {
-                this.id = id;
-                this.modelNumber = modelNumber;
-                this.modelName = modelName;
-                this.description = description;
-                this.unitCost = unitCost;
-                this.thumbnail = thumbnail;
-                this.quantity = quantity;
-                this.createdAt = createdAt;
-            }
-
-            public static Response fromEntity(Product product) {
-                return Response.builder()
-                        .id(product.getId())
-                        .modelNumber(product.getModelNumber())
-                        .modelName(product.getModelName())
-                        .description(product.getDescription())
-                        .unitCost(product.getUnitCost())
-                        .thumbnail(product.getThumbnail())
-                        .quantity(product.getQuantity())
-                        .createdAt(product.getCreatedAt())
-                        .build();
             }
         }
     }

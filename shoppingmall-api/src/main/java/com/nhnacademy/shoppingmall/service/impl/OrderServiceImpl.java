@@ -2,8 +2,6 @@ package com.nhnacademy.shoppingmall.service.impl;
 
 import com.nhnacademy.shoppingmall.dto.OrderDto;
 import com.nhnacademy.shoppingmall.enitiy.*;
-import com.nhnacademy.shoppingmall.enums.PointType;
-import com.nhnacademy.shoppingmall.exception.order.OrderNotFoundException;
 import com.nhnacademy.shoppingmall.exception.user.UserNotFoundException;
 import com.nhnacademy.shoppingmall.repository.*;
 import com.nhnacademy.shoppingmall.service.OrderService;
@@ -13,9 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
@@ -91,6 +87,7 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public Page<OrderDto.ReadResponse> getOrderPage(Pageable pageable) {
         Long userId = UserIdStore.getUserId();
         return orderRepository.findByUser_Id(userId, pageable)
