@@ -5,8 +5,10 @@ import com.nhnacademy.shoppingmall.enitiy.Category;
 import com.nhnacademy.shoppingmall.enitiy.Product;
 import com.querydsl.core.annotations.QueryProjection;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -52,7 +54,6 @@ public class ProductDto {
                         .map((category -> new CategoryDto(category.getId(), category.getName())))
                         .collect(Collectors.toList());
                 return response;
-
             }
         }
     }
@@ -79,19 +80,21 @@ public class ProductDto {
         }
     }
 
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class Create {
         @Getter
+        @AllArgsConstructor
         public static class Request {
             private String modelNumber;
             private String modelName;
             private String description;
             private Integer unitCost;
-            private String thumbnail;
             private Integer quantity;
             @Size(min = 1, max = 3)
             private List<Long> categoryIds;
-            private List<String> images;
+            private MultipartFile thumbnail;
+            private List<MultipartFile> productImages;
+
 
             public Product toEntity() {
                 return Product.builder()
@@ -99,7 +102,6 @@ public class ProductDto {
                         .modelName(modelName)
                         .description(description)
                         .unitCost(unitCost)
-                        .thumbnail(thumbnail)
                         .quantity(quantity)
                         .build();
             }

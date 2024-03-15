@@ -48,6 +48,7 @@ public class Product {
         this.description = description;
         this.thumbnail = thumbnail;
         this.quantity = quantity;
+        this.deletedYn = "N";
     }
 
     public void decreaseOrderQuantity(int orderQuantity) {
@@ -55,5 +56,8 @@ public class Product {
             throw new ProductShortageException(this.quantity, orderQuantity);
         }
         this.quantity -= orderQuantity;
+    }
+    public void setThumbnail(String thumbnailFileName) {
+        this.thumbnail = thumbnailFileName;
     }
 }
