@@ -1,25 +1,66 @@
 package com.nhnacademy.shoppingmallfront.controller;
 
+import com.nhnacademy.shoppingmallfront.dto.CartModifyRequestDTO;
+import com.nhnacademy.shoppingmallfront.dto.CartRegisterRequestDTO;
+import com.nhnacademy.shoppingmallfront.dto.CartResponseDTO;
 import com.nhnacademy.shoppingmallfront.dto.ProductResponseDTO;
+import com.nhnacademy.shoppingmallfront.service.CartService;
 import com.nhnacademy.shoppingmallfront.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
+@RequestMapping
 public class CartController {
     @Autowired
-    private ProductService productService;
+    private CartService cartService;
 
-    @GetMapping("/")
-    public String index(Model model, @RequestParam(value = "page", required = false) String page){
-        int pageNumber = page != null ? Integer.parseInt(page) : 0;
-        ProductResponseDTO response = this.productService.getProducts(pageNumber);
-        model.addAttribute("page", response);
-        model.addAttribute("products", response.getContent());
+    @GetMapping("/cart")
+    public String getCart(Model model) {
+        List<CartResponseDTO> response = this.cartService.getCart();
+        int totalCost = cartService.calculateTotalCost(response);
 
-        return "pages/home";
+        model.addAttribute("cart", response);
+        model.addAttribute("totalCost", totalCost);
+
+        return "pages/cart";
     }
+
+    @PostMapping("/cart")
+    public String addCart(@RequestParam("quantity") int quantity, @RequestParam("product_id") Long productId) {
+        List<CartResponseDTO> response = this.cartService.getCart();
+        for (CartResponseDTO item : response) {
+            if(item.getProductId().equals(productId)){
+                CartModifyRequestDTO request = new CartModifyRequestDTO();
+                request.setQuantity(item.getCartQuantity() + 1);
+                this.cartService.updateCart(item.getId(), request);
+            }
+        }
+        CartRegisterRequestDTO request = new CartRegisterRequestDTO();
+        request.setProductId(productId);
+        request.setQuantity(quantity);
+
+        this.cartService.addCart(request);
+
+        return "redirect:/cart";
+    }
+
+    @PostMapping("/cart/{cartId}")
+    public String updateCart(@RequestParam(value = "method", required = false) String method, @RequestParam(value = "quantity", required = false, defaultValue = "0") int quantity, @PathVariable("cartId") Long cartId) {
+        if (method.equals("put")) {
+            CartModifyRequestDTO request = new CartModifyRequestDTO();
+            request.setQuantity(quantity);
+
+            this.cartService.updateCart(cartId, request);
+        } else if (method.equals("delete")) {
+            this.cartService.deleteCart(cartId);
+        }
+
+        return "redirect:/cart";
+    }
+
 }

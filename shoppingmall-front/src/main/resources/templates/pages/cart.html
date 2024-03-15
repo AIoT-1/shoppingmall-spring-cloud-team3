@@ -8,7 +8,7 @@
 </head>
 <body>
 <th:block layout:fragment="content">
-    <section  class="py-5" style="background-color: aliceblue;">
+    <section class="py-5" style="background-color: aliceblue;">
         <div class="container h-100 py-5">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-10">
@@ -18,62 +18,62 @@
                             <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
                         </div>
                     </div>
-                    <c:set var="total" value="0" />
-                    <div th:each="item : ${}}>
+                    <div th:each="item : ${cart}">
                         <div class="card rounded-3 mb-4">
-                            <div class="card-body p-4">
+                            <div class="card-body p-5">
                                 <div class="row d-flex justify-content-between align-items-center">
                                     <div class="col-md-2 col-lg-2 col-xl-2">
-                                        <img src="${item.productImage}" class="img-fluid rounded-3" >
+                                        <img class="img-fluid rounded-3" th:src="${item.thumbnail}" th:alt="${item.modelName}" />
                                     </div>
                                     <div class="col-md-3 col-lg-3 col-xl-3">
-                                        <p class="fw-normal mb-2">${item.modelName}</p>
-                                        <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
+                                        <p class="fw-bold mb-2" th:text="${item.modelName}"></p>
                                     </div>
                                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                        <form method="post" action="/cart/cartUpdate.do">
-                                            <input type="hidden" name="quantity" value="${item.quantity - 1}" />
-                                            <input type="hidden" name="product_id" value="${item.productId}" />
-                                            <button class="btn btn-link px-2">
-                                                <i class="fas fa-minus"></i>
+                                        <form method="post" th:action="@{'/cart/' + ${item.id}}">
+                                            <input type="hidden" name="method" th:value="put" />
+                                            <input type="hidden" name="quantity" th:value="${item.cartQuantity - 1}" />
+                                            <input type="hidden" name="cart_id" th:value="${item.id}" />
+                                            <button class="btn btn-link px-2" th:disabled="${item.cartQuantity le 1}">
+                                                <i class="bi bi-dash-lg" style="color: #ff5180;"></i>
                                             </button>
                                         </form>
 
-                                        <input min="0" name="quantity" value="${item.quantity}" type="number"
-                                               class="form-control form-control-sm"/>
+                                        <input min="0" name="quantity" th:value="${item.cartQuantity}" type="number"
+                                               class="form-control form-control-sm" readonly/>
 
-                                        <form method="post" action="/cart/cartUpdate.do">
-                                            <input type="hidden" name="quantity" value="${item.quantity + 1}" />
-                                            <input type="hidden" name="product_id" value="${item.productId}" />
+                                        <form method="post" th:action="@{'/cart/' + ${item.id}}">
+                                            <input type="hidden" name="method" th:value="put" />
+                                            <input type="hidden" name="quantity" th:value="${item.cartQuantity + 1}" />
+                                            <input type="hidden" name="cart_id" th:value="${item.id}" />
                                             <button class="btn btn-link px-2">
-                                                <i class="fas fa-plus"></i>
+                                                <i class="bi bi-plus-lg" style="color: #5f62ff"></i>
                                             </button>
                                         </form>
+
                                     </div>
 
-                                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                        <h5 class="mb-0">₩ <fmt:formatNumber value="${item.unitCost}" pattern="#,###"/></h5>
+                                    <div class="col-md-3 col-lg-3 col-xl-2">
+                                        <h5 class="mb-0" th:text="'₩ ' + ${#numbers.formatInteger(item.unitCost, 3, 'COMMA')}"></h5>
                                     </div>
-                                    <br>
-                                    <form method="post" action="/cart/cartDelete.do">
-                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                            <input type="hidden" name="user_id" value="${item.userId}" />
-                                            <input type="hidden" name="product_id" value="${item.productId}" />
-                                            <button type="submit" style="border-collapse: unset; border: none; background: none; color: lightcoral"><i class="fas fa-trash fa-lg"></i></button>
-                                        </div>
-                                    </form>
+                                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                        <form method="post" th:action="@{'/cart/' + ${item.id}}">
+                                            <input type="hidden" name="method" th:value="delete" />
+                                            <input type="hidden" name="product_id" th:value="${item.productId}" />
+                                            <button type="submit" style="border-collapse: unset; border: none; background: none; color: lightcoral"><h5><i class="bi bi-trash-fill"></i></h5></button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <c:set var="total" value="${total + (item.quantity * item.unitCost)}"/>
                     </th:each>
 
                     <div class="card mb-4">
                         <div class="card-body p-4 d-flex flex-row">
                             <div class="form-outline flex-fill mx-auto">
                                 <p class="text-muted">Total Cost: </p>
-                                <h5 class="mb-0">₩ <fmt:formatNumber value="${total}" pattern="#,###"/></h5>
+                                <h5 class="mb-0" th:text="'₩ ' + ${#numbers.formatInteger(totalCost, 3, 'COMMA')}"></h5>
                             </div>
 
                             <form method="get" action="/order/order.do">

@@ -5,16 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CartResponseDTO {
+public class CategoryDTO {
     private Long id;
-    private Long productId;
-    private String modelNumber;
-    private String modelName;
-    private String thumbnail;
-    private int unitCost;
-    private int cartQuantity;
+    private String name;
 }

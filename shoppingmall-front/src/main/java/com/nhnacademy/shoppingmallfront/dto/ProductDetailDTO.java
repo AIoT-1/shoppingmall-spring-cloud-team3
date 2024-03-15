@@ -6,21 +6,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Member {
+public class ProductDetailDTO {
     private Long id;
-    private String loginId;
-    private String name;
-    private String password;
-    private Date birthDate;
-    private String auth;
+    private String modelNumber;
+    private String modelName;
+    private String description;
+    private int unitCost;
+    private String thumbnail;
+    private int quantity;
     private LocalDateTime createdAt;
-    private LocalDateTime lastLoginAt;
-    private String isTerminated;
-    private Long point;
+    private List<CategoryDTO> categories;
 }
