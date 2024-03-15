@@ -37,6 +37,6 @@ class CategoryRepositoryTest {
     void findAllBy() {
         testEntityManager.persist(Category.builder().name("test").build());
         testEntityManager.persist(Category.builder().name("test2").build());
-        Assertions.assertThat(categoryRepository.findAllBy()).hasSize(2);
+        Assertions.assertThat(categoryRepository.findAll()).hasSize(2);
     }
 }
