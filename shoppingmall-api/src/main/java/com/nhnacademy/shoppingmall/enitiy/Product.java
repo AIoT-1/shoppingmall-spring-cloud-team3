@@ -29,6 +29,7 @@ public class Product {
     private Integer unitCost;
     @Column(name = "description")
     private String description;
+    @Setter
     @Column(name = "thumbnail")
     private String thumbnail;
     @Column(name = "quantity")
@@ -56,8 +57,5 @@ public class Product {
             throw new ProductShortageException(this.quantity, orderQuantity);
         }
         this.quantity -= orderQuantity;
-    }
-    public void setThumbnail(String thumbnailFileName) {
-        this.thumbnail = thumbnailFileName;
     }
 }
