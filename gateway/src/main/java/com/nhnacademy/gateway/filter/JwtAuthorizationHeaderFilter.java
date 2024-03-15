@@ -1,5 +1,6 @@
 package com.nhnacademy.gateway.filter;
 
+import com.nhnacademy.gateway.service.RedisService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import lombok.extern.slf4j.Slf4j;
@@ -9,16 +10,17 @@ import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFac
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.stereotype.Component;
 
 @ConfigurationProperties("jwt")
 @Slf4j
 public class JwtAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<JwtAuthorizationHeaderFilter.Config> {
 
     private String secret;
+    private RedisService redisService = null;
 
     public JwtAuthorizationHeaderFilter() {
         super(Config.class);
+        this.redisService = redisService;
     }
 
     public static class Config {
@@ -63,6 +65,12 @@ public class JwtAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<J
                        .header("X-USER-ID", userId)
                        .build();
 
+               // 블랙리스트
+               if (isTokenBlacklisted(jwtToken)) {
+                   exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+                   return exchange.getResponse().setComplete();
+               }
+
                // API 엔트포인트에 따른 권한도 체크해주고,
                String path = request.getPath().value();
                if (path.contains("/admin")) {
@@ -80,6 +88,16 @@ public class JwtAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<J
            // 다음 필터 요청 전달
            return chain.filter(exchange);
        };
+    }
+
+    // Redis에서 토큰이 블랙리스트에 있는지 확인하는 메서드
+    private boolean isTokenBlacklisted(String jwtToken) {
+        boolean isBlacklisted = false;
+        return isBlacklisted;
+
+        // Redis에서 토큰을 확인하고 블랙리스트에 있다면 isBlacklisted를 true로 설정
+        // 여기서는 가짜 데이터를 사용하였으므로 실제 Redis 연동 코드를 작성
+        //redisTemplate.opsForValue().get(token) != null;
     }
 }
 
