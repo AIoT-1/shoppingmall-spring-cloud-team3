@@ -29,9 +29,14 @@ public class RedisConfig {
     public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory connectionFactory) {
         RedisTemplate<String, String> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(connectionFactory);
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setKeySerializer(new StringRedisSerializer()); // 키, 값을 String 형태로 저장을 하겠다.
         redisTemplate.setValueSerializer(new StringRedisSerializer());
         return redisTemplate;
     }
 
 }
+
+//memo
+/*
+serializer : 어떠한 것을 파일 형태로 저장을 하겠다.
+ */
