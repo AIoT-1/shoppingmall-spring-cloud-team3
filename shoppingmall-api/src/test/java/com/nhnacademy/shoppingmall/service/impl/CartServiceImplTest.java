@@ -3,6 +3,7 @@ package com.nhnacademy.shoppingmall.service.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.nhnacademy.shoppingmall.dto.CartDto;
 import com.nhnacademy.shoppingmall.enitiy.Cart;
+import com.nhnacademy.shoppingmall.enitiy.Order;
 import com.nhnacademy.shoppingmall.enitiy.Product;
 import com.nhnacademy.shoppingmall.enitiy.User;
 import com.nhnacademy.shoppingmall.repository.CartRepository;
@@ -10,19 +11,17 @@ import com.nhnacademy.shoppingmall.repository.ProductRepository;
 import com.nhnacademy.shoppingmall.repository.UserRepository;
 import com.nhnacademy.shoppingmall.thread.UserIdStore;
 import io.swagger.v3.core.util.ObjectMapperFactory;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.List;
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
@@ -124,5 +123,11 @@ class CartServiceImplTest {
         return product;
     }
 
+    private Order createOrder() {
+        Order order =  Order.builder()
+                .user(null)
+                .build();
+        return  order;
 
+    }
 }

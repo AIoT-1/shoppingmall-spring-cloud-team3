@@ -28,7 +28,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class AddressServiceImplTest {
 
-    private Long addressId = 1L;
+    private Long addressId = 0L;
     @Mock
     private AddressRepository addressRepository;
 
@@ -109,21 +109,38 @@ class AddressServiceImplTest {
     @Test
     @DisplayName("기본 주소 변경 테스트")
     void updateDefaultAddress() {
+            when(addressRepository.findAllByUser_Id(anyLong())).thenReturn(Arrays.asList(createAddress(), createAddress()));
+            Long targetAddressId = addressId-1;
 
-//            when(addressRepository.findAllByUser_Id(anyLong())).thenReturn(Arrays.asList(createAddress(), createAddress()));
-//
-//            AddressDto.Update.Response actual = addressService.updateDefaultAddress(addressId);
-//
-//            assertThat(actual.getDefaultYn()).isEqualTo("Y");
-//            verify(addressRepository, times(1)).findAllByUser_Id(anyLong());
+            AddressDto.Update.Response actual = addressService.updateDefaultAddress(targetAddressId);
+
+            assertThat(actual.getDefaultYn()).isEqualTo("Y");
+            verify(addressRepository, times(1)).findAllByUser_Id(anyLong());
     }
 
+    @Test
+    @DisplayName("주소 수정 테스트")
+    void updateAddress() throws Exception {
+        AddressDto.Update.Request request = createUpdateAddressRequest();
+        Address address = createAddress();
+        when(addressRepository.findById(anyLong())).thenReturn(Optional.of(address));
+
+        AddressDto.Update.Response actual = addressService.updateAddress(addressId, request);
+
+        assertThat(actual.getAddress()).isEqualTo(request.getAddress());
+        assertThat(actual.getAddressDetail()).isEqualTo(request.getAddressDetail());
+        verify(addressRepository, times(1)).findById(anyLong());
+    }
+
+
     private Address createAddress() {
+        addressId++;
+
         Address address = Address.builder()
                 .address("서울시 강남구 "+addressId+"번지")
                 .defaultYn("N")
                 .build();
-        ReflectionTestUtils.setField(address, "id", addressId++);
+        ReflectionTestUtils.setField(address, "id", addressId);
         return address;
     }
 
@@ -133,4 +150,13 @@ class AddressServiceImplTest {
         AddressDto.Create.Request request = constructor.newInstance("type", "zipCode", "address", "addressDetail");
         return request;
     }
+
+    private AddressDto.Update.Request createUpdateAddressRequest() throws Exception {
+
+        Constructor<AddressDto.Update.Request> constructor = AddressDto.Update.Request.class.getDeclaredConstructor(String.class, String.class, String.class, String.class);
+        constructor.setAccessible(true);
+        AddressDto.Update.Request request = constructor.newInstance("typeUpdate", "Update", "addressUpdate", "addressDetailUpdate");
+        return request;
+    }
+
 }

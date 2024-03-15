@@ -29,6 +29,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public CategoryDto.ListResponse getCategories() {
         return new CategoryDto.ListResponse(categoryRepository.findAllBy());
     }

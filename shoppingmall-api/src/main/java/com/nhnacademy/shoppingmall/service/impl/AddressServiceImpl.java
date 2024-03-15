@@ -26,6 +26,7 @@ public class AddressServiceImpl implements AddressService {
     private final UserRepository userRepository;
     private static final int MAX_ADDRESS_COUNT = 5;
     @Override
+    @Transactional(readOnly = true)
     public List<AddressDto.Read.Response> getAddressList() {
         Long userId = UserIdStore.getUserId();
         return addressRepository.findAllByUser_Id(userId)

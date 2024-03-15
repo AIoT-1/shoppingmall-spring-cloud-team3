@@ -18,6 +18,7 @@ public class ProductImageServiceImpl implements ProductImageService {
 
     private final ProductImageRepository productImageRepository;
     @Override
+    @Transactional(readOnly = true)
     public List<ProductImageDto.Read.Response> getProductImages(Long productId) {
 
         List<ProductImage> productImages = productImageRepository.findByProduct_Id(productId);

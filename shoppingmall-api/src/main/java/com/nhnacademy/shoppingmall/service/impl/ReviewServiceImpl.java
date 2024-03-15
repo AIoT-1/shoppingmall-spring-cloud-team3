@@ -26,6 +26,7 @@ public class ReviewServiceImpl implements ReviewService {
     private final UserRepository userRepository;
     private final ProductRepository productRepository;
     @Override
+    @Transactional(readOnly = true)
     public List<ReviewDto.ProductReviewResponse> getReviews(Long productId) {
         return reviewRepository.findByProduct_Id(productId).stream()
                 .map(ReviewDto.ProductReviewResponse::fromEntity)

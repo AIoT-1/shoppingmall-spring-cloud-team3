@@ -30,15 +30,25 @@ public class OrderDetailDto {
 
     @Getter
     public static class OrderDetailResponse {
-        private ProductDto.Read.Response product;
-        private int quantity;
+        private Long id;
+        private Long productId;
+        private String modelNumber;
+        private String modelName;
+        private String thumbnail;
+        private Integer unitCost;
+        private Integer orderQuantity;
 
-        public OrderDetailResponse(ProductDto.Read.Response response, Integer quantity) {
-            this.product = response;
-            this.quantity = quantity;
-        }
         public static OrderDetailResponse fromEntity(OrderDetail orderDetail) {
-            return new OrderDetailResponse(ProductDto.Read.Response.fromEntity(orderDetail.getProduct()), orderDetail.getQuantity());
+            OrderDetailResponse response = new OrderDetailResponse();
+            Product product = orderDetail.getProduct();
+            response.id = orderDetail.getId();
+            response.productId = product.getId();
+            response.modelNumber = product.getModelNumber();
+            response.modelName = product.getModelName();
+            response.thumbnail = product.getThumbnail();
+            response.unitCost = product.getUnitCost();
+            response.orderQuantity = orderDetail.getQuantity();
+            return response;
         }
     }
 
@@ -48,17 +58,17 @@ public class OrderDetailDto {
         private Long productId;
         private String modelNumber;
         private String modelName;
-        private int orderQuantity;
+        private Integer orderQuantity;
 
-        public ReadResponse(Long id, ProductDto.Read.Response product, int orderQuantity) {
-            this.id = id;
-            this.productId = product.getId();
-            this.modelNumber = product.getModelNumber();
-            this.modelName = product.getModelName();
-            this.orderQuantity = orderQuantity;
-        }
         public static ReadResponse fromEntity(OrderDetail orderDetail) {
-            return new ReadResponse(orderDetail.getId(), ProductDto.Read.Response.fromEntity(orderDetail.getProduct()), orderDetail.getQuantity());
+            ReadResponse response = new ReadResponse();
+            Product product = orderDetail.getProduct();
+            response.id = orderDetail.getId();
+            response.productId = product.getId();
+            response.modelNumber = product.getModelNumber();
+            response.modelName = product.getModelName();
+            response.orderQuantity = product.getQuantity();
+            return response;
         }
     }
 }

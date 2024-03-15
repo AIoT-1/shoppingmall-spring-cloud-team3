@@ -29,15 +29,18 @@ public class ProductServiceImpl implements ProductService {
     private final ProductCategoryRepository productCategoryRepository;
     private final CategoryRepository categoryRepository;
 
+    @Transactional(readOnly = true)
     public PageResponseDto<ProductDto.ProductSummaryResponse> getProductsSummary(Pageable pageable, Long categoryId, String keyword){
         return PageResponseDto.fromPage(productRepository.findProductSummaryBySearchOption(pageable, keyword, categoryId));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public ProductDto.Read.Response getProductDetail(Long id) {
-
+        List<ProductCategory> productCategoryList = productCategoryRepository.findByProduct_Id(id);
+        List<Category> categoryList = productCategoryList.stream().map(ProductCategory::getCategory).collect(Collectors.toList());
         return productRepository.findById(id)
-                .map(ProductDto.Read.Response::fromEntity)
+                .map(product -> ProductDto.Read.Response.fromEntity(product, categoryList))
                 .orElseThrow(() -> new ProductNotFoundException(id));
     }
 

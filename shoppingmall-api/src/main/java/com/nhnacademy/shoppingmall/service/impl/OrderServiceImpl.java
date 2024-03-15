@@ -2,8 +2,6 @@ package com.nhnacademy.shoppingmall.service.impl;
 
 import com.nhnacademy.shoppingmall.dto.OrderDto;
 import com.nhnacademy.shoppingmall.enitiy.*;
-import com.nhnacademy.shoppingmall.enums.PointType;
-import com.nhnacademy.shoppingmall.exception.order.OrderNotFoundException;
 import com.nhnacademy.shoppingmall.exception.user.UserNotFoundException;
 import com.nhnacademy.shoppingmall.repository.*;
 import com.nhnacademy.shoppingmall.service.OrderService;
@@ -13,9 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
@@ -38,7 +34,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Long createOrder(OrderDto.RegisterRequest request) {
         Long userId = UserIdStore.getUserId();
-
         User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(userId));
         Order order = orderRepository.save(request.toEntity(user));
 
@@ -49,19 +44,16 @@ public class OrderServiceImpl implements OrderService {
             Product product = cartItem.getProduct();
             // 상품 수량 확인 및 감소 (상품 수량이 부족한 경우 예외 발생)
             product.decreaseOrderQuantity(cartItem.getQuantity());
-            OrderDetail orderDetail = OrderDetail.builder()
-                                                    .order(order)
-                                                    .product(product)
-                                                    .quantity(cartItem.getQuantity())
-                                                    .build();
-            orderDetailList.add(orderDetail);
+            orderDetailList.add(OrderDetail.builder()
+                    .order(order)
+                    .product(product)
+                    .quantity(cartItem.getQuantity())
+                    .build());
         }
         // 장바구니 삭제
         cartRepository.deleteAll(cartList);
-        // 주문 상세 저장
-        List<OrderDetail> savedOrderDetailList = orderDetailRepository.saveAll(orderDetailList);
-        // 주문 금액 저장
-        savedOrderDetailList
+        // 주문 상세 저장 + 주문 금액 저장
+        orderDetailRepository.saveAll(orderDetailList)
                 .forEach(orderDetail -> order.increaseOrderPrice(orderDetail.getProduct().getUnitCost() * orderDetail.getQuantity()));
         // 유저 포인트로 결제 (결제 금액보다 적은 경우 예외 발생)
         user.payment(order.getPrice());
@@ -79,7 +71,6 @@ public class OrderServiceImpl implements OrderService {
                 .transactionType("적립")
                 .amount(accumulatePoint)
                 .build());
-
         // 포인트 서비스의 accruePointByOrder 메서드를 비동기로 호출
         try {
             pointService.accruePointByOrder(user, order);
@@ -91,6 +82,7 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public Page<OrderDto.ReadResponse> getOrderPage(Pageable pageable) {
         Long userId = UserIdStore.getUserId();
         return orderRepository.findByUser_Id(userId, pageable)

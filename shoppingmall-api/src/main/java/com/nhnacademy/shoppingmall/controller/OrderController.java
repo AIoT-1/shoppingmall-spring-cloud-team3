@@ -3,11 +3,11 @@ package com.nhnacademy.shoppingmall.controller;
 import com.nhnacademy.shoppingmall.dto.OrderDetailDto;
 import com.nhnacademy.shoppingmall.dto.OrderDto;
 import com.nhnacademy.shoppingmall.dto.PageResponseDto;
-import com.nhnacademy.shoppingmall.enums.PointType;
 import com.nhnacademy.shoppingmall.service.OrderDetailService;
 import com.nhnacademy.shoppingmall.service.OrderService;
 import com.nhnacademy.shoppingmall.service.PointService;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -27,7 +27,7 @@ public class OrderController
     private final PointService pointService;
 
     @GetMapping
-    public ResponseEntity<PageResponseDto<OrderDto.ReadResponse>> getOrders(@PageableDefault(size = 5, sort = "orderDate") Pageable pageable) {
+    public ResponseEntity<PageResponseDto<OrderDto.ReadResponse>> getOrders(@ParameterObject @PageableDefault(size = 5, sort = "orderDate") Pageable pageable) {
         Page<OrderDto.ReadResponse> orderPage = orderService.getOrderPage(pageable);
         return ResponseEntity.ok().body(PageResponseDto.fromPage(orderPage));
     }
