@@ -18,6 +18,8 @@ public class RedisConfig {
     @Value("${spring.redis.port}")
     private int redisPort;
 
+    // lettuce
+    // 참고 https://github.dev/JianChoi-Kor/Login/tree/master/src
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         return new LettuceConnectionFactory(redisHost, redisPort);
