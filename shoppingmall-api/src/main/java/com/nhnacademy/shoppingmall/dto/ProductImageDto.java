@@ -1,10 +1,15 @@
 package com.nhnacademy.shoppingmall.dto;
 
 import com.nhnacademy.shoppingmall.enitiy.ProductImage;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ProductImageDto {
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class Read {
-
+        @Getter
         public static class Response {
             private Long id;
             private String image;

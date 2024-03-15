@@ -147,6 +147,7 @@ CREATE TABLE `order` (
 CREATE TABLE `order_detail` (
                                 `id` bigint NOT NULL AUTO_INCREMENT,
                                 `order_id` bigint NOT NULL,
+                                `address` varchar(255) NULL,
                                 `product_id` bigint NOT NULL,
                                 `quantity` int NOT NULL,
                                 PRIMARY KEY (`id`)

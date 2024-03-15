@@ -1,6 +1,7 @@
 package com.nhnacademy.shoppingmall.service.impl;
 
 import com.nhnacademy.shoppingmall.dto.OrderDetailDto;
+import com.nhnacademy.shoppingmall.enitiy.Order;
 import com.nhnacademy.shoppingmall.enitiy.OrderDetail;
 import com.nhnacademy.shoppingmall.enitiy.Product;
 import com.nhnacademy.shoppingmall.repository.OrderDetailRepository;
@@ -14,38 +15,40 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class OrderDetailServiceImplTest {
     private static Long productId = 0L;
+    private static Long orderId = 0L;
 
     @Mock
     private OrderDetailRepository orderDetailRepository;
 
     @InjectMocks
     private OrderDetailServiceImpl orderDetailService;
-//    public List<OrderDetailDto.ReadResponse> getOrderDetails(Long orderId) {
-//        List<OrderDetail> orderDetailList = orderDetailRepository.findByOrderId(orderId);
-//        return orderDetailList.stream()
-//                .map(OrderDetailDto.ReadResponse::fromEntity)
-//                .collect(Collectors.toList());
+
     @Test
     @DisplayName("주문 상세 조회 테스트")
     void getOrderDetails() {
-        // given
         Long orderId = 1L;
         OrderDetail orderDetail = OrderDetail.builder()
-                .order(null)
-                .product(null)
+                .order(createOrder())
+                .product(createProduct())
                 .quantity(1)
                 .build();
-        when(orderDetailRepository.findByOrderId(orderId)).thenReturn(List.of(orderDetail));
-        // when
+        OrderDetail orderDetail2 = OrderDetail.builder()
+                .order(createOrder())
+                .product(createProduct())
+                .quantity(1)
+                .build();
+        when(orderDetailRepository.findByOrderId(orderId)).thenReturn(List.of(orderDetail, orderDetail2));
         List<OrderDetailDto.ReadResponse> actual = orderDetailService.getOrderDetails(orderId);
-        // then
-        assertEquals(1, actual.size());
+
+        assertThat(actual.size()).isEqualTo(2);
+        assertThat(actual.get(0).getProductId()).isEqualTo(1L);
+        assertThat(actual.get(1).getProductId()).isEqualTo(2L);
 
     }
 
@@ -61,5 +64,14 @@ class OrderDetailServiceImplTest {
                 .build();
         ReflectionTestUtils.setField(product, "id", productId);
         return product;
+    }
+    private Order createOrder() {
+        orderId++;
+        Order order =  Order.builder()
+                .user(null)
+                .build();
+        ReflectionTestUtils.setField(order, "id", orderId);
+        return  order;
+
     }
 }
