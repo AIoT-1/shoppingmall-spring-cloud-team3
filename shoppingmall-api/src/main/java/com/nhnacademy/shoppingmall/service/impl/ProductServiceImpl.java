@@ -97,4 +97,12 @@ public class ProductServiceImpl implements ProductService {
 
         return savedProduct.getId();
     }
+
+    @Override
+    public void deleteProduct(Long id) {
+        if (!productRepository.existsById(id)) {
+            throw new ProductNotFoundException(id);
+        }
+        productRepository.deleteById(id);
+    }
 }

@@ -2,6 +2,7 @@ package com.nhnacademy.shoppingmall.service.impl;
 
 import com.nhnacademy.shoppingmall.dto.OrderDto;
 import com.nhnacademy.shoppingmall.enitiy.*;
+import com.nhnacademy.shoppingmall.exception.address.AddressNotFoundException;
 import com.nhnacademy.shoppingmall.exception.user.UserNotFoundException;
 import com.nhnacademy.shoppingmall.repository.*;
 import com.nhnacademy.shoppingmall.service.OrderService;
@@ -34,8 +35,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Long createOrder(OrderDto.RegisterRequest request) {
         Long userId = UserIdStore.getUserId();
+        Long addressId = request.getAddressId();
         User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(userId));
-        Order order = orderRepository.save(request.toEntity(user));
+        Address address = addressRepository.findById(addressId).orElseThrow(() -> new AddressNotFoundException(addressId));
+
+        Order order = orderRepository.save(request.toEntity(user, address));
 
         List<OrderDetail> orderDetailList = new ArrayList<>();
         List<Cart> cartList = cartRepository.findAllById(request.getCartIdList());

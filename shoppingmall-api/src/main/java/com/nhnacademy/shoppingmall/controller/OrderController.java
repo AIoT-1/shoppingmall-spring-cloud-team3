@@ -5,7 +5,6 @@ import com.nhnacademy.shoppingmall.dto.OrderDto;
 import com.nhnacademy.shoppingmall.dto.PageResponseDto;
 import com.nhnacademy.shoppingmall.service.OrderDetailService;
 import com.nhnacademy.shoppingmall.service.OrderService;
-import com.nhnacademy.shoppingmall.service.PointService;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
@@ -24,7 +23,6 @@ public class OrderController
 {
     private final OrderService orderService;
     private final OrderDetailService orderDetailService;
-    private final PointService pointService;
 
     @GetMapping
     public ResponseEntity<PageResponseDto<OrderDto.ReadResponse>> getOrders(@ParameterObject @PageableDefault(size = 5, sort = "orderDate") Pageable pageable) {

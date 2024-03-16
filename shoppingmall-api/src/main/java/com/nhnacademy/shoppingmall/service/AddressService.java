@@ -14,4 +14,6 @@ public interface AddressService {
     AddressDto.Update.Response updateDefaultAddress(Long addressId);
 
     AddressDto.Update.Response updateAddress(Long addressId, AddressDto.Update.Request request);
+
+    void deleteAddress(Long addressId);
 }

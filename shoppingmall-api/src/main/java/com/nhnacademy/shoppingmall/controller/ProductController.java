@@ -34,10 +34,16 @@ public class ProductController {
         return ResponseEntity.ok().body(productService.getProductDetail(id));
     }
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Long> createProduct(ProductDto.Create.Request request, HttpServletRequest req
+    public ResponseEntity<Long> createProduct(@ModelAttribute ProductDto.Create.Request request, HttpServletRequest req
                                    ){
         Long productId = productService.createProduct(request, req.getServletContext().getRealPath("/"));
         return ResponseEntity.ok().body(productId);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
+        productService.deleteProduct(id);
+        return ResponseEntity.noContent().build();
     }
 
 }

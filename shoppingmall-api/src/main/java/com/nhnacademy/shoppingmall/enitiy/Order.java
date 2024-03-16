@@ -18,6 +18,9 @@ public class Order {
     @ManyToOne
     private User user;
 
+    @Column(name = "address")
+    private String address;
+
     @Column(name = "price")
     @Setter
     private Integer price;
@@ -28,12 +31,14 @@ public class Order {
     private LocalDateTime shipDate;
 
     @Builder
-    private Order(User user) {
+    private Order(User user, Address address) {
         this.user = user;
+        this.address = address.getZipCode() + "/ " + address.getAddress() + "/ " + address.getAddressDetail();
         this.price = 0;
     }
 
     public void increaseOrderPrice(int orderPrice) {
         this.price += orderPrice;
     }
+
 }

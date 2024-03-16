@@ -11,4 +11,6 @@ public interface ProductService {
     ProductDto.Read.Response getProductDetail(Long id);
 
     Long createProduct(ProductDto.Create.Request request, String path);
+
+    void deleteProduct(Long id);
 }
