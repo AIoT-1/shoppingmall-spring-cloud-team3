@@ -1,8 +1,7 @@
 package com.nhnacademy.accountapi.security.details;
 
+import com.nhnacademy.accountapi.domain.User;
 import com.nhnacademy.accountapi.repository.UserRepository;
-import com.nhnacademy.shoppingmall.enitiy.User;
-import com.nhnacademy.shoppingmall.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,7 +19,6 @@ public class CustomUserDetailsService implements UserDetailsService {
     public CustomUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

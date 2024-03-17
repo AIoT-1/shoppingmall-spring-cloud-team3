@@ -2,6 +2,7 @@ package com.nhnacademy.accountapi.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nhnacademy.accountapi.properties.JwtProperties;
+import com.nhnacademy.accountapi.repository.UserRepository;
 import com.nhnacademy.accountapi.security.details.CustomUserDetailsService;
 import com.nhnacademy.accountapi.security.filter.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,7 @@ public class SecurityConfig {
 
     private final JwtProperties jwtProperties;
     private final ObjectMapper objectMapper;
+    private final UserRepository userRepository;
 
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
@@ -52,7 +54,7 @@ public class SecurityConfig {
     public CustomUserDetailsService customUserDetailsService() {
         //TODO#1-2 CustomUserDetailsService를 Bean으로 등록합니다.
         //DaoAuthenticationProvider 사용합니다. 즉 db에서 회원을 조회하는 역할을 합니다.
-        return new CustomUserDetailsService();
+        return new CustomUserDetailsService(userRepository);
     }
 
     @Bean
