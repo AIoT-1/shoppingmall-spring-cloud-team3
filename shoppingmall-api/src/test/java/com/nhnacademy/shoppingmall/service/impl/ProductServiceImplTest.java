@@ -6,6 +6,7 @@ import com.nhnacademy.shoppingmall.exception.product.ProductNotFoundException;
 import com.nhnacademy.shoppingmall.repository.ProductCategoryRepository;
 import com.nhnacademy.shoppingmall.repository.ProductRepository;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -34,6 +35,7 @@ class ProductServiceImplTest {
     private ProductServiceImpl productService;
 
     @Test
+    @DisplayName("상품 목록 조회 성공")
     void getProductsSummary() {
         Page<ProductDto.ProductSummaryResponse> productSummaryResponse = Page.empty();
         when(productRepository.findProductSummaryBySearchOption(any(), anyString(), anyLong())).thenReturn(productSummaryResponse);
@@ -44,7 +46,8 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void getProductDetail_WhenProductExists_ReturnsProductDetail() {
+    @DisplayName("상품 상세 조회 성공")
+    void getProductDetail() {
         when(productCategoryRepository.findByProduct_Id(anyLong())).thenReturn(new ArrayList<>());
         when(productRepository.findById(anyLong())).thenReturn(Optional.of(createProduct()));
 
@@ -55,7 +58,8 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void getProductDetail_WhenProductDoesNotExist_ThrowsProductNotFoundException() {
+    @DisplayName("상품 상세 조회 실패( 존재하지 않는 상품 )")
+    void getProductDetailThrowsProductNotFoundException() {
         when(productRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         Assertions.assertThatThrownBy(() -> productService.getProductDetail(1L))
@@ -63,9 +67,10 @@ class ProductServiceImplTest {
 
         verify(productRepository, times(1)).findById(anyLong());
     }
-    
+
     @Test
-    void deleteProduct_WhenProductExists_DeletesProduct() {
+    @DisplayName("상품 삭제 성공")
+    void deleteProduct() {
         when(productRepository.existsById(anyLong())).thenReturn(true);
 
         productService.deleteProduct(1L);
@@ -74,7 +79,8 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void deleteProduct_WhenProductDoesNotExist_ThrowsProductNotFoundException() {
+    @DisplayName("상품 삭제 실패( 존재하지 않는 상품 )")
+    void deleteProductThrowsProductNotFoundException() {
         when(productRepository.existsById(anyLong())).thenReturn(false);
 
         Assertions.assertThatThrownBy(() -> productService.deleteProduct(1L))

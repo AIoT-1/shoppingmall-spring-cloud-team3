@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Table(name = "order")
+@Table(name = "`order`")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class Order {
     @Builder
     private Order(User user, Address address) {
         this.user = user;
-        this.address = address.getZipCode() + "/ " + address.getAddress() + "/ " + address.getAddressDetail();
+        this.address = address.getZipCode() + " | " + address.getAddress() + " | " + address.getAddressDetail();
         this.price = 0;
     }
 
