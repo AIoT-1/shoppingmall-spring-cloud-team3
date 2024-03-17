@@ -34,4 +34,11 @@ public class AddressController {
     public ResponseEntity<AddressDto.Update.Response> updateDefaultAddress(@PathVariable("addressId")Long addressId){
         return ResponseEntity.ok().body(addressService.updateDefaultAddress(addressId));
     }
+
+    @DeleteMapping("/{addressId}")
+    public ResponseEntity<Void> deleteAddress(@PathVariable("addressId")Long addressId){
+        addressService.deleteAddress(addressId);
+        return ResponseEntity.noContent().build();
+    }
+
 }

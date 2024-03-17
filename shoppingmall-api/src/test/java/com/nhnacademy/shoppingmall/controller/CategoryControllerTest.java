@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -59,7 +59,7 @@ class CategoryControllerTest {
     @Test
     @DisplayName("카테고리 목록 조회 컨트롤러 테스트")
     void getCategories() throws Exception {
-        when(categoryService.getCategories()).thenReturn(new CategoryDto.ListResponse(List.of(new CategoryDto(1L, "test"))));
+        when(categoryService.getCategories()).thenReturn(List.of(CategoryDto.fromEntity(Category.builder().name("test").build())));
         mockMvc.perform(get(url)
                         .header("X-USER-ID", "1"))
                 .andExpect(status().isOk())

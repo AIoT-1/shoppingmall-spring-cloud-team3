@@ -76,4 +76,11 @@ public class AddressServiceImpl implements AddressService {
         return AddressDto.Update.Response.fromEntity(address);
     }
 
+    @Override
+    public void deleteAddress(Long addressId) {
+        if (!addressRepository.existsById(addressId)) {
+            throw new AddressNotFoundException(addressId);
+        }
+        addressRepository.deleteById(addressId);
+    }
 }

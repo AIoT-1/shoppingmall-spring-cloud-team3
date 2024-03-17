@@ -8,10 +8,7 @@ import com.nhnacademy.shoppingmall.enitiy.Order;
 import com.nhnacademy.shoppingmall.enitiy.Product;
 import com.nhnacademy.shoppingmall.enitiy.User;
 import com.nhnacademy.shoppingmall.exception.user.UserNotFoundException;
-import com.nhnacademy.shoppingmall.repository.CartRepository;
-import com.nhnacademy.shoppingmall.repository.OrderDetailRepository;
-import com.nhnacademy.shoppingmall.repository.OrderRepository;
-import com.nhnacademy.shoppingmall.repository.UserRepository;
+import com.nhnacademy.shoppingmall.repository.*;
 import com.nhnacademy.shoppingmall.service.PointService;
 import com.nhnacademy.shoppingmall.thread.UserIdStore;
 import org.junit.jupiter.api.DisplayName;
@@ -20,6 +17,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
 import java.util.Arrays;
@@ -46,6 +44,9 @@ class OrderServiceImplTest {
 
     @Mock
     private CartRepository cartRepository;
+
+    @Mock
+    private PointRepository pointRepository;
     @Mock
     private PointService pointService;
 
@@ -58,7 +59,7 @@ class OrderServiceImplTest {
         User user = createUser();
         Order order = createOrder();
         Product product = createProduct();
-        Cart cart = Cart.builder().product(product).user(user).quantity(1).build();
+        Cart cart = Cart.builder().product(product).user(user).quantity(4).build();
         OrderDto.RegisterRequest request = objectMapper.readValue("{\"cartIdList\":[1,2]}", OrderDto.RegisterRequest.class);
 
 
@@ -90,7 +91,7 @@ class OrderServiceImplTest {
     @DisplayName("주문 페이지 조회 성공")
     void getOrderPageSuccess() {
         UserIdStore.setUserId("1");
-          when(orderRepository.findByUser_Id(anyLong(), any())).thenReturn(null);
+        when(orderRepository.findByUser_Id(anyLong(), any())).thenReturn(Page.empty());
 
         orderService.getOrderPage(PageRequest.of(0, 10));
 
@@ -98,7 +99,7 @@ class OrderServiceImplTest {
     }
 
     private User createUser() {
-        return User.builder().loginId("1").build();
+        return User.builder().loginId("1").point(10000L).build();
     }
 
     private Order createOrder() {
@@ -111,6 +112,7 @@ class OrderServiceImplTest {
                 .modelNumber("modelNumber")
                 .modelName("modelName")
                 .unitCost(1000)
+                .quantity(10)
                 .description("description")
                 .thumbnail("thumbnail")
                 .build();

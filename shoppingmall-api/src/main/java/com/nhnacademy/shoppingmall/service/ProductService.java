@@ -2,7 +2,6 @@ package com.nhnacademy.shoppingmall.service;
 
 import com.nhnacademy.shoppingmall.dto.PageResponseDto;
 import com.nhnacademy.shoppingmall.dto.ProductDto;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface ProductService {
@@ -11,5 +10,7 @@ public interface ProductService {
 
     ProductDto.Read.Response getProductDetail(Long id);
 
-    Long createProduct(ProductDto.Create.Request request);
+    Long createProduct(ProductDto.Create.Request request, String path);
+
+    void deleteProduct(Long id);
 }

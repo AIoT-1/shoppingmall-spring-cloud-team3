@@ -1,10 +1,7 @@
 package com.nhnacademy.shoppingmall.enitiy;
 
 import com.nhnacademy.shoppingmall.exception.product.ProductShortageException;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
@@ -29,6 +26,7 @@ public class Product {
     private Integer unitCost;
     @Column(name = "description")
     private String description;
+    @Setter
     @Column(name = "thumbnail")
     private String thumbnail;
     @Column(name = "quantity")
@@ -48,6 +46,7 @@ public class Product {
         this.description = description;
         this.thumbnail = thumbnail;
         this.quantity = quantity;
+        this.deletedYn = "N";
     }
 
     public void decreaseOrderQuantity(int orderQuantity) {

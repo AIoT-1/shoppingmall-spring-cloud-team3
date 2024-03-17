@@ -7,8 +7,11 @@ import lombok.RequiredArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @RestController
@@ -30,12 +33,17 @@ public class ProductController {
     public ResponseEntity<ProductDto.Read.Response> getProductDetail(@PathVariable Long id){
         return ResponseEntity.ok().body(productService.getProductDetail(id));
     }
-
-    @PostMapping
-    public ResponseEntity<Long> createProduct(@RequestBody ProductDto.Create.Request request){
-        return ResponseEntity.ok().body(productService.createProduct(request));
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Long> createProduct(@ModelAttribute ProductDto.Create.Request request, HttpServletRequest req
+                                   ){
+        Long productId = productService.createProduct(request, req.getServletContext().getRealPath("/"));
+        return ResponseEntity.ok().body(productId);
     }
 
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
+        productService.deleteProduct(id);
+        return ResponseEntity.noContent().build();
+    }
 
 }

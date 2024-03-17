@@ -51,9 +51,9 @@ class CategoryServiceImplTest {
     @DisplayName("카테고리 목록 조회 테스트")
     void getCategories() {
         Category category = createCategory();
-        when(categoryRepository.findAllBy()).thenReturn(List.of(new CategoryDto(category.getId(), category.getName())));
-        CategoryDto.ListResponse categories = categoryService.getCategories();
-        verify(categoryRepository, times(1)).findAllBy();
+        when(categoryRepository.findAll()).thenReturn(List.of(Category.builder().name("test").build()));
+        List<CategoryDto> categories = categoryService.getCategories();
+        verify(categoryRepository, times(1)).findAll();
     }
 
     @Test

@@ -10,6 +10,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 @Service
 @Transactional
@@ -30,8 +33,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     @Transactional(readOnly = true)
-    public CategoryDto.ListResponse getCategories() {
-        return new CategoryDto.ListResponse(categoryRepository.findAllBy());
+    public List<CategoryDto> getCategories() {
+        return categoryRepository.findAll().stream().map(CategoryDto::fromEntity).collect(Collectors.toList());
     }
 
     @Override

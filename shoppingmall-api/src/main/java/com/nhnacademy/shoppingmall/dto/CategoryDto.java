@@ -3,8 +3,6 @@ package com.nhnacademy.shoppingmall.dto;
 import com.nhnacademy.shoppingmall.enitiy.Category;
 import lombok.Getter;
 
-import java.util.List;
-
 
 @Getter
 public class CategoryDto {
@@ -15,6 +13,11 @@ public class CategoryDto {
         this.id = id;
         this.name = name;
     }
+
+    public static CategoryDto fromEntity(Category category) {
+        return new CategoryDto(category.getId(), category.getName());
+    }
+
     @Getter
     public static class RegisterRequest{
         private String name;
@@ -40,15 +43,6 @@ public class CategoryDto {
     }
 
     @Getter
-    public static class ListResponse{
-        private final List<CategoryDto> categories;
-
-        public ListResponse(List<CategoryDto> categories){
-            this.categories = categories;
-        }
-
-    }
-    @Getter
     public static class UpdateRequest {
         private String name;
     }
@@ -65,4 +59,5 @@ public class CategoryDto {
             return updateResponse;
         }
     }
+
 }
