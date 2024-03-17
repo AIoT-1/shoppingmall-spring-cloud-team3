@@ -11,5 +11,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Page<User> findPageByAuth(Pageable pageable, String auth);
     boolean existsByLoginId(String loginId);
-    Optional<User> findByLoginId(String loginId);
+    Optional<User> findByUsername(String username);
 }

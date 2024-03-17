@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e886b7e5-a4ae-49b5-932d-76d77258bb89" name="변경" comment="UserDetailsService 클래스 생성: 사용자 인증 및 권한 확인을 위해 &#10;RestTemplate을 사용하여 사용자 정보 가져오기:  RestTemplate을 사용하여 사용자 정보를 가져오는 메서드를 작성&#10;UserDetailsService를 빈으로 등록: Spring Security에서 사용자 인증 및 권한 부여에 빈을 사용할 수 있도록 SecurityConfig 클래스에서 customUserDetailService 빈을 등록">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/gateway/filter/JwtAuthorizationHeaderFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/gateway/filter/JwtAuthorizationHeaderFilter.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JaeHyeok29&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="4b5d7b7b-e5eb-4dd6-a824-84e0ea67de28" />
+        <option name="url" value="https://github.com/AIoT-1/shoppingmall-spring-cloud-team3.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Maven 래퍼 사용" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2dfTrbrC8FrjvVt69WdCdJF2rEE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.GatewayApplication.executor": "Run",
+    "git-widget-placeholder": "feature/gateway",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ENABLE_JMX_AGENT" value="false" />
+      <module name="gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.nhnacademy.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-396cc1b2" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="e886b7e5-a4ae-49b5-932d-76d77258bb89" name="변경" comment="" />
+      <created>1710398333967</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710398333967</updated>
+      <workItem from="1710398335488" duration="580000" />
+      <workItem from="1710399261234" duration="1602000" />
+      <workItem from="1710403683133" duration="829000" />
+      <workItem from="1710406772713" duration="245000" />
+      <workItem from="1710407402518" duration="705000" />
+      <workItem from="1710408176601" duration="254000" />
+    </task>
+    <task id="LOCAL-00001" summary="UserDetailsService 클래스 생성: 사용자 인증 및 권한 확인을 위해 &#10;RestTemplate을 사용하여 사용자 정보 가져오기:  RestTemplate을 사용하여 사용자 정보를 가져오는 메서드를 작성&#10;UserDetailsService를 빈으로 등록: Spring Security에서 사용자 인증 및 권한 부여에 빈을 사용할 수 있도록 SecurityConfig 클래스에서 customUserDetailService 빈을 등록">
+      <option name="closed" value="true" />
+      <created>1710406400988</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710406400988</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="UserDetailsService 클래스 생성: 사용자 인증 및 권한 확인을 위해 &#10;RestTemplate을 사용하여 사용자 정보 가져오기:  RestTemplate을 사용하여 사용자 정보를 가져오는 메서드를 작성&#10;UserDetailsService를 빈으로 등록: Spring Security에서 사용자 인증 및 권한 부여에 빈을 사용할 수 있도록 SecurityConfig 클래스에서 customUserDetailService 빈을 등록" />
+    <option name="LAST_COMMIT_MESSAGE" value="UserDetailsService 클래스 생성: 사용자 인증 및 권한 확인을 위해 &#10;RestTemplate을 사용하여 사용자 정보 가져오기:  RestTemplate을 사용하여 사용자 정보를 가져오는 메서드를 작성&#10;UserDetailsService를 빈으로 등록: Spring Security에서 사용자 인증 및 권한 부여에 빈을 사용할 수 있도록 SecurityConfig 클래스에서 customUserDetailService 빈을 등록" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

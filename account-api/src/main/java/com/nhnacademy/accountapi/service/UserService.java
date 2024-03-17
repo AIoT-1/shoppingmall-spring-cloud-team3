@@ -1,5 +1,6 @@
 package com.nhnacademy.accountapi.service;
 
+import com.nhnacademy.accountapi.domain.User;
 import com.nhnacademy.accountapi.dto.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -49,4 +50,5 @@ public class UserService {
             }
         }
     }
+
 }

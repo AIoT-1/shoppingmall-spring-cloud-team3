@@ -15,6 +15,9 @@ public class PrincipalDetails implements UserDetails {
         this.user = user;
     }
 
+    public PrincipalDetails(com.nhnacademy.shoppingmall.enitiy.User user) {
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> collection = new ArrayList<>();
