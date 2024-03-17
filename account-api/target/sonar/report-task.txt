@@ -1,0 +1,6 @@
+projectKey=nhnacademy_05
+serverUrl=http://133.186.244.96:9000
+serverVersion=8.9.1.44547
+dashboardUrl=http://133.186.244.96:9000/dashboard?id=nhnacademy_05
+ceTaskId=AY4YGLf2AgO5jH-39DWS
+ceTaskUrl=http://133.186.244.96:9000/api/ce/task?id=AY4YGLf2AgO5jH-39DWS

@@ -13,4 +13,5 @@ public class UserResponse {
         this.userId = userId;
         this.userName = userName;
     }
+
 }
