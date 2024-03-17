@@ -77,7 +77,7 @@ public class OrderController {
         int pageNumber = page != null && !page.isEmpty() ? Integer.parseInt(page) : 0;
 
         OrderListResponseDTO orders = orderService.getOrderList(pageNumber);
-        model.addAttribute("orders", orders);
+        model.addAttribute("orders", orders.getContent());
 
         return "pages/order_list";
     }

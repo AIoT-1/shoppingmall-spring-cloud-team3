@@ -130,7 +130,7 @@
                             <form method="post" action="/review">
                                 <div class="row align-items-center">
                                     <div class="col-md-6 mb-3 mb-md-0">
-                                        <div class="rating" id="rating">
+                                        <div class="rating" id="rating" >
                                             <label class="form-label fw-bold" style="font-size: 24px; color: rgba(0,0,0,0.76);">&nbsp;평점&nbsp;</label>
                                             <span class="btn-star" th:attr="data-rating=1" style="cursor: pointer;"><i class="bi bi-star-fill" style="color: #FFA500; font-size: 26px;"></i></span>
                                             <span class="btn-star" th:attr="data-rating=2" style="cursor: pointer;"><i class="bi bi-star-fill" style="color: #FFA500; font-size: 26px;"></i></span>
@@ -141,7 +141,7 @@
                                     </div>
                                     <div class="col-md-6 text-md-end">
                                             <input type="hidden" name="product_id" th:value="${productDetail.id}" />
-                                            <input type="hidden" name="rating" id="ratingInput" />
+                                            <input type="hidden" name="ratingInput" id="ratingInput" />
                                         <button type="submit" class="btn mt-auto" id="submitButton" style="background-color: white; border-color: rgba(0,0,0,0.30); color: gray" onmouseover="this.style.backgroundColor='#bed7ff'; this.style.borderColor='#bed7ff'; this.style.color='white';" onmouseout="this.style.backgroundColor='white'; this.style.borderColor='rgba(0,0,0,0.30)'; this.style.color='gray';">등록</button>
                                     </div>
                                 </div>

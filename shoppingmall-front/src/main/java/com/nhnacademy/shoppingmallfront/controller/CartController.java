@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -31,7 +32,7 @@ public class CartController {
     }
 
     @PostMapping("/cart")
-    public String addCart(@RequestParam("quantity") int quantity, @RequestParam("product_id") Long productId) {
+    public String addCart(@RequestParam("quantity") int quantity, @RequestParam("product_id") Long productId, HttpSession session) {
         List<CartResponseDTO> response = this.cartService.getCart();
         for (CartResponseDTO item : response) {
             if(item.getProductId().equals(productId)){
@@ -46,11 +47,13 @@ public class CartController {
 
         this.cartService.addCart(request);
 
+        session.setAttribute("cartItemCount", response.size());
+
         return "redirect:/cart";
     }
 
     @PostMapping("/cart/{cartId}")
-    public String updateCart(@RequestParam(value = "method", required = false) String method, @RequestParam(value = "quantity", required = false, defaultValue = "0") int quantity, @PathVariable("cartId") Long cartId) {
+    public String updateCart(@RequestParam(value = "method", required = false) String method, @RequestParam(value = "quantity", required = false, defaultValue = "0") int quantity, @PathVariable("cartId") Long cartId, HttpSession session) {
         if (method.equals("put")) {
             CartModifyRequestDTO request = new CartModifyRequestDTO();
             request.setQuantity(quantity);
@@ -59,6 +62,13 @@ public class CartController {
         } else if (method.equals("delete")) {
             this.cartService.deleteCart(cartId);
         }
+
+        List<CartResponseDTO> response = this.cartService.getCart();
+        int cartItemCount = 0;
+        if (response != null) {
+            cartItemCount = response.size();
+        }
+        session.setAttribute("cartItemCount", cartItemCount);
 
         return "redirect:/cart";
     }

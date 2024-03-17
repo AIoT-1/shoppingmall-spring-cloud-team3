@@ -1,7 +1,10 @@
 
 •
-java:S1192"RDefine a constant instead of duplicating this literal "redirect:/product" 3 times.(¸Ãä¢8ãµÏãä1J$92f06c0d-4d29-42d2-a6d9-4b855d3745b4
+java:S1192"RDefine a constant instead of duplicating this literal "redirect:/product" 3 times.(¸Ãä¢8ãµÏãä1J$715ac575-e0a8-4b29-ab46-28d9e13afb93
 “
-java:S1192"KDefine a constant instead of duplicating this literal "product_id" 3 times.(×Ã¹©øÿÿÿÿ8äµÏãä1J$5e1eb2f8-0f4e-4dff-aba4-71c1a90d1f80
+java:S1192"KDefine a constant instead of duplicating this literal "product_id" 3 times.(×Ã¹©øÿÿÿÿ8äµÏãä1J$a6b814ce-5445-4c75-9077-5de83a2fd246
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8èµÏãä1J$2fb3f3e5-89b5-4917-aeb9-4c5cd92704b2
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8èµÏãä1J$2755647c-48d7-49c8-8bb1-26d60b7bd8c8
+m	java:S106"+Replace this use of System.out by a logger.(–×ÙÔ8ĞğÈæä1J$651b5c98-750a-4dd9-801e-e919f34b5e25
+m	java:S106"+Replace this use of System.out by a logger.(ˆœ±·8ĞğÈæä1J$202e33bb-f254-47d5-9327-d57097643a9c
+r	java:S106"+Replace this use of System.out by a logger.(·Ö‘Ùüÿÿÿÿ8ĞğÈæä1J$8d5771a0-f15f-442b-83b4-d2692f8e56c6

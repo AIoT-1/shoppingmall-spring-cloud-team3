@@ -22,7 +22,7 @@ public class IndexController {
     private CategoryService categoryService;
 
     @GetMapping("/")
-    public String index(Model model, @RequestParam(value = "page", required = false) String page, @RequestParam(value = "category", required = false) String category, @RequestParam(value = "keyword", required = false) String keyword){
+    public String index(Model model, @RequestParam(value = "page", required = false) String page, @RequestParam(value = "category", required = false) String category, @RequestParam(value = "keyword", required = false) String keyword, HttpSession session){
         int pageNumber = page != null && !page.isEmpty() ? Integer.parseInt(page) : 0;
         int categoryId = category != null && !category.isEmpty() ? Integer.parseInt(category) : 0;
         ProductResponseDTO content;
@@ -41,7 +41,6 @@ public class IndexController {
         if(categoryId > 0) {
             model.addAttribute("selectedCategory", categoryId);
         }
-
         return "pages/home";
     }
 }

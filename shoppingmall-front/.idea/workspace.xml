@@ -4,26 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4805621b-e4fd-4dc9-90a7-d54e90fd3a1f" name="변경" comment="변경">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/dto/OrderDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/dto/OrderListResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shoppingmall-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../shoppingmall-api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/3/030c44edd4eb773a7c746beb16c7c0f89aad24f2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/3/030c44edd4eb773a7c746beb16c7c0f89aad24f2" afterDir="false" />
+    <list default="true" id="4805621b-e4fd-4dc9-90a7-d54e90fd3a1f" name="변경" comment="-wip">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/3/43348ecf2e12e57eec6905fd60a25b2710154ad9" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/3/43348ecf2e12e57eec6905fd60a25b2710154ad9" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/e/5e954475913d89b0721ec76a5695ca9ca0ca669c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/e/5e954475913d89b0721ec76a5695ca9ca0ca669c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/9/797b97d04311a67a8b270f1772a5a1268622976e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/9/797b97d04311a67a8b270f1772a5a1268622976e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a9e2af5809ae0f3ac3576c458815c45ed6117722" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a9e2af5809ae0f3ac3576c458815c45ed6117722" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/ca962d38141700ba92a976619dc990fb88ef2093" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/ca962d38141700ba92a976619dc990fb88ef2093" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e3ca6fa2fd8786acdf4b8033ab970c2a6dbb5a4a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e3ca6fa2fd8786acdf4b8033ab970c2a6dbb5a4a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/navigation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/login_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/login_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/order_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/order_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/product_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +107,7 @@
       <workItem from="1710647372517" duration="1290000" />
       <workItem from="1710648732549" duration="3087000" />
       <workItem from="1710651839133" duration="20174000" />
-      <workItem from="1710679635273" duration="644000" />
+      <workItem from="1710679635273" duration="7217000" />
     </task>
     <task id="LOCAL-00001" summary="변경">
       <option name="closed" value="true" />
@@ -120,18 +117,34 @@
       <option name="project" value="LOCAL" />
       <updated>1710669358739</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="-wip">
+      <option name="closed" value="true" />
+      <created>1710680288260</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710680288260</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="-wip" />
     <MESSAGE value="변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="변경" />
+    <MESSAGE value="-wip" />
+    <option name="LAST_COMMIT_MESSAGE" value="-wip" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.springframework.http.ResponseEntity" memberName="headers" />

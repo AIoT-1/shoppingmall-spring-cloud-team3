@@ -71,11 +71,12 @@
                                                 <button type="submit" class="btn btn-sm text-white" style="background-color: #ffcce6">View</button>
                                             </form>
                                             <div style="margin: 0 1px;"></div>
-                                            <form method="post" action="/cart">
+                                            <form method="post" action="/cart" th:if="${product.quantity > 0}">
                                                 <input type="hidden" name="product_id" th:value="${product.id}" />
                                                 <input type="hidden" name="quantity" th:value="1" />
                                                 <button type="submit" class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
                                             </form>
+                                            <button type="button" class="btn btn-sm text-white" style="background-color: #bed7ff" th:unless="${product.quantity > 0}" disabled>Cart</button>
                                         </div>
                                     </div>
                                 </div>
