@@ -10,4 +10,9 @@ import lombok.ToString;
 public class LoginRequest {
     private  String id;
     private  String password;
+
+    public String getUsername() {
+        return id;
+    }
+
 }

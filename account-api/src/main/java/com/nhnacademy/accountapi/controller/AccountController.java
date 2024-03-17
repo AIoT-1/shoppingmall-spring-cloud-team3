@@ -1,44 +1,129 @@
 package com.nhnacademy.accountapi.controller;
 
-import com.nhnacademy.accountapi.dto.TokenResponse;
-import com.nhnacademy.accountapi.security.details.CustomUserDetailsService;
+import com.nhnacademy.accountapi.dto.LoginRequest;
+import com.nhnacademy.accountapi.dto.UserResponse;
+import com.nhnacademy.accountapi.service.UserRequest;
+import com.nhnacademy.accountapi.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @Slf4j
 @RestController
 @RequestMapping("/api/account/users")
 public class AccountController {
 
-    private final CustomUserDetailsService userDetailsService;
+    @Autowired
+    private RestTemplate restTemplate;
 
     @Autowired
-    public AccountController(CustomUserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
+    private UserService userService;
+
+
+    // 로그인 API
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+        log.debug("로그인 요청이 수신되었습니다. : {}", loginRequest.getUsername());
+
+        // 로그인 API를 호출하고 응답을 받음
+        String loginUrl = "Http://localhost:8000/api/login"; // 로그인 API의 엔드포인트
+        ResponseEntity<String> responseEntity = restTemplate.postForEntity(loginUrl, loginRequest, String.class);
+
+        // 응답의 상태 코드 확인 후 응답 반환
+        if (responseEntity.getStatusCode().is2xxSuccessful()) {
+            return ResponseEntity.ok(responseEntity.getBody());
+        } else {
+            return ResponseEntity.status(responseEntity.getStatusCode())
+                    .body("로그인 실패");
+        }
     }
 
+    // 로그아웃 API
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout() {
+        log.debug("로그아웃 요청이 수신되었습니다. ");
+
+        // 로그아웃 API 호출
+        String logoutUrl = "http://localhost:8000/api/logout"; // 로그아웃 API의 엔드포인트
+        restTemplate.postForEntity(logoutUrl, null, String.class);
+
+        return ResponseEntity.ok("로그아웃 성공");
+
+    }
+
+    // 사용자 조회 API
     @GetMapping("/{id}")
-    public ResponseEntity<TokenResponse> getUser(@RequestHeader("X-USER-ID") String userId){
-        log.debug("X-USER-ID:{}",userId);
-        //TODO#6 회원조회 API를 구현합니다.
-        //UserResponse <-- 각 팀별로 설계한 회원 스키마를 고려하여 수정합니다.
-        //X-USER-ID는 Gateway에서 access-token을 검증 후 valid한 token이면 jwt의 payload의 userId를 Header에  X-USER-ID로 추가 합니다.
-        //회원은 shoppingmall-api 서버에 회원을 조회할 수 있는 api를 개발<-- 해당 API를 호출 합니다.
-        UserDetails userDetails = userDetailsService.loadUserByUsername(userId);
-        String accessToken = generateJwtToken(userDetails); // JWT 토큰 생성 메서드 호출
-        TokenResponse tokenResponse = new TokenResponse(accessToken, "Bearrer", 3600); // 토큰 유효시간
-        //UserResponse userResponse = new UserResponse(userDetails.getUsername(), userDetails.getUsername());
-        // 생성된 UserResponse를 ResponseEntity에 담아 반환
-        return ResponseEntity.ok(tokenResponse);
+    public ResponseEntity<UserResponse> getUser(@RequestHeader("X-USER-ID") String currentUserId,
+                                                @PathVariable("id") String userId) {
+        log.debug("X-USER-ID:{}", currentUserId);
+
+        // JWT 확인 및 검증
+
+
+        // Shoppingmall-api로 부터 회원 정보를 조회하는 url 설정
+        String shoppingMallApiUrl = "http://localhost:8000/api/user/" + userId;
+
+        try {
+            // 회원 정보 조회 API를 호출하고 응답 받음
+            ResponseEntity<UserResponse> responseEntity = restTemplate.getForEntity(shoppingMallApiUrl, UserResponse.class);
+
+            // 응답의 상태 코드를 확인 후 응답을 반환
+            if (responseEntity.getStatusCode().is2xxSuccessful()) {
+                return ResponseEntity.ok(responseEntity.getBody());
+            } else {
+                // shopping-api에서 에러 났을 때 404나 뭐 405 나오게
+                return ResponseEntity.status(responseEntity.getStatusCode())
+                        .build();
+            }
+        } catch (Exception e) {
+            // 예외처리
+            log.error("shoppingmall-api에서 사용자 정보를 가져오는 중 오류가 발생했습니다. : {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .build();
+        }
     }
 
-    // JWT Token 생성 메서드
-    private String generateJwtToken(UserDetails userDetails) {
-        // jwt 토큰을 생성하는 로직 구현 부분
-        // 아래는 임시로 샘플 JWT 토큰을 반환하는 부분
-        return "sample_jwt_token";
+    /*
+    메모장
+    *** 아래 코드를 사용하는 이유 ***
+    비즈니스 로직을 캡슐화하고, 다른 컴포넌트나 레이어에서 사용할 수 있도록 하는 서비스
+    1. 모듈화와 유지보수 강화
+    2. 재사용성
+    *
+    * GET 메소드
+getForObject()
+Employee employee = restTemplate.getForObject(BASE_URL + "/{id}", Employee.class);
+Employee 로의 매핑은 jackson-databind 가 기본적으로 담당하고 있다.
+출처: https://juntcom.tistory.com/141 [쏘니의 개발블로그:티스토리]
+     */
+
+    // 사용자 생성 API
+    @PostMapping("/users")
+    public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest request) {
+        // 사용자 생성
+        UserResponse userResponse = userService.createUser(request);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(userResponse);
+    }
+
+    // 사용자 수정
+    @PutMapping("/users/{userId}")
+    public ResponseEntity<Void> updateUser(@PathVariable String userId, @RequestBody UserRequest request) {
+        // 사용자 수정 API 호출
+        userService.updateUser(userId, request);
+        return ResponseEntity.ok()
+                .build();
+    }
+
+    // 사용자 삭제 로직
+    @DeleteMapping("/users/{userId}")
+    public ResponseEntity<Void> deleteUser(@PathVariable String userId) {
+        // 사용자 삭제 API 호출
+        userService.deleteUser(userId);
+        return ResponseEntity.notFound()
+                .build();
     }
 }
