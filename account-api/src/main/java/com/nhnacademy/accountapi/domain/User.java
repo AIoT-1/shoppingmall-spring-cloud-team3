@@ -1,35 +1,39 @@
 package com.nhnacademy.accountapi.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
-import java.util.List;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
+@Setter
+@Entity
+@Table(name = "user")
 public class User {
-    private final String userId;
-    private final String userName;
-    private final String userPassword;
-    private final List<String> userRoles;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public static enum ROLE{
-        ROLE_ADMIN("관리자"),
-        ROLE_USER("회원");
+    @Column(name = "login_id") // 필드명을 login_id로 수정
+    private String loginId;
 
-        ROLE(String role) {
-        }
-    }
-    public static User createAdmin(String userId, String userName, String userPassword){
-        return new User(userId,userName,userPassword,List.of(ROLE.ROLE_ADMIN.name()));
-    }
+    private String name;
+    private String password;
 
-    public static User createUser(String userId, String userName, String userPassword){
-        return new User(userId,userName,userPassword,List.of(ROLE.ROLE_USER.name()));
-    }
-    
-    private User(String userId, String userName, String userPassword, List<String> userRoles) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userRoles = userRoles;
-    }
+    @Column(name = "birth_date")
+    private LocalDateTime birthDate;
+
+    private String auth;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "last_login_at")
+    private LocalDateTime lastLoginAt;
+
+    @Column(name = "terminated_yn")
+    private String terminatedYn;
+
+    private Long point;
 }
