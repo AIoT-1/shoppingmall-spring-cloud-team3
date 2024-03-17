@@ -3,10 +3,7 @@ package com.nhnacademy.shoppingmallfront.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nhnacademy.shoppingmallfront.dto.AddressDTO;
-import com.nhnacademy.shoppingmallfront.dto.CartResponseDTO;
-import com.nhnacademy.shoppingmallfront.dto.OrderRegisterRequestDTO;
-import com.nhnacademy.shoppingmallfront.dto.UserDTO;
+import com.nhnacademy.shoppingmallfront.dto.*;
 import com.nhnacademy.shoppingmallfront.service.AddressService;
 import com.nhnacademy.shoppingmallfront.service.OrderService;
 import com.nhnacademy.shoppingmallfront.service.UserService;
@@ -70,14 +67,17 @@ public class OrderController {
         request.setCartIdList(intItemIds);
         request.setAddressId(Long.parseLong(addressId));
 
-        System.out.println(request.getAddressId());
         orderService.addOrder(request);
 
         return "redirect:/";
     }
 
     @GetMapping("/orderList")
-    public String orderList(@PathVariable Long loginId){
+    public String orderList(Model model, @RequestParam(value = "page", required = false) String page){
+        int pageNumber = page != null && !page.isEmpty() ? Integer.parseInt(page) : 0;
+
+        OrderListResponseDTO orders = orderService.getOrderList(pageNumber);
+        model.addAttribute("orders", orders);
 
         return "pages/order_list";
     }

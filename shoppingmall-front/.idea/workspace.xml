@@ -5,130 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4805621b-e4fd-4dc9-90a7-d54e90fd3a1f" name="변경" comment="변경">
-      <change afterPath="$PROJECT_DIR$/../account-api/.idea/account-api.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gateway/.idea/gateway.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shoppingmall-api/.idea/sonarlint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/0/0056e62fcdb0868a47030ce1a78bf80b08923050" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/3/030c44edd4eb773a7c746beb16c7c0f89aad24f2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/04f41bfd4e2bb73b50eec8887d86c30759946686" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/5/058585f1e2988b182be3eb427b2b7019c2cc064d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0b20ca9885e4fee36018519f578f2284c7bc1cdd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0b88647ed46d35729bc250f6aa1767f3416cbf23" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/3/130db4665e1551d9589d5cd352da32fdff26e90e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/8/18b81f09c05bd8e067133327847f0c36b7bd54d4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/d/1d75deeeee6f8fbf41c63638c3a9716c621339a3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/a/2a0089600efc86acabd75b437b3157a86ff28ea0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2b681c9a6653f3bc71afe1d52acd1be0088cdbf2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/3/43348ecf2e12e57eec6905fd60a25b2710154ad9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/e/4eb10005feb1e46824649dcdbadd700f3372f874" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/e/4eb5ed60c25fc0d10a090347f4b2e5d8690c21e9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/f/4fc5563b1de82e1854337aecbe2c7c2db07d2538" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/1/516aa5f8ac6d1c13f2e7590bda5ab2916c1345fa" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/5357c14b313666cb9fb6503c6dbcf3253467fa64" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/a/5a43ee4a72c0fa89490ccca12df3e0e844c8f38f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/e/5e954475913d89b0721ec76a5695ca9ca0ca669c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/2/72f1eef35ff403b462f93c59d0eb4fdd0966b272" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/9/797b97d04311a67a8b270f1772a5a1268622976e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/f/8f26056fa4edb800d4806b3571f0d08bf2dd34d7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a9e2af5809ae0f3ac3576c458815c45ed6117722" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/ac8232bb397af680dce1c987f3e877b9982d059e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/f/af71c06efc2b5ff7e448ddcafb38731c89face1c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b8701969aff1428a9707628dc9499cede7ee4d0a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b87cd6ba33104d517bc1082f95fb15921ee3aadd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/ca962d38141700ba92a976619dc990fb88ef2093" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/8/d85fa3f153efac1f03d361509d1f1f98d2abf5be" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/d/dd4724bca5571222ca8aa6327965ca9b265e3aed" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e3ca6fa2fd8786acdf4b8033ab970c2a6dbb5a4a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/6/e68fe563aa582ce2e4344b611cd6589500aec698" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/c/ecba10982cd6c9e2dcc0bf354ad1ef5adb01abe0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/b/fb0bde1ff0631e8649760f71531cb603c4a583a9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/0/0056e62fcdb0868a47030ce1a78bf80b08923050" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/3/030c44edd4eb773a7c746beb16c7c0f89aad24f2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/4/04f41bfd4e2bb73b50eec8887d86c30759946686" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/5/058585f1e2988b182be3eb427b2b7019c2cc064d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/b/0b20ca9885e4fee36018519f578f2284c7bc1cdd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/b/0b88647ed46d35729bc250f6aa1767f3416cbf23" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/3/130db4665e1551d9589d5cd352da32fdff26e90e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/8/18b81f09c05bd8e067133327847f0c36b7bd54d4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/d/1d75deeeee6f8fbf41c63638c3a9716c621339a3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/a/2a0089600efc86acabd75b437b3157a86ff28ea0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/b/2b681c9a6653f3bc71afe1d52acd1be0088cdbf2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/3/43348ecf2e12e57eec6905fd60a25b2710154ad9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/e/4eb10005feb1e46824649dcdbadd700f3372f874" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/e/4eb5ed60c25fc0d10a090347f4b2e5d8690c21e9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/f/4fc5563b1de82e1854337aecbe2c7c2db07d2538" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/1/516aa5f8ac6d1c13f2e7590bda5ab2916c1345fa" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/3/5357c14b313666cb9fb6503c6dbcf3253467fa64" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/a/5a43ee4a72c0fa89490ccca12df3e0e844c8f38f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/e/5e954475913d89b0721ec76a5695ca9ca0ca669c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/2/72f1eef35ff403b462f93c59d0eb4fdd0966b272" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/9/797b97d04311a67a8b270f1772a5a1268622976e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/f/8f26056fa4edb800d4806b3571f0d08bf2dd34d7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/9/a9e2af5809ae0f3ac3576c458815c45ed6117722" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/c/ac8232bb397af680dce1c987f3e877b9982d059e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/f/af71c06efc2b5ff7e448ddcafb38731c89face1c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/8/b8701969aff1428a9707628dc9499cede7ee4d0a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/8/b87cd6ba33104d517bc1082f95fb15921ee3aadd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/a/ca962d38141700ba92a976619dc990fb88ef2093" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/8/d85fa3f153efac1f03d361509d1f1f98d2abf5be" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/d/dd4724bca5571222ca8aa6327965ca9b265e3aed" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/3/e3ca6fa2fd8786acdf4b8033ab970c2a6dbb5a4a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/6/e68fe563aa582ce2e4344b611cd6589500aec698" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/c/ecba10982cd6c9e2dcc0bf354ad1ef5adb01abe0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/b/fb0bde1ff0631e8649760f71531cb603c4a583a9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/dto/AddressDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/AddressService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/AddressServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/AccountApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/AccountApiApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/AppBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/AppBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/controller/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/controller/AuthController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/domain/User$ROLE.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/domain/User$ROLE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/dto/LoginRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/dto/LoginRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/dto/TokenResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/dto/TokenResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/dto/UserResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/dto/UserResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/properties/JwtProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/properties/JwtProperties.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/properties/PropertiesBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/properties/PropertiesBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/security/details/CustomUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/security/details/CustomUserDetailsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/security/details/PrincipalDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/security/details/PrincipalDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/security/filter/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/security/filter/JwtAuthenticationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../account-api/target/classes/com/nhnacademy/accountapi/util/JwtUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gateway/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/dto/OrderDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/dto/OrderListResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoppingmall-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../shoppingmall-api/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/3/030c44edd4eb773a7c746beb16c7c0f89aad24f2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/3/030c44edd4eb773a7c746beb16c7c0f89aad24f2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/3/43348ecf2e12e57eec6905fd60a25b2710154ad9" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/3/43348ecf2e12e57eec6905fd60a25b2710154ad9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/e/5e954475913d89b0721ec76a5695ca9ca0ca669c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/e/5e954475913d89b0721ec76a5695ca9ca0ca669c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/9/797b97d04311a67a8b270f1772a5a1268622976e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/9/797b97d04311a67a8b270f1772a5a1268622976e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a9e2af5809ae0f3ac3576c458815c45ed6117722" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a9e2af5809ae0f3ac3576c458815c45ed6117722" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/ca962d38141700ba92a976619dc990fb88ef2093" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/ca962d38141700ba92a976619dc990fb88ef2093" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e3ca6fa2fd8786acdf4b8033ab970c2a6dbb5a4a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e3ca6fa2fd8786acdf4b8033ab970c2a6dbb5a4a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/dto/CategoryResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/dto/OrderRegisterRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/dto/OrderRegisterRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/CartServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/shoppingmallfront/service/ReviewServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/navigation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/login_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/login_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/order_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/order_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/order_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/order_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/order_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/order_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +65,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;Spring Boot.ShoppingmallFrontApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;feature/front&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -213,8 +109,18 @@
       <workItem from="1710220519630" duration="40000" />
       <workItem from="1710647372517" duration="1290000" />
       <workItem from="1710648732549" duration="3087000" />
-      <workItem from="1710651839133" duration="17296000" />
+      <workItem from="1710651839133" duration="20174000" />
+      <workItem from="1710679635273" duration="644000" />
     </task>
+    <task id="LOCAL-00001" summary="변경">
+      <option name="closed" value="true" />
+      <created>1710669358739</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710669358739</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +128,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="-wip" />
-    <option name="LAST_COMMIT_MESSAGE" value="-wip" />
+    <MESSAGE value="변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="변경" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

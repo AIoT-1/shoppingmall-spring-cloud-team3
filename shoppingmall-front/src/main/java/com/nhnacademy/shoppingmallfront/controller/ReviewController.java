@@ -4,7 +4,6 @@ package com.nhnacademy.shoppingmallfront.controller;
 import com.nhnacademy.shoppingmallfront.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,7 +43,6 @@ public class ReviewController {
                                @RequestParam("product_id") String productId,
                                RedirectAttributes redirectAttributes) {
         reviewService.updateReview(Integer.parseInt(rating), comment, Integer.parseInt(reviewId), Integer.parseInt(productId));
-        System.out.println(comment);
         redirectAttributes.addAttribute("product_id", productId);
         return "redirect:/product";
     }

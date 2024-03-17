@@ -1,7 +1,7 @@
 
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8°«Ğşã1J$39139586-da80-4704-aeba-214ecdd889f5
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8°«Ğşã1J$575ce7b4-774a-48d5-a9c1-b347b6a76c0e
 œ
-java:S1128"TRemove this unused import 'com.nhnacademy.shoppingmallfront.dto.ProductResponseDTO'.(¡çôıÿÿÿÿ8µ«Ğşã1J$eefda050-a228-4585-aea8-49f8fda2aa04
+java:S1128"TRemove this unused import 'com.nhnacademy.shoppingmallfront.dto.ProductResponseDTO'.(¡çôıÿÿÿÿ8µ«Ğşã1J$89adad16-2b69-4301-87e5-f93662c09b24
 —
-java:S1128"TRemove this unused import 'com.nhnacademy.shoppingmallfront.service.ProductService'.(Ç†×8µ«Ğşã1J$0d3770c0-aaa2-4d40-bb1c-468ad49d7934
+java:S1128"TRemove this unused import 'com.nhnacademy.shoppingmallfront.service.ProductService'.(Ç†×8µ«Ğşã1J$8b23504b-0639-447c-a1d0-9bac40bc54d4

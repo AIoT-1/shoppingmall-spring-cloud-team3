@@ -71,8 +71,6 @@ w
 Gsrc/main/java/com/nhnacademy/shoppingmallfront/service/UserService.java,4/a/4a3148361e999e5eb116525841d2e096ad9d6c9c
 {
 Ksrc/main/java/com/nhnacademy/shoppingmallfront/service/UserServiceImpl.java,5/6/562f6324a68fd1304477b8b904e11c1cdf01d86d
-Ä
-Psrc/main/java/com/nhnacademy/shoppingmallfront/controller/AddressController.java,5/1/51ad88f55dacc138adff9083c08032f25c5835ca
 z
 Jsrc/main/java/com/nhnacademy/shoppingmallfront/service/AddressService.java,4/b/4b221ddeac8ba7129b0750ea80f18912a2b19538
 ~
@@ -177,3 +175,7 @@ Q.idea/sonarlint/securityhotspotstore/5/a/5a43ee4a72c0fa89490ccca12df3e0e844c8f3
 Q.idea/sonarlint/securityhotspotstore/5/e/5e954475913d89b0721ec76a5695ca9ca0ca669c,e/4/e4958bb223f419807a2158bb20ba66dfb7d51aa4
 Å
 Q.idea/sonarlint/securityhotspotstore/0/5/058585f1e2988b182be3eb427b2b7019c2cc064d,6/3/63027bdd5ceb2e2f7764c9d870289f9048101661
+|
+Lsrc/main/java/com/nhnacademy/shoppingmallfront/dto/OrderListResponseDTO.java,b/3/b3a16450cde395082839441ab81c5b25b1d6e418
+p
+@src/main/java/com/nhnacademy/shoppingmallfront/dto/OrderDTO.java,8/3/8393d2158ca37e9fcd2f4f694b82506c70ea00d0

@@ -1,10 +1,7 @@
 
 •
-java:S1192"RDefine a constant instead of duplicating this literal "redirect:/product" 3 times.(¸Ãä¢8ĞşîÄä1J$5eb33be6-c4fe-4d33-a7b0-7a49e908d4db
+java:S1192"RDefine a constant instead of duplicating this literal "redirect:/product" 3 times.(¸Ãä¢8ãµÏãä1J$92f06c0d-4d29-42d2-a6d9-4b855d3745b4
 “
-java:S1192"KDefine a constant instead of duplicating this literal "product_id" 3 times.(×Ã¹©øÿÿÿÿ8ĞşîÄä1J$aee32ca8-f03f-49ed-a8b7-819567ba28ad
+java:S1192"KDefine a constant instead of duplicating this literal "product_id" 3 times.(×Ã¹©øÿÿÿÿ8äµÏãä1J$5e1eb2f8-0f4e-4dff-aba4-71c1a90d1f80
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8Üà‹Âä1J$a33682e6-1ee0-4b41-9ef9-a1d5846437b4
-r	java:S106/"+Replace this use of System.out by a logger.(·Ö‘Ùüÿÿÿÿ8üüÍÇä1J$486fd3da-5fe5-4990-99e0-6e0e4e7abeed
-š
-java:S1128"RRemove this unused import 'org.springframework.web.bind.annotation.DeleteMapping'.(­ìÎªşÿÿÿÿ8•‰ˆÅä1J$69208acc-fc43-4acb-bc14-5319169bf9d9
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8èµÏãä1J$2fb3f3e5-89b5-4917-aeb9-4c5cd92704b2

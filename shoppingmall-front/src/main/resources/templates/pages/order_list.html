@@ -4,11 +4,32 @@
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorate="layout/defaultLayout">
 <head>
-    <title>hello world</title>
+    <title>NHN SHOP - 주문 내역 확인</title>
 </head>
 <body>
 <th:block layout:fragment="content">
+    <h1>주문 내역 확인</h1>
 
+    <table>
+        <thead>
+        <tr>
+            <th>주문 번호</th>
+            <th>주문 일자</th>
+            <th>가격</th>
+            <th>배송 일자</th>
+            <th>사용자 ID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${orders}">
+            <td th:text="${order.id}"></td>
+            <td th:text="${order.orderDate}"></td>
+            <td th:text="${order.price}"></td>
+            <td th:text="${order.shipDate}"></td>
+            <td th:text="${order.userId}"></td>
+        </tr>
+        </tbody>
+    </table>
 </th:block>
 </body>
 </html>
