@@ -4,6 +4,7 @@ import com.nhnacademy.shoppingmall.enitiy.Address;
 import com.nhnacademy.shoppingmall.enitiy.Order;
 import com.nhnacademy.shoppingmall.enitiy.User;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -33,6 +34,8 @@ public class OrderDto {
     }
 
     @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class RegisterRequest {
         private Long addressId;
         private List<Long> cartIdList;

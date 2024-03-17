@@ -1,6 +1,7 @@
 package com.nhnacademy.shoppingmall.service.impl;
 
 import com.nhnacademy.shoppingmall.dto.OrderDetailDto;
+import com.nhnacademy.shoppingmall.enitiy.Address;
 import com.nhnacademy.shoppingmall.enitiy.Order;
 import com.nhnacademy.shoppingmall.enitiy.OrderDetail;
 import com.nhnacademy.shoppingmall.enitiy.Product;
@@ -69,9 +70,17 @@ class OrderDetailServiceImplTest {
         orderId++;
         Order order =  Order.builder()
                 .user(null)
+                .address(createAddress())
                 .build();
         ReflectionTestUtils.setField(order, "id", orderId);
         return  order;
 
+    }
+    private Address createAddress() {
+        return Address.builder()
+                .zipCode("zipCode")
+                .address("address")
+                .addressDetail("addressDetail")
+                .build();
     }
 }

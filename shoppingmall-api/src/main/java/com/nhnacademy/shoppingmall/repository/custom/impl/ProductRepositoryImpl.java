@@ -31,7 +31,7 @@ public class ProductRepositoryImpl extends QuerydslRepositorySupport implements 
                 .join(productCategory)
                     .on(product.id.eq(productCategory.product.id))
                 .where(categoryId != null ? productCategory.category.id.eq(categoryId) : null)
-                .where(keyword != null ? product.modelName.contains(keyword) : null)
+                .where(keyword != null ? product.modelName.containsIgnoreCase(keyword) : null)
                 .where(product.deletedYn.eq("N"))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
@@ -50,7 +50,7 @@ public class ProductRepositoryImpl extends QuerydslRepositorySupport implements 
                 .join(productCategory)
                 .on(product.id.eq(productCategory.product.id))
                 .where(categoryId != null ? productCategory.category.id.eq(categoryId) : null)
-                .where(keyword != null ? product.modelName.contains(keyword) : null)
+                .where(keyword != null ? product.modelName.containsIgnoreCase(keyword) : null)
                 .where(product.deletedYn.eq("N"))
                 .select(product.count());
 
