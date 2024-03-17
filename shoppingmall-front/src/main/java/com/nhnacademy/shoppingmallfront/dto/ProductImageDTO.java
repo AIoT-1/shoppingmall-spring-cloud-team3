@@ -5,11 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryDTO {
-        private Long id;
-        private String name;
+public class ProductImageDTO {
+    private Long id;
+    private String image;
 }

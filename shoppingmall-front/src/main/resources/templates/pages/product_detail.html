@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout/defaultLayout">
+<head>
+    <title>NHN SHOP</title>
+    <link href="css/images.css" rel="stylesheet" />
+</head>
+<body>
+<th:block layout:fragment="content">
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-6">
+                        <div class="image-container">
+                            <img id="productImage" class="card-img-top mb-5 mb-md-0" th:src="${images.size > 0 ? images[0].image : productDetail.thumbnail}" th:alt="${productDetail.modelName}" />
+                            <div class="image-buttons">
+                                <button class="btn image-button previous-button" onclick="showPreviousImage()"><i class="bi bi-chevron-double-left"></i></button>
+                                <button class="btn image-button next-button" onclick="showNextImage()"><i class="bi bi-chevron-double-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="small mb-2" th:text="${productDetail.categories.get(0).name}"></div>
+                        <h4 class="display-6 fw-bolder" th:text="${productDetail.modelName}"></h4>
+                        <div class="fs-5 mb-5">
+                            <h4 th:text="${#numbers.formatInteger(productDetail.unitCost, 3, 'COMMA') + ' 원'}"></h4>
+                            <div class="badge text-white"
+                                 style="top: 0.5rem; right: 0.5rem; background-color: #f51d62"
+                                 th:if="${productDetail.quantity == 0}">Sold Out</div>
+                        </div>
+                        <p th:text="${productDetail.description}"></p>
+                        <div class="d-flex">
+                            <form method="post" action="/cart">
+                                <input type="hidden" name="product_id" th:value="${productDetail.id}" />
+                                <div class="input-group">
+                                    <select class="form-select" name="quantity" th:if="${productDetail.quantity gt 0}">
+                                            <option th:each="qty : ${#numbers.sequence(1, productDetail.quantity)}"
+                                                th:if="${qty le 15}"
+                                                th:value="${qty}"
+                                                th:text="${qty}"></option>
+                                    </select>
+                                    <select class="form-select" name="quantity" th:unless="${productDetail.quantity gt 0}" disabled>
+                                        <option selected>품절</option>
+                                    </select>
+                                    <button class="btn btn-outline-secondary" type="submit" th:if="${productDetail.quantity gt 0}" style="transition: background-color 0.3s, border-color 0.3s; border-color: rgba(0,0,0,0.30); color: gray;" onmouseover="this.style.backgroundColor='#bed7ff'; this.style.color='white'; this.style.borderColor='#bed7ff'" onmouseout="this.style.backgroundColor=''; this.style.color='gray'; this.style.borderColor='rgba(0,0,0,0.30)'">
+                                        <i class="bi-cart-fill me-1"></i> 카트 추가
+                                    </button>
+                                    <button class="btn btn-outline-secondary" type="button" th:unless="${productDetail.quantity gt 0}" disabled>
+                                        카트 추가
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section class="py-5 bg-light">
+        <div class="container px-4 px-lg-5 mt-5">
+            <h2 class="fw-bolder mb-4">Reviews</h2>
+            <div th:if="${reviews.isEmpty()}">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <p class="text-center">리뷰가 없습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div th:if="${not reviews.isEmpty()}">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-start">
+                    <div th:each="review : ${reviews}" class="col mb-5">
+                        <div class="card h-100">
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder" th:text="${review.comment}"></h5>
+                                    <p class="fw-normal text-muted" th:text="'By ' + ${review.userName}"></p>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div th:each="star : ${#numbers.sequence(1, 5)}"
+                                             th:classappend="${star le review.rating} ? 'bi-star-fill' : 'bi-star'"></div>
+                                    </div>
+                                    <p th:text="${#temporals.format(review.createdAt, 'yyyy-MM-dd')}" class="mb-0"></p>
+                                    <div th:if="${#temporals.createNow().minusDays(2).isBefore(review.createdAt)}"
+                                         class="badge bg-dark text-white mt-2">New
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div style="display: inline-block;">
+                                        <button class="btn mt-auto edit-review-button" onclick="toggleEditForm(this)" style="background-color: white; border-color: rgba(0,0,0,0.30); color: gray" onmouseover="this.style.backgroundColor='#bed7ff'; this.style.borderColor='#bed7ff'; this.style.color='white';" onmouseout="this.style.backgroundColor='white'; this.style.borderColor='rgba(0,0,0,0.30)'; this.style.color='gray';">수정</button>
+                                    </div>
+                                    <div class="edit-actions" style="display: none;">
+                                        <!-- 확인 버튼 -->
+                                        <button type="submit" class="btn mt-auto confirm-edit-button" form="editForm" style="background-color: white; border-color: rgba(0,0,0,0.30); color: gray;" onmouseover="this.style.backgroundColor='#bed7ff'; this.style.borderColor='#bed7ff'; this.style.color='white';" onmouseout="this.style.backgroundColor='white'; this.style.borderColor='rgba(0,0,0,0.30)'; this.style.color='gray';">확인</button>
+                                        <!-- 취소 버튼 -->
+                                        <button type="button" class="btn mt-auto cancel-edit-button" onclick="cancelEditForm(this)" style="background-color: white; border-color: rgba(0,0,0,0.30); color: gray;" onmouseover="this.style.backgroundColor='#ffcce6'; this.style.borderColor='#ffcce6'; this.style.color='white';" onmouseout="this.style.backgroundColor='white'; this.style.borderColor='rgba(0,0,0,0.30)'; this.style.color='gray';">취소</button>
+                                    </div>
+                                    <div class="edit-form" style="display: none; text-align: center;">
+                                        <div class="mb-2"></div>
+                                        <form id="editForm" th:action="@{/review/update}" method="post">
+                                            <input type="hidden" name="product_id" th:value="${productDetail.id}" />
+                                            <input type="hidden" name="review_id" th:value="${review.id}" />
+                                            <input type="number" name="rating" th:value="${review.rating}" style="display: none;" />
+                                            <textarea class="form-control" name="comment" rows="3" th:text="${review.comment}" placeholder="수정할 내용을 입력해주세요 :)"></textarea>
+                                            <button type="submit" style="display: none;"></button>
+                                        </form>
+                                    </div>
+                                    <div style="display: inline-block;">
+                                        <form class="delete-form" th:action="@{'/review/delete'}" method="post">
+                                            <input type="hidden" name="product_id" th:value="${productDetail.id}" />
+                                            <input type="hidden" name="review_id" th:value="${review.id}" />
+                                            <button type="submit" class="btn mt-auto" style="background-color: rgba(0,0,0,0.30); border-color: rgba(0,0,0,0.12); color: white; display: inline-block;" onmouseover="this.style.backgroundColor='#ffcce6'; this.style.borderColor='#ffcce6'; this.style.color='white';" onmouseout="this.style.backgroundColor='rgba(0,0,0,0.30)'; this.style.borderColor='rgba(0,0,0,0.12)'; this.style.color='white';">삭제</button>
+                                        </form>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container px-4 px-lg-5 mt-5">
+            <h2 class="fw-bolder mb-4">Write a Review</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <form method="post" action="/review">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <div class="rating" id="rating">
+                                            <label class="form-label fw-bold" style="font-size: 24px; color: rgba(0,0,0,0.76);">&nbsp;평점&nbsp;</label>
+                                            <span class="btn-star" th:attr="data-rating=1" style="cursor: pointer;"><i class="bi bi-star-fill" style="color: #FFA500; font-size: 26px;"></i></span>
+                                            <span class="btn-star" th:attr="data-rating=2" style="cursor: pointer;"><i class="bi bi-star-fill" style="color: #FFA500; font-size: 26px;"></i></span>
+                                            <span class="btn-star" th:attr="data-rating=3" style="cursor: pointer;"><i class="bi bi-star-fill" style="color: #FFA500; font-size: 26px;"></i></span>
+                                            <span class="btn-star" th:attr="data-rating=4" style="cursor: pointer;"><i class="bi bi-star-fill" style="color: #FFA500; font-size: 26px;"></i></span>
+                                            <span class="btn-star" th:attr="data-rating=5" style="cursor: pointer;"><i class="bi bi-star-fill" style="color: #FFA500; font-size: 26px;"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 text-md-end">
+                                            <input type="hidden" name="product_id" th:value="${productDetail.id}" />
+                                            <input type="hidden" name="rating" id="ratingInput" />
+                                        <button type="submit" class="btn mt-auto" id="submitButton" style="background-color: white; border-color: rgba(0,0,0,0.30); color: gray" onmouseover="this.style.backgroundColor='#bed7ff'; this.style.borderColor='#bed7ff'; this.style.color='white';" onmouseout="this.style.backgroundColor='white'; this.style.borderColor='rgba(0,0,0,0.30)'; this.style.color='gray';">등록</button>
+                                    </div>
+                                </div>
+                                <div class="mb-1"></div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" name="comment" id="comment" rows="3" placeholder="코멘트를 작성해주세요 :)"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script th:inline="javascript">
+        var images = /*[[${images}]]*/ [];
+
+        var currentIndex = 0;
+        var productImage = document.getElementById('productImage');
+
+        function showPreviousImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }
+
+        function updateImage() {
+            productImage.src = images[currentIndex].image;
+        }
+    </script>
+</th:block>
+<script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,9 +1,15 @@
-.pagination-outer{ text-align: center; }
+.pagination-outer{
+    text-align: center;
+}
+
 .pagination{
     font-family: 'Rubik', sans-serif;
     padding: 0 30px;
-    display: inline-flex;
+    display: flex;
     position: relative;
+    flex-direction: row; /* 추가 */
+    align-items: center;
+    justify-content: center;/* 추가 */
 }
 .pagination li a.page-link{
     color: #909090;

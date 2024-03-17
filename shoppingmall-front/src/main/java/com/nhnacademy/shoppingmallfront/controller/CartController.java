@@ -36,7 +36,7 @@ public class CartController {
         for (CartResponseDTO item : response) {
             if(item.getProductId().equals(productId)){
                 CartModifyRequestDTO request = new CartModifyRequestDTO();
-                request.setQuantity(item.getCartQuantity() + 1);
+                request.setQuantity(item.getCartQuantity() + quantity);
                 this.cartService.updateCart(item.getId(), request);
             }
         }

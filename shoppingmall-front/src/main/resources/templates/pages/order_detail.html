@@ -4,11 +4,11 @@
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorate="layout/defaultLayout">
 <head>
-    <title>NHN SHOP - CART</title>
+    <title>hello world</title>
 </head>
 <body>
 <th:block layout:fragment="content">
-    <section class="py-5" style="background-color: rgba(223,237,255,0.37);">
+    <section class="py-5" style="background-color: aliceblue;">
         <div class="container h-100 py-5">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-10">
@@ -18,13 +18,8 @@
                             <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
                         </div>
                     </div>
-
-                    <div th:if="${#lists.isEmpty(cart)}" class="alert" role="alert" style="background-color: rgba(255,204,230,0.35); color: slategray">
-                        장바구니가 비어 있습니다.
-                    </div>
-                    <div th:if="${not #lists.isEmpty(cart)}">
                     <div th:each="item : ${cart}">
-                        <div class="card rounded-5 mb-4">
+                        <div class="card rounded-3 mb-4">
                             <div class="card-body p-5">
                                 <div class="row d-flex justify-content-between align-items-center">
                                     <div class="col-md-2 col-lg-2 col-xl-2">
@@ -73,25 +68,16 @@
                     </div>
 
                     </th:each>
-                    </div>
 
-                    <div class="card rounded-5 mb-4">
+                    <div class="card mb-4">
                         <div class="card-body p-4 d-flex flex-row">
                             <div class="form-outline flex-fill mx-auto">
                                 <p class="text-muted">Total Cost: </p>
-                                <div th:if="${#lists.isEmpty(cart)}">
-                                </div>
-                                <div th:if="${not #lists.isEmpty(cart)}">
                                 <h5 class="mb-0" th:text="'₩ ' + ${#numbers.formatInteger(totalCost, 3, 'COMMA')}"></h5>
-                                    </div>
                             </div>
 
-                            <form id="orderForm" method="post" action="/order">
-                                <input type="hidden" id="itemIds" name="itemIds" />
-                                <button type="button" id="orderButton" class="btn btn-block btn-lg ms-3 text-white" style="background-color: #ffcce6"
-                                        th:disabled="${#lists.isEmpty(cart)}">
-                                    주문하기
-                                </button>
+                            <form method="get" action="/order/order.do">
+                                <button type="button" class="btn btn-block btn-lg ms-3 text-white" style="background-color: #ffcce6" >주문하기</button>
                             </form>
                         </div>
                     </div>
@@ -100,7 +86,6 @@
             </div>
         </div>
     </section>
-    <script src="js/scripts.js"></script>
 </th:block>
 </body>
 </html>
