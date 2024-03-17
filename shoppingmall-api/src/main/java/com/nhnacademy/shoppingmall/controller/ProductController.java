@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +38,7 @@ public class ProductController {
     public ResponseEntity<Long> createProduct(@ModelAttribute ProductDto.Create.Request request, HttpServletRequest req
                                    ){
         Long productId = productService.createProduct(request, req.getServletContext().getRealPath("/"));
-        return ResponseEntity.ok().body(productId);
+        return ResponseEntity.status(HttpStatus.CREATED).body(productId);
     }
 
     @DeleteMapping("/{id}")

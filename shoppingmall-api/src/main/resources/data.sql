@@ -124,6 +124,7 @@ CREATE TABLE `order` (
                          `id` bigint NOT NULL AUTO_INCREMENT,
                          `user_id` bigint NOT NULL,
                          `price` int NOT NULL,
+                         `address` varchar(255) NOT NULL,
                          `order_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'INDEX',
                          `ship_date` datetime DEFAULT NULL,
                          PRIMARY KEY (`id`)
@@ -147,7 +148,6 @@ CREATE TABLE `order` (
 CREATE TABLE `order_detail` (
                                 `id` bigint NOT NULL AUTO_INCREMENT,
                                 `order_id` bigint NOT NULL,
-                                `address` varchar(255) NULL,
                                 `product_id` bigint NOT NULL,
                                 `quantity` int NOT NULL,
                                 PRIMARY KEY (`id`)

@@ -3,10 +3,7 @@ package com.nhnacademy.shoppingmall.service.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nhnacademy.shoppingmall.dto.OrderDto;
-import com.nhnacademy.shoppingmall.enitiy.Cart;
-import com.nhnacademy.shoppingmall.enitiy.Order;
-import com.nhnacademy.shoppingmall.enitiy.Product;
-import com.nhnacademy.shoppingmall.enitiy.User;
+import com.nhnacademy.shoppingmall.enitiy.*;
 import com.nhnacademy.shoppingmall.exception.user.UserNotFoundException;
 import com.nhnacademy.shoppingmall.repository.*;
 import com.nhnacademy.shoppingmall.service.PointService;
@@ -46,6 +43,9 @@ class OrderServiceImplTest {
     private CartRepository cartRepository;
 
     @Mock
+    private AddressRepository addressRepository;
+
+    @Mock
     private PointRepository pointRepository;
     @Mock
     private PointService pointService;
@@ -60,9 +60,9 @@ class OrderServiceImplTest {
         Order order = createOrder();
         Product product = createProduct();
         Cart cart = Cart.builder().product(product).user(user).quantity(4).build();
-        OrderDto.RegisterRequest request = objectMapper.readValue("{\"cartIdList\":[1,2]}", OrderDto.RegisterRequest.class);
+        OrderDto.RegisterRequest request = objectMapper.readValue("{\"cartIdList\":[1,2], \"addressId\" : 1}", OrderDto.RegisterRequest.class);
 
-
+        when(addressRepository.findById(anyLong())).thenReturn(Optional.of(createAddress()));
         when(userRepository.findById(anyLong())).thenReturn(Optional.of(user));
         when(orderRepository.save(any())).thenReturn(order);
         when(cartRepository.findAllById(any())).thenReturn(Arrays.asList(cart, cart));
@@ -104,7 +104,16 @@ class OrderServiceImplTest {
 
     private Order createOrder() {
         return Order.builder()
-                .user(createUser()).build();
+                .user(createUser())
+                .address(createAddress())
+                .build();
+    }
+    private Address createAddress() {
+        return Address.builder()
+                .zipCode("zipCode")
+                .address("address")
+                .addressDetail("addressDetail")
+                .build();
     }
 
     private Product createProduct() {
