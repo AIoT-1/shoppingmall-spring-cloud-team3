@@ -8,6 +8,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,12 +16,14 @@ import java.util.Map;
 @Service
 public class ReviewServiceImpl implements ReviewService {
     private final RestTemplate restTemplate;
+    private final HttpServletRequest request;
 
     @Value("${shoppingmall_server_url}")
     private String serverURL;
 
-    public ReviewServiceImpl(RestTemplate restTemplate) {
+    public ReviewServiceImpl(RestTemplate restTemplate, HttpServletRequest request) {
         this.restTemplate = restTemplate;
+        this.request = request;
     }
 
     @Override
@@ -28,7 +31,9 @@ public class ReviewServiceImpl implements ReviewService {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         httpHeaders.setAccept(List.of(MediaType.APPLICATION_JSON));
-        httpHeaders.set("X-USER-ID", "1");
+
+        String token = (String) request.getSession().getAttribute("token");
+        httpHeaders.set("X-USER-ID", token);
 
         HttpEntity<Long> requestEntity = new HttpEntity<>(httpHeaders);
 
@@ -45,7 +50,9 @@ public class ReviewServiceImpl implements ReviewService {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         httpHeaders.setAccept(List.of(MediaType.APPLICATION_JSON));
-        httpHeaders.set("X-USER-ID", "1");
+
+        String token = (String) request.getSession().getAttribute("token");
+        httpHeaders.set("X-USER-ID", token);
 
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("rating", rating);
@@ -65,7 +72,9 @@ public class ReviewServiceImpl implements ReviewService {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         httpHeaders.setAccept(List.of(MediaType.APPLICATION_JSON));
-        httpHeaders.set("X-USER-ID", "1");
+
+        String token = (String) request.getSession().getAttribute("token");
+        httpHeaders.set("X-USER-ID", token);
 
         HttpEntity<Long> requestEntity = new HttpEntity<>(httpHeaders);
 
@@ -81,7 +90,9 @@ public class ReviewServiceImpl implements ReviewService {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         httpHeaders.setAccept(List.of(MediaType.APPLICATION_JSON));
-        httpHeaders.set("X-USER-ID", "1");
+
+        String token = (String) request.getSession().getAttribute("token");
+        httpHeaders.set("X-USER-ID", token);
 
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("rating", rating);

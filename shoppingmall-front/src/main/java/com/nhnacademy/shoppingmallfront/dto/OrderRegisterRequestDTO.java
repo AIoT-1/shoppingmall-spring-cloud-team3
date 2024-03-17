@@ -13,4 +13,5 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderRegisterRequestDTO {
     private List<Integer> cartIdList;
+    private Long addressId;
 }

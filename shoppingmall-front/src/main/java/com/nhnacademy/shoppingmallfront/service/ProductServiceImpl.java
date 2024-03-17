@@ -9,18 +9,20 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService{
-
     private final RestTemplate restTemplate;
+    private final HttpServletRequest request;
 
     @Value("${shoppingmall_server_url}")
     private String serverURL;
 
-    public ProductServiceImpl(RestTemplate restTemplate) {
+    public ProductServiceImpl(RestTemplate restTemplate, HttpServletRequest request) {
         this.restTemplate = restTemplate;
+        this.request = request;
     }
 
     @Override
@@ -39,7 +41,9 @@ public class ProductServiceImpl implements ProductService{
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         httpHeaders.setAccept(List.of(MediaType.APPLICATION_JSON));
-        httpHeaders.set("X-USER-ID", "1");
+
+        String token = (String) request.getSession().getAttribute("token");
+        httpHeaders.set("X-USER-ID", token);
 
         HttpEntity<Long> requestEntity = new HttpEntity<>(httpHeaders);
 
@@ -56,7 +60,9 @@ public class ProductServiceImpl implements ProductService{
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         httpHeaders.setAccept(List.of(MediaType.APPLICATION_JSON));
-        httpHeaders.set("X-USER-ID", "1");
+
+        String token = (String) request.getSession().getAttribute("token");
+        httpHeaders.set("X-USER-ID", token);
 
         HttpEntity<Long> requestEntity = new HttpEntity<>(httpHeaders);
 
@@ -73,7 +79,9 @@ public class ProductServiceImpl implements ProductService{
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         httpHeaders.setAccept(List.of(MediaType.APPLICATION_JSON));
-        httpHeaders.set("X-USER-ID", "1");
+
+        String token = (String) request.getSession().getAttribute("token");
+        httpHeaders.set("X-USER-ID", token);
 
         HttpEntity<Long> requestEntity = new HttpEntity<>(httpHeaders);
 

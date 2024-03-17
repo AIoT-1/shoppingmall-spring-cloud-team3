@@ -21,11 +21,6 @@ public class ReviewController {
                             @RequestParam("rating") String rating,
                             @RequestParam("comment") String comment,
                             RedirectAttributes redirectAttributes){
-        System.out.println(productId);
-        System.out.println(rating);
-        System.out.println(comment);
-
-
         reviewService.addReview(Integer.parseInt(rating), comment, Integer.parseInt(productId));
 
         redirectAttributes.addAttribute("product_id", productId);

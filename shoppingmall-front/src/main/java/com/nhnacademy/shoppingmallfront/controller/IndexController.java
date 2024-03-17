@@ -1,6 +1,6 @@
 package com.nhnacademy.shoppingmallfront.controller;
 
-import com.nhnacademy.shoppingmallfront.dto.CategoryResponseDTO;
+import com.nhnacademy.shoppingmallfront.dto.CategoryDTO;
 import com.nhnacademy.shoppingmallfront.dto.ProductResponseDTO;
 import com.nhnacademy.shoppingmallfront.service.CategoryService;
 import com.nhnacademy.shoppingmallfront.service.ProductService;
@@ -9,6 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class IndexController {
@@ -32,8 +35,8 @@ public class IndexController {
         model.addAttribute("page", content);
         model.addAttribute("products", content.getContent());
 
-        CategoryResponseDTO categories = this.categoryService.getCategories();
-        model.addAttribute("categories", categories.getCategories());
+        List<CategoryDTO> categories = this.categoryService.getCategories();
+        model.addAttribute("categories", categories);
 
         if(categoryId > 0) {
             model.addAttribute("selectedCategory", categoryId);

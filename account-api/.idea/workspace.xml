@@ -5,9 +5,113 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="973f3b82-07f9-44c2-b178-40960ecf5e8d" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/accountapi/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/accountapi/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/accountapi/dto/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/accountapi/dto/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/account-api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gateway/.idea/gateway.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-api/.idea/sonarlint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/0/0/0056e62fcdb0868a47030ce1a78bf80b08923050" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/0/3/030c44edd4eb773a7c746beb16c7c0f89aad24f2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/0/4/04f41bfd4e2bb73b50eec8887d86c30759946686" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/0/5/058585f1e2988b182be3eb427b2b7019c2cc064d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/0/b/0b20ca9885e4fee36018519f578f2284c7bc1cdd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/0/b/0b88647ed46d35729bc250f6aa1767f3416cbf23" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/1/3/130db4665e1551d9589d5cd352da32fdff26e90e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/1/8/18b81f09c05bd8e067133327847f0c36b7bd54d4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/1/d/1d75deeeee6f8fbf41c63638c3a9716c621339a3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/2/a/2a0089600efc86acabd75b437b3157a86ff28ea0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/2/b/2b681c9a6653f3bc71afe1d52acd1be0088cdbf2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/4/3/43348ecf2e12e57eec6905fd60a25b2710154ad9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/4/e/4eb10005feb1e46824649dcdbadd700f3372f874" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/4/e/4eb5ed60c25fc0d10a090347f4b2e5d8690c21e9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/4/f/4fc5563b1de82e1854337aecbe2c7c2db07d2538" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/5/1/516aa5f8ac6d1c13f2e7590bda5ab2916c1345fa" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/5/3/5357c14b313666cb9fb6503c6dbcf3253467fa64" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/5/a/5a43ee4a72c0fa89490ccca12df3e0e844c8f38f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/5/e/5e954475913d89b0721ec76a5695ca9ca0ca669c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/6/e/6e31ca66e9fab13f796a9ac1870934eeb4914347" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/7/2/72f1eef35ff403b462f93c59d0eb4fdd0966b272" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/7/9/797b97d04311a67a8b270f1772a5a1268622976e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/8/f/8f26056fa4edb800d4806b3571f0d08bf2dd34d7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/a/9/a9e2af5809ae0f3ac3576c458815c45ed6117722" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/a/c/ac8232bb397af680dce1c987f3e877b9982d059e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/a/f/af71c06efc2b5ff7e448ddcafb38731c89face1c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/b/8/b8701969aff1428a9707628dc9499cede7ee4d0a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/b/8/b87cd6ba33104d517bc1082f95fb15921ee3aadd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/c/a/ca962d38141700ba92a976619dc990fb88ef2093" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/d/8/d85fa3f153efac1f03d361509d1f1f98d2abf5be" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/d/d/dd4724bca5571222ca8aa6327965ca9b265e3aed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/d/f/dfc72aa96caa59b8a89d79182d2e8516f1192388" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/e/3/e3ca6fa2fd8786acdf4b8033ab970c2a6dbb5a4a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/e/6/e68fe563aa582ce2e4344b611cd6589500aec698" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/e/c/ecba10982cd6c9e2dcc0bf354ad1ef5adb01abe0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/f/b/fb0bde1ff0631e8649760f71531cb603c4a583a9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/0/0/0056e62fcdb0868a47030ce1a78bf80b08923050" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/0/3/030c44edd4eb773a7c746beb16c7c0f89aad24f2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/0/4/04f41bfd4e2bb73b50eec8887d86c30759946686" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/0/5/058585f1e2988b182be3eb427b2b7019c2cc064d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/0/b/0b20ca9885e4fee36018519f578f2284c7bc1cdd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/0/b/0b88647ed46d35729bc250f6aa1767f3416cbf23" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/1/3/130db4665e1551d9589d5cd352da32fdff26e90e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/1/8/18b81f09c05bd8e067133327847f0c36b7bd54d4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/1/d/1d75deeeee6f8fbf41c63638c3a9716c621339a3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/2/a/2a0089600efc86acabd75b437b3157a86ff28ea0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/2/b/2b681c9a6653f3bc71afe1d52acd1be0088cdbf2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/4/3/43348ecf2e12e57eec6905fd60a25b2710154ad9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/4/e/4eb10005feb1e46824649dcdbadd700f3372f874" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/4/e/4eb5ed60c25fc0d10a090347f4b2e5d8690c21e9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/4/f/4fc5563b1de82e1854337aecbe2c7c2db07d2538" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/5/1/516aa5f8ac6d1c13f2e7590bda5ab2916c1345fa" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/5/3/5357c14b313666cb9fb6503c6dbcf3253467fa64" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/5/a/5a43ee4a72c0fa89490ccca12df3e0e844c8f38f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/5/e/5e954475913d89b0721ec76a5695ca9ca0ca669c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/6/e/6e31ca66e9fab13f796a9ac1870934eeb4914347" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/7/2/72f1eef35ff403b462f93c59d0eb4fdd0966b272" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/7/9/797b97d04311a67a8b270f1772a5a1268622976e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/8/f/8f26056fa4edb800d4806b3571f0d08bf2dd34d7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/a/9/a9e2af5809ae0f3ac3576c458815c45ed6117722" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/a/c/ac8232bb397af680dce1c987f3e877b9982d059e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/a/f/af71c06efc2b5ff7e448ddcafb38731c89face1c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/b/8/b8701969aff1428a9707628dc9499cede7ee4d0a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/b/8/b87cd6ba33104d517bc1082f95fb15921ee3aadd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/c/a/ca962d38141700ba92a976619dc990fb88ef2093" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/d/8/d85fa3f153efac1f03d361509d1f1f98d2abf5be" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/d/d/dd4724bca5571222ca8aa6327965ca9b265e3aed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/d/f/dfc72aa96caa59b8a89d79182d2e8516f1192388" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/e/3/e3ca6fa2fd8786acdf4b8033ab970c2a6dbb5a4a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/e/6/e68fe563aa582ce2e4344b611cd6589500aec698" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/e/c/ecba10982cd6c9e2dcc0bf354ad1ef5adb01abe0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/f/b/fb0bde1ff0631e8649760f71531cb603c4a583a9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/src/main/java/com/nhnacademy/shoppingmallfront/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shoppingmall-front/src/main/java/com/nhnacademy/shoppingmallfront/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/AccountApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/AccountApiApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/AppBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/AppBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/controller/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/controller/AuthController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/domain/User$ROLE.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/domain/User$ROLE.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/domain/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/dto/LoginRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/dto/LoginRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/dto/TokenResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/dto/TokenResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/dto/UserResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/dto/UserResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/properties/JwtProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/properties/JwtProperties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/properties/PropertiesBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/properties/PropertiesBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/security/details/CustomUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/security/details/CustomUserDetailsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/security/details/PrincipalDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/security/details/PrincipalDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/security/filter/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/security/filter/JwtAuthenticationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/accountapi/util/JwtUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoppingmall-front/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoppingmall-front/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoppingmall-front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shoppingmall-front/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoppingmall-front/src/main/java/com/nhnacademy/shoppingmallfront/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shoppingmall-front/src/main/java/com/nhnacademy/shoppingmallfront/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shoppingmall-front/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../shoppingmall-front/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,31 +128,43 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2dZCOM0CPE7TOrgm0EVkSqyx7ZF" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/account-api",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/hyeok29/Documents/IntelliJ/Project/2Week SpringBoot-Shoppingmall/shoppingmall-spring-cloud/account-api",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.account-api [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AccountApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/front&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hazzi/nhnacademy/shoppingmall-spring-cloud-team3/account-api&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="AccountApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="account-api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.nhnacademy.accountapi.AccountApiApplication" />
       <method v="2">
@@ -60,7 +176,6 @@
     <attachedChunks>
       <set>
         <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-396cc1b2" />
-        <option value="jdk-11.0.22-temurin-11.0.22-4caba194b151-2ca77462" />
         <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
       </set>
     </attachedChunks>
@@ -74,6 +189,8 @@
       <option name="presentableId" value="Default" />
       <updated>1710206181168</updated>
       <workItem from="1710206182727" duration="1384000" />
+      <workItem from="1710645536733" duration="907000" />
+      <workItem from="1710646527838" duration="1749000" />
     </task>
     <servers />
   </component>

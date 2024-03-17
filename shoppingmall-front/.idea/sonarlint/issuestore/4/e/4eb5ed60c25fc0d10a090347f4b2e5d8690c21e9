@@ -1,0 +1,17 @@
+
+“
+java:S1192)"KDefine a constant instead of duplicating this literal "/products/" 4 times.(Š¿°ùÿÿÿÿ8ÄË¥Ãä1J$be1b805d-a9f2-4c1c-a87f-7a8574a3aff2
+’
+java:S1192$"JDefine a constant instead of duplicating this literal "X-USER-ID" 4 times.( ¯¯ıÿÿÿÿ8µ±¤Ãä1J$53b86bb5-5542-4157-9a48-33f93b82fdb7
+
+java:S1192#"FDefine a constant instead of duplicating this literal "token" 4 times.(°£‘•ûÿÿÿÿ8Â”óÕä1J$d00b28ed-db77-40c8-a55a-268e3738939e
+
+java:S1854?"<Remove this useless assignment to local variable "response".(Ø¤ê…8¾±¤Ãä1J$b698b70d-829a-4e86-8d64-f4834e3aa0df
+p
+java:S1481?"-Remove this unused "response" local variable.(Ø¤ê…8¿±¤Ãä1J$af751580-38cc-4bca-a638-a39aa5e53fa9
+
+java:S1854g"<Remove this useless assignment to local variable "response".(Ø¤ê…8‡èòÄä1J$9d0140fe-6341-40f4-a80b-e779f1e3d607
+p
+java:S1481g"-Remove this unused "response" local variable.(Ø¤ê…8ˆèòÄä1J$987ddb02-ec02-410b-b4d7-5731427f1747
+•
+java:S1128"RRemove this unused import 'com.nhnacademy.shoppingmallfront.dto.ProductDetailDTO'.(½ãı¦8Íò‰Åä1J$23f13bc3-771b-4c92-9248-b01d8f2aacce

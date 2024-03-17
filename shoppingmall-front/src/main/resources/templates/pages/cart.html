@@ -23,7 +23,14 @@
                         장바구니가 비어 있습니다.
                     </div>
                     <div th:if="${not #lists.isEmpty(cart)}">
-                    <div th:each="item : ${cart}">
+                    <div th:each="item : ${cart}" class="cart-item">
+                        <input type="hidden" name="id" th:value="${item.id}" />
+                        <input type="hidden" name="productId" th:value="${item.productId}" />
+                        <input type="hidden" name="modelNumber" th:value="${item.modelNumber}" />
+                        <input type="hidden" name="modelName" th:value="${item.modelName}" />
+                        <input type="hidden" name="thumbnail" th:value="${item.thumbnail}" />
+                        <input type="hidden" name="unitCost" th:value="${item.unitCost}" />
+                        <input type="hidden" name="cartQuantity" th:value="${item.cartQuantity}" />
                         <div class="card rounded-5 mb-4">
                             <div class="card-body p-5">
                                 <div class="row d-flex justify-content-between align-items-center">
@@ -86,8 +93,8 @@
                                     </div>
                             </div>
 
-                            <form id="orderForm" method="post" action="/order">
-                                <input type="hidden" id="itemIds" name="itemIds" />
+                            <form id="orderForm" method="get" action="/order">
+                                <input type="hidden" id="cartItems" name="cartItems" />
                                 <button type="button" id="orderButton" class="btn btn-block btn-lg ms-3 text-white" style="background-color: #ffcce6"
                                         th:disabled="${#lists.isEmpty(cart)}">
                                     주문하기
