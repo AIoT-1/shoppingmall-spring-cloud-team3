@@ -4,6 +4,7 @@ import com.nhnacademy.shoppingmall.dto.PageResponseDto;
 import com.nhnacademy.shoppingmall.dto.PointDto;
 import com.nhnacademy.shoppingmall.service.PointService;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -22,8 +23,8 @@ public class PointController {
     private static final String DEFAULT_SORT_PARAM = "recordDate";
     @GetMapping
     public ResponseEntity<PageResponseDto<PointDto.PointHistoryResponse>>
-    getPointHistory(@PageableDefault(size = DEFAULT_PAGE_SIZE, sort = DEFAULT_SORT_PARAM) Pageable pageable) {
-        Page<PointDto.PointHistoryResponse> pointHistoryPage = pointService.getPointHistoryPage(pageable);
-        return ResponseEntity.ok().body(PageResponseDto.fromPage(pointHistoryPage));
+    getPointHistory(@ParameterObject @PageableDefault(size = DEFAULT_PAGE_SIZE, sort = DEFAULT_SORT_PARAM) Pageable pageable) {
+        PageResponseDto<PointDto.PointHistoryResponse> pointHistoryPage = pointService.getPointHistoryPage(pageable);
+        return ResponseEntity.ok().body(pointHistoryPage);
     }
 }

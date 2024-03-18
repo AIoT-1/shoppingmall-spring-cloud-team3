@@ -67,15 +67,6 @@ public class OrderServiceImpl implements OrderService {
                 .transactionType("결제")
                 .amount(-order.getPrice())
                 .build());
-        // 유저 포인트 적립
-        int accumulatePoint = order.getPrice() / 10;
-        // 포인트 적립 내역 저장
-        pointRepository.save(Point.builder()
-                .user(user)
-                .transactionType("적립")
-                .amount(accumulatePoint)
-                .build());
-        // 포인트 서비스의 accruePointByOrder 메서드를 비동기로 호출
         try {
             pointService.accruePointByOrder(user, order);
         } catch (Exception e) {

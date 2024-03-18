@@ -38,6 +38,7 @@ public class Order {
     }
 
     public void increaseOrderPrice(int orderPrice) {
+        System.out.println("Order.increaseOrderPrice" + price + " " + orderPrice);
         this.price += orderPrice;
     }
 
