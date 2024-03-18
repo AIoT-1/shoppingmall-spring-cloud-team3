@@ -5,7 +5,9 @@ import com.nhnacademy.shoppingmall.enitiy.Address;
 import com.nhnacademy.shoppingmall.enitiy.Order;
 import com.nhnacademy.shoppingmall.enitiy.OrderDetail;
 import com.nhnacademy.shoppingmall.enitiy.Product;
+import com.nhnacademy.shoppingmall.exception.order.OrderNotFoundException;
 import com.nhnacademy.shoppingmall.repository.OrderDetailRepository;
+import com.nhnacademy.shoppingmall.repository.OrderRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,6 +19,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -26,6 +29,8 @@ class OrderDetailServiceImplTest {
 
     @Mock
     private OrderDetailRepository orderDetailRepository;
+    @Mock
+    private OrderRepository orderRepository;
 
     @InjectMocks
     private OrderDetailServiceImpl orderDetailService;
@@ -45,6 +50,7 @@ class OrderDetailServiceImplTest {
                 .quantity(1)
                 .build();
         when(orderDetailRepository.findByOrderId(orderId)).thenReturn(List.of(orderDetail, orderDetail2));
+        when(orderRepository.existsById(orderId)).thenReturn(true);
         List<OrderDetailDto.ReadResponse> actual = orderDetailService.getOrderDetails(orderId);
 
         assertThat(actual.size()).isEqualTo(2);
@@ -52,6 +58,15 @@ class OrderDetailServiceImplTest {
         assertThat(actual.get(1).getProductId()).isEqualTo(2L);
 
     }
+
+    @Test
+    @DisplayName("주문 상세 조회 테스트 - 주문이 없는 경우")
+    void getOrderDetailsWithNoOrder() {
+        Long orderId = 1L;
+        when(orderRepository.existsById(orderId)).thenReturn(false);
+            assertThatThrownBy(() -> orderDetailService.getOrderDetails(orderId)).isInstanceOf(OrderNotFoundException.class);
+    }
+
 
     private Product createProduct() {
         productId++;
