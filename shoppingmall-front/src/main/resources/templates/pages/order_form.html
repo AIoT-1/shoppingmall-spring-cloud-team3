@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout/defaultLayout">
+<head>
+    <title>NHN SHOP - ORDER</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <section class="py-5" style="background-color: aliceblue;">
+        <div class="container h-100 py-5">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-10">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="fw-normal mb-0 text-black">결제하기</h3>
+                        <div>
+                            <p class="mb-0"></p>
+                        </div>
+                    </div>
+                    <div th:each="item : ${orderItems}">
+                        <div class="card rounded-3 mb-4">
+                            <div class="card-body p-5">
+                                <div class="row d-flex justify-content-between align-items-center">
+                                    <div class="col-md-2 col-lg-2 col-xl-2">
+                                        <img class="img-fluid rounded-3" th:src="${item.thumbnail}" th:alt="${item.modelName}" />
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3">
+                                        <p class="fw-bold mb-2" th:text="${item.modelName}"></p>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                        <span th:text="'수량: ' + ${item.cartQuantity}"></span>
+                                    </div>
+
+                                    <div class="col-md-3 col-lg-3 col-xl-2">
+                                        <h5 class="mb-0" th:text="'₩ ' + ${#numbers.formatInteger(item.unitCost, 3, 'COMMA')}"></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-4">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="fw-bold mb-3">주문자</h4>
+                                <form th:action="@{/updateShippingInfo}" method="post">
+                                    <button type="submit" class="btn btn-block c ms-3 text-white" style="background-color: #bed7ff">변경</button>
+                                </form>
+                            </div>
+                            <div class="mb-3">
+                                <span style="color: rgba(0,0,0,0.60); font-weight: bold;" th:text="'&nbsp;&nbsp;' + ${user.name}"></span><br>
+                                <span style="color: rgba(0,0,0,0.60);" th:text="'&nbsp;&nbsp;&plus;82 01010040615'"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="fw-bold mb-0">배송 주소</h4>
+                                <form th:action="@{/updateShippingInfo}" method="post">
+                                    <button type="submit" class="btn btn-block btn-md ms-3 text-white" style="background-color: #bed7ff">변경</button>
+                                </form>
+                            </div>
+                            <div th:each="addr : ${address}">
+                                <div th:if="${addr.defaultYn == 'Y'}" id="Address" th:data-addressid="${addr.id}">
+                                    <div class="mb-3">
+                                        <span style="font-weight: bold; color: rgba(0,0,0,0.60);" th:text="'&nbsp;&nbsp;' + ${user.name}"></span><br>
+                                        <span style="color: rgba(0,0,0,0.60);" th:text="'&nbsp;&nbsp;' + ${addr.address}"></span><br>
+                                        <span style="color: rgba(0,0,0,0.60);" th:text="'&nbsp;&nbsp;' + ${addr.addressDetail}"></span><br>
+                                        <span style="color: rgba(0,0,0,0.60);" th:text="'&nbsp;&nbsp;' + ${addr.zipCode}"></span><br>
+                                        <span style="color: rgba(0,0,0,0.60);" th:text="'&nbsp;&nbsp;&plus;82 01010040615'"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-body p-4 d-flex flex-row">
+                            <div class="form-outline flex-fill mx-auto">
+                                <p class="text-muted">총 비용: </p>
+                                <h5 class="mb-0" th:text="'₩ ' + ${#numbers.formatInteger(totalCost, 3, 'COMMA')}"></h5>
+                            </div>
+
+                            <form id="orderForm" method="post" action="/order" onsubmit="prepareOrderItemsIds()">
+                                <input type="hidden" id="addressId" name="addressId">
+                                <input type="hidden" id="itemIds" name="itemIds" />
+                                <button type="submit" class="btn btn-block btn-lg ms-3 text-white" style="background-color: #ffcce6" th:disabled="${#lists.isEmpty(orderItems)}">주문하기</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        function prepareOrderItemsIds() {
+            var itemIds = [];
+            var orderItems = /*[[${orderItems}]]*/ [];
+            for (var i = 0; i < orderItems.length; i++) {
+                itemIds.push(orderItems[i].id);
+            }
+            document.getElementById("itemIds").value = JSON.stringify(itemIds);
+        }
+        /*]]>*/
+        /*<![CDATA[*/
+        function prepareOrderItemsIds() {
+            // 기본 주소의 ID를 가져와서 hidden input에 설정
+            var addressId = document.getElementById("Address").getAttribute("data-addressid");
+            document.getElementById("addressId").value = addressId;
+        }
+        /*]]>*/
+    </script>
+
+
+</th:block>
+</body>
+</html>

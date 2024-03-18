@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout/defaultLayout">
+<head>
+    <title>NHN SHOP - JOIN</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <section class="min-vh-100">
+        <div class="container pt-5">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+                            <form method="post" action="/">
+                                <h3 class="mb-5">Join</h3>
+
+                                <div class="form-floating mb-4">
+                                    <input type="text" id="user_id" class="form-control form-control-lg" placeholder="ID" required/>
+                                    <label for="user_id">ID</label>
+                                </div>
+
+                                <div class="form-floating mb-4">
+                                    <input type="password" id="user_password" class="form-control form-control-lg" placeholder="PASSWORD" required/>
+                                    <label for="user_password">PASSWORD</label>
+                                </div>
+
+                                <div class="form-floating mb-4">
+                                    <input type="text" id="user_name" class="form-control form-control-lg" placeholder="NAME" />
+                                    <label for="user_name">NAME</label>
+                                </div>
+
+                                <div class="form-floating mb-4">
+                                    <input type="text" id="user_birth" class="form-control form-control-lg" placeholder="BIRTH(YYYYMMDD)" />
+                                    <label for="user_birth">BIRTH(YYYYMMDD)</label>
+                                </div>
+
+                                <div style="display: inline-block">
+                                    <button class="btn btn-lg btn-block text-white" type="submit" style="background-color: #bed7ff">Submit</button>
+                                </div>
+                                <div style="display: inline-block">
+                                    <a class="btn btn-lg btn-block text-white" th:href="@{/login}" style="background-color: #ffcce6">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</th:block>
+</body>
+</html>
