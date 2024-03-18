@@ -14,7 +14,7 @@
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-6">
                         <div class="image-container">
-                            <img id="productImage" class="card-img-top mb-5 mb-md-0" th:src="${images.size > 0 ? images[0].image : productDetail.thumbnail}" th:alt="${productDetail.modelName}" />
+                            <img id="productImage" class="card-img-top mb-5 mb-md-0" th:src="'localhost:8200/' + ${images.size > 0 ? images[0].image : productDetail.thumbnail}" th:alt="${productDetail.modelName}" />
                             <div class="image-buttons">
                                 <button class="btn image-button previous-button" onclick="showPreviousImage()"><i class="bi bi-chevron-double-left"></i></button>
                                 <button class="btn image-button next-button" onclick="showNextImage()"><i class="bi bi-chevron-double-right"></i></button>

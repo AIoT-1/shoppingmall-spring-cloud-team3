@@ -179,3 +179,5 @@ Q.idea/sonarlint/securityhotspotstore/0/5/058585f1e2988b182be3eb427b2b7019c2cc06
 Lsrc/main/java/com/nhnacademy/shoppingmallfront/dto/OrderListResponseDTO.java,b/3/b3a16450cde395082839441ab81c5b25b1d6e418
 p
 @src/main/java/com/nhnacademy/shoppingmallfront/dto/OrderDTO.java,8/3/8393d2158ca37e9fcd2f4f694b82506c70ea00d0
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
