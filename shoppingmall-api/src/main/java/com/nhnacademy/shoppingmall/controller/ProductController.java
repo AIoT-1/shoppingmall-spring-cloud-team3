@@ -37,7 +37,7 @@ public class ProductController {
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Long> createProduct(@ModelAttribute ProductDto.Create.Request request, HttpServletRequest req
                                    ){
-        Long productId = productService.createProduct(request, req.getServletContext().getRealPath("/"));
+        Long productId = productService.createProduct(request, req.getServletContext().getRealPath("/upload"));
         return ResponseEntity.status(HttpStatus.CREATED).body(productId);
     }
 

@@ -1,5 +1,6 @@
 package com.nhnacademy.shoppingmall.service.impl;
 
+import com.nhnacademy.shoppingmall.dto.PageResponseDto;
 import com.nhnacademy.shoppingmall.dto.PointDto;
 import com.nhnacademy.shoppingmall.enitiy.Order;
 import com.nhnacademy.shoppingmall.enitiy.Point;
@@ -22,9 +23,10 @@ public class PointServiceImpl implements PointService {
     private final PointRepository pointRepository;
     @Override
     @Transactional(readOnly = true)
-    public Page<PointDto.PointHistoryResponse> getPointHistoryPage(Pageable pageable) {
-        return pointRepository.findByUser_Id(UserIdStore.getUserId(), pageable)
+    public PageResponseDto<PointDto.PointHistoryResponse> getPointHistoryPage(Pageable pageable) {
+        Page<PointDto.PointHistoryResponse> page = pointRepository.findByUser_Id(UserIdStore.getUserId(), pageable)
                 .map(PointDto.PointHistoryResponse::fromEntity);
+        return PageResponseDto.fromPage(page);
     }
 
     @Override
