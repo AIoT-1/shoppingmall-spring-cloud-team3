@@ -48,7 +48,7 @@
                             <div class="badge text-white position-absolute"
                                  style="top: 0.5rem; right: 0.5rem; background-color: #f51d62"
                                  th:if="${product.quantity == 0}">Sold Out</div>
-                            <img class="card-img-top" th:src="${product.thumbnail}" th:alt="${product.modelName}" />
+                            <img class="card-img-top" th:src="@{'http://localhost:8200/images/' + ${product.thumbnail}}" th:alt="${product.modelName}" />
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <div><h7 class="fw-bolder" th:text="${product.modelName}"></h7></div>
