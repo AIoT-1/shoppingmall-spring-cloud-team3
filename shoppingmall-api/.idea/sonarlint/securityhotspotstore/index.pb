@@ -5,3 +5,5 @@ Fsrc/main/java/com/nhnacademy/shoppingmall/ShoppingmallApplication.java,2/2/223
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 m
 =src/main/java/com/nhnacademy/shoppingmall/dto/ProductDto.java,8/4/84312ac5571e42d31c41a8de8752bd465753b30f
+n
+>src/main/java/com/nhnacademy/shoppingmall/dto/CategoryDto.java,d/a/dac6473b3ae1e7fb237f2cbbbf06a3340f1b30d3
