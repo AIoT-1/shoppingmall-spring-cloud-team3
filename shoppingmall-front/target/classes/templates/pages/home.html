@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout/defaultLayout">
+<head>
+    <title>NHN SHOP</title>
+    <link href="css/pagination.css" rel="stylesheet" />
+    <link href="css/category.css" rel="stylesheet" />
+</head>
+<body>
+    <th:block layout:fragment="content">
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row justify-content-center mb-4">
+                    <nav class="category-navigation">
+                        <ul class="category">
+                            <li class="category-item" th:class="${selectedCategory == null ? 'category-item active' : 'category-item'}">
+                                <a class="category-link" th:href="@{/(category=null)}" th:text="'All'"></a>
+                            </li>
+                            <li class="category-item" th:each="category : ${categories}" th:class="${category.id == selectedCategory ? 'category-item active' : 'category-item'}">
+                                <a class="category-link" th:href="@{/(category=${category.id})}" th:text="${category.name}"></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <a class="btn btn-outline-none box-shadow-none" href="#" id="hideSoldOutButton" onclick="toggleSoldOutProducts()">
+                        <i class="bi bi-circle"></i>
+                        <span id="soldOutToggleText">품절 제외</span>
+                    </a>
+                    <div class="d-flex align-items-center search-input-group" style="border-bottom: 1px solid #ced4da;">
+                        <form th:action="@{/}" method="GET">
+                            <div class="d-flex align-items-center search-input-group" style="border-bottom: 1px solid #ced4da;">
+                                <input type="text" id="searchInput" name="keyword" class="form-control border-0 flex-grow-1 me-2" placeholder="상품 검색" style="border: none; background-color: transparent; outline: none;" />
+                                <button class="btn" type="submit" id="searchButton" style="font-size: 1rem; outline: none;">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                    <th:block th:if="${not #lists.isEmpty(products)}">
+                        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div class="col mb-5 product-card" th:each="product : ${products}">
+                        <div class="card h-100">
+                            <div class="badge text-white position-absolute"
+                                 style="top: 0.5rem; right: 0.5rem; background-color: #f51d62"
+                                 th:if="${product.quantity == 0}">Sold Out</div>
+                            <img class="card-img-top" th:src="@{'http://localhost:8200/images/' + ${product.thumbnail}}" th:alt="${product.modelName}" />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div><h7 class="fw-bolder" th:text="${product.modelName}"></h7></div>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <span th:text="${#numbers.formatInteger(product.unitCost, 3, 'COMMA') + ' 원'}"></span>
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <div class="flexbox flex-direction:column children">
+                                        <div class="btn-group">
+                                            <form method="get" action="/product">
+                                                <input type="hidden" name="product_id" th:value="${product.id}" />
+                                                <button type="submit" class="btn btn-sm text-white" style="background-color: #ffcce6">View</button>
+                                            </form>
+                                            <div style="margin: 0 1px;"></div>
+                                            <form method="post" action="/cart" th:if="${product.quantity > 0}">
+                                                <input type="hidden" name="product_id" th:value="${product.id}" />
+                                                <input type="hidden" name="quantity" th:value="1" />
+                                                <button type="submit" class="btn btn-sm text-white" style="background-color: #bed7ff">Cart</button>
+                                            </form>
+                                            <button type="button" class="btn btn-sm text-white" style="background-color: #bed7ff" th:unless="${product.quantity > 0}" disabled>Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                    </th:block>
+                    <th:block th:unless="${not #lists.isEmpty(products)}">
+                        <div class="col mb-5">
+                            <div class="alert text-center" role="alert" style="background-color: rgba(255,204,230,0.35); color: slategray">상품이 없습니다.</div>
+                        </div>
+                    </th:block>
+
+                <div class="row justify-content-center mb-4" th:if="${not #lists.isEmpty(products)}">
+                    <nav class="pagination-outer" aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="page-item" th:class="${page.number == 0 ? 'disabled' : ''}">
+                                <a th:if="${!page.previous}" href="#" class="page-link" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                                <a th:if="${page.previous}" th:href="@{/(page=${page.number - 1})}" class="page-link" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                            </li>
+
+                            <li class="page-item" th:each="pageNum : ${#numbers.sequence(1, page.totalPages)}" th:class="${pageNum == page.number + 1 ? 'active' : ''}"><a class="page-link" th:href="@{/(page=${pageNum - 1})}" th:text="${pageNum}"></a></li>
+
+                            <li class="page-item" th:class="${page.next == false ? 'disabled' : ''}">
+                                <a th:if="${!page.next}" href="#" class="page-link" aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                                <a th:if="${page.next}" th:href="@{/(page=${page.number + 1})}" class="page-link" aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section >
+        <script src="js/scripts.js"></script>
+    </th:block>
+</body>
+</html>
