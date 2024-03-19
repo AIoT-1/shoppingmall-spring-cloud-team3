@@ -1,0 +1,21 @@
+
+`	java:S112P"FDefine and throw a dedicated exception instead of using a generic one.(„˜Ëüüÿÿÿÿ
+€
+java:S1488_"eImmediately return this expression instead of assigning it to the temporary variable "isBlacklisted".(ÿ×Èßúÿÿÿÿ
+€
+java:S4165"jRemove this useless assignment; "redisService" already holds the assigned value along all execution paths.(ˆ©Ãâ
+]
+java:S2094"BRemove this empty class, write its code or make it an "interface".(¦Á¦¼ýÿÿÿÿ
+M
+java:S1135!"2Complete the task associated to this TODO comment.(¤Ê‡õúÿÿÿÿ
+G
+java:S1135."2Complete the task associated to this TODO comment.(÷…Ž|
+M
+java:S11352"2Complete the task associated to this TODO comment.(ìáÐÐüÿÿÿÿ
+G
+java:S1135;"2Complete the task associated to this TODO comment.(Í€ïY
+D
+java:S1172^"/Remove this unused method parameter "jwtToken".(Òˆ‚e
+V	java:S125d"<This block of commented-out lines of code should be removed.(ÀŽ¸ýÿÿÿÿ
+E
+java:S1656"/Remove or correct this useless self-assignment.(ˆ©Ãâ
